@@ -1,3 +1,5 @@
+## 使用 C# 字典（Dictionary）提高代码性能：LeetCode 示例解析
+
 在优化 C# 代码时，选择合适的数据结构至关重要。`Dictionary` 是最强大且常用的结构之一。本文将探讨如何巧妙地使用 `Dictionary`、它的优势，以及来自 LeetCode 的示例，展示它如何显著提高运行时性能，尤其是在面试场合。
 
 ### 什么是字典（Dictionary）？

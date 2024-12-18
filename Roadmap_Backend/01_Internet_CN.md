@@ -1,3 +1,5 @@
+## 从小白到大神：后端开发必学之互联网入门
+
 欢迎阅读本系列文章的第一篇，它将带领你了解成为后端程序员所需掌握的重要主题。这条路线图设计从基础概念到更高级的主题，反映了如果我能够重新学习时我希望掌握的内容。每篇文章都会深入技术细节、真实的应用示例以及常见的面试问题，帮助你建立成为后端开发人员的坚实基础。
 
 在本系列中，我们还将探讨在行业级应用中，后端开发人员的职责是什么。我们将讨论 web 应用的结构、前端和后端开发人员的责任划分，以及作为一名后端开发人员所需承担的任务（如提供 API 和处理服务器端逻辑）。
@@ -18,7 +20,7 @@
 - **数据包**：通过互联网发送的数据被分解为称为数据包的小块，每个包都包含数据以及如何重新组装它的信息。
 - **路由器**：这些设备通过读取 IP 地址信息引导数据包到达目的地。
 
-![1_l0eqToa2H-QAiHJHXk2KiA.jpg](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/db5d80f958d14d7483cec7a1d1dc1a61~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiA5Y-q5ouJ5Y-k:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNDM1MjMwMjA3NTg3NDM5MyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735016020&x-orig-sign=8g2WhX0Dv2iTv8IDL74kSZd3vJA%3D)
+![tcp_ip.jpeg](../assets/images/tcp_ip.jpeg)
 
 #### **互联网的各层：**
 
@@ -63,7 +65,7 @@ GET 与 POST 的选择取决于操作的类型：
 
 ### **域名，托管，DNS**
 
-**域名** 是网站的可读地址（如 [www.example.com）。每个域名背后都有一个](http://www.example.com）。每个域名背后都有一个) **IP 地址**，它是分配给每个连接到互联网的设备的数字标签。当你在浏览器中输入域名时，域名会被转换为 IP 地址，以便浏览器能够与正确的服务器通信。
+**域名** 是网站的可读地址,如 `http://www.example.com`。每个域名背后都有一个 **IP 地址**，它是分配给每个连接到互联网的设备的数字标签。当你在浏览器中输入域名时，域名会被转换为 IP 地址，以便浏览器能够与正确的服务器通信。
 
 **托管** 指的是使网站能够在互联网上访问的服务。不同的托管选项包括：
 
@@ -88,7 +90,7 @@ GET 与 POST 的选择取决于操作的类型：
 
 **TCP（传输控制协议）** 是互联网的核心协议，负责在设备之间建立可靠的连接。它确保数据准确且按顺序传输。
 
-![0_8j0qdKAShOds5Cof.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/868daaa77cfe4cc98a2c78ab6ec933e8~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiA5Y-q5ouJ5Y-k:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNDM1MjMwMjA3NTg3NDM5MyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735016020&x-orig-sign=sVxlldawyFtGsav6gpOltEQkDpQ%3D)
+![tcp_handshake.jpeg](../assets/images/tcp_handshake.jpeg)
 
 在发送数据之前，TCP 通过 **三次握手** 来建立客户端和服务器之间的连接：
 
@@ -98,7 +100,7 @@ GET 与 POST 的选择取决于操作的类型：
 
 这个握手过程确保客户端和服务器在传输数据之前已经准备好进行通信。
 
-![1670059962890.jpg](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/2a0af08f48c046eabcb16843f1015a81~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiA5Y-q5ouJ5Y-k:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNDM1MjMwMjA3NTg3NDM5MyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735016020&x-orig-sign=Eld%2FAFhZwuWr7cQedYfRSS7z4Go%3D)
+![tcp_waves.jpeg](../assets/images/tcp_waves.jpeg)
 
 在断开连接时，TCP 使用**四次挥手**来优雅地关闭客户端和服务器之间的连接。这个过程确保双方都完成了数据发送，并准备终止连接：
 
