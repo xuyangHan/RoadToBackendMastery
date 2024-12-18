@@ -17,35 +17,33 @@ Future additions will include interview tips and beginner-friendly C# and SQL tu
 
 A step-by-step guide for aspiring backend developers, covering everything from internet basics to advanced database management.
 
-- [Introduction](Roadmap_Backend/01_Introduction.md)
-- [How the Internet Works](Roadmap_Backend/02_Internet_Basics.md)
-- [Git, CI/CD, and Workflow](Roadmap_Backend/03_Git_and_CICD.md)
+- [Internet](Roadmap_Backend/01_Internet_CN.md)
+- [C# Basics](Roadmap_Backend/02_C#_Basics_CN.md)
 - ...
 
 ### 2. **C# OOP (Basics and Design Patterns)**
 
 Deep dives into object-oriented programming concepts and design patterns in C#.
 
-- [OOP Basics](CSharp_OOP/01_Basics.md)
-- [Structural Design Patterns](CSharp_OOP/02_Structural_Patterns.md)
-- [Behavioral Design Patterns](CSharp_OOP/03_Behavioral_Patterns.md)
+- [C# Basics](Roadmap_Backend/02_C#_Basics_CN.md)
+- [OOP Basics](CSharp_OOP/01_OOP_Concepts_CN.md)
+- [OOP SOLID Design Principles](CSharp_OOP/02_OOP_SOLID_CN.md)
 - ...
 
 ### 3. **Data Structures and Algorithms**
 
 Explore essential data structures and algorithms with practical examples from LeetCode.
 
-- [Arrays](Data_Structures_Algorithms/01_Arrays.md)
-- [Recursion Techniques](Data_Structures_Algorithms/02_Recursion.md)
-- [Graph Algorithms](Data_Structures_Algorithms/03_Graph_Algorithms.md)
+- [Dictionary](Data_Structures_Algorithms/01_Dictionary_CN.md)
+- [Two Pointers and Sliding Windows](Data_Structures_Algorithms/02_TwoPointers_CN.md)
 - ...
 
 ### 4. **Industry Experience**
 
 Practical tips and case studies from real-world programming experiences.
 
-- [Optimizing Slow APIs](Industry_Experience/01_Optimizing_Slow_API.md)
-- [Caching Strategies for Scalable Applications](Industry_Experience/02_Caching_Strategies.md)
+- [Coding Standard](Industry_Experience/01_Code_Standard_CN.md)
+- [Modulized API Strategy](Industry_Experience/02_API_Structure_CN.md)
 - ...
 
 ---
@@ -92,26 +90,24 @@ If you find anything missing or have suggestions for improvement, feel free to o
 深入学习面向对象编程概念，并在 C# 中实现设计模式。
 
 - [C#基础](Roadmap_Backend/02_C#_Basics_CN.md)
-- [面向对象编程基础](CSharp_OOP/01_Basics.md)
-- [结构型设计模式](CSharp_OOP/02_Structural_Patterns.md)
-- [行为型设计模式](CSharp_OOP/03_Behavioral_Patterns.md)
+- [面向对象编程基础](CSharp_OOP/01_OOP_Concepts_CN.md)
+- [面向对象 SOLID 设计原则](CSharp_OOP/02_OOP_SOLID_CN.md)
 - ...
 
 ### 3. **数据结构与算法**
 
 结合 LeetCode 问题，通过实际示例掌握数据结构与算法的核心知识。
 
-- [数组](Data_Structures_Algorithms/01_Arrays.md)
-- [递归技巧](Data_Structures_Algorithms/02_Recursion.md)
-- [图算法](Data_Structures_Algorithms/03_Graph_Algorithms.md)
+- [字典](Data_Structures_Algorithms/01_Dictionary_CN.md)
+- [双指针与滑动窗口](Data_Structures_Algorithms/02_TwoPointers_CN.md)
 - ...
 
 ### 4. **行业实战经验**
 
 分享实际开发中的技巧与案例分析。
 
-- [优化慢速 API](Industry_Experience/01_Optimizing_Slow_API.md)
-- [可扩展应用的缓存策略](Industry_Experience/02_Caching_Strategies.md)
+- [代码规范](Industry_Experience/01_Code_Standard_CN.md)
+- [模块化 API 策略](Industry_Experience/02_API_Structure_CN.md)
 - ...
 
 ---
@@ -120,7 +116,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 1. 按照上述分类浏览或直接进入相关文件夹。
 2. 点击任何 `.md` 文件，即可直接阅读文章。
-3. 分享或下载文章以供学习使用。
+3. 免费分享或下载文章以供学习使用。
 
 ---
 

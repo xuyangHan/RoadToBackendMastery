@@ -4,13 +4,13 @@ Dive into the world of object-oriented programming with C#. This series covers e
 
 ## 📂 Articles in This Series
 
-1. [OOP Basics](01_Basics.md)  
-2. [Structural Design Patterns](02_Structural_Patterns.md)  
-3. [Behavioral Design Patterns](03_Behavioral_Patterns.md)  
-4. [Creational Design Patterns](04_Creational_Patterns.md)  
-5. [Advanced OOP Concepts](05_Advanced_OOP.md)  
+- [C# Basics](../Roadmap_Backend/02_C#_Basics_CN.md)
+- [OOP Basics](01_OOP_Concepts_CN.md)
+- [OOP SOLID Design Principles](02_OOP_SOLID_CN.md)
+- ...
 
 ## ✨ Key Highlights
+
 - Understand the core principles of object-oriented programming.
 - Implement structural, behavioral, and creational design patterns in C#.
 - Learn how to solve real-world problems using OOP.

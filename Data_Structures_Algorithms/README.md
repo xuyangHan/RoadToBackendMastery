@@ -4,13 +4,12 @@ Master the foundations of computer science with this series. Each article featur
 
 ## 📂 Articles in This Series
 
-1. [Arrays](01_Arrays.md)  
-2. [Recursion Techniques](02_Recursion.md)  
-3. [Graph Algorithms](03_Graph_Algorithms.md)  
-4. [Dynamic Programming](04_Dynamic_Programming.md)  
-5. [Sorting and Searching](05_Sorting_Searching.md)  
+- [Dictionary](01_Dictionary_CN.md)
+- [Two Pointers and Sliding Windows](02_TwoPointers_CN.md)
+- ...
 
 ## ✨ Key Highlights
+
 - Learn essential algorithms with step-by-step explanations.
 - Solve LeetCode problems with optimized solutions.
 - Understand when and how to use different data structures.

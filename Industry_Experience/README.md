@@ -4,12 +4,12 @@ Learn from real-world programming scenarios and challenges. This series shares p
 
 ## 📂 Articles in This Series
 
-1. [Optimizing Slow APIs](01_Optimizing_Slow_API.md)  
-2. [Caching Strategies](02_Caching_Strategies.md)  
-3. [Handling Large Datasets](03_Large_Datasets.md)  
-4. [Debugging Best Practices](04_Debugging_Best_Practices.md)  
+- [Coding Standard](01_Code_Standard_CN.md)
+- [Modulized API Strategy](02_API_Structure_CN.md)
+- ...
 
 ## ✨ Key Highlights
+
 - Optimize API performance for faster response times.
 - Implement caching strategies to improve scalability.
 - Handle large datasets efficiently.
