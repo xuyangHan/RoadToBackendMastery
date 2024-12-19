@@ -6,6 +6,9 @@ Master the foundations of computer science with this series. Each article featur
 
 - [Dictionary](01_Dictionary_CN.md)
 - [Two Pointers and Sliding Windows](02_TwoPointers_CN.md)
+- [Stack and Queue](03_Stack_Queue_CN.md)
+- [DFS and BFS](04_DFS_BFS_CN.md)
+- [Dynamic Programming](05_DP_CN.md)
 - ...
 
 ## ✨ Key Highlights

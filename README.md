@@ -36,6 +36,9 @@ Explore essential data structures and algorithms with practical examples from Le
 
 - [Dictionary](Data_Structures_Algorithms/01_Dictionary_CN.md)
 - [Two Pointers and Sliding Windows](Data_Structures_Algorithms/02_TwoPointers_CN.md)
+- [Stack and Queue](Data_Structures_Algorithms/03_Stack_Queue_CN.md)
+- [DFS and BFS](Data_Structures_Algorithms/04_DFS_BFS_CN.md)
+- [Dynamic Programming](Data_Structures_Algorithms/05_DP_CN.md)
 - ...
 
 ### 4. **Industry Experience**
@@ -100,6 +103,9 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 - [字典](Data_Structures_Algorithms/01_Dictionary_CN.md)
 - [双指针与滑动窗口](Data_Structures_Algorithms/02_TwoPointers_CN.md)
+- [栈和队列](Data_Structures_Algorithms/03_Stack_Queue_CN.md)
+- [深度优先搜索与广度优先搜索](Data_Structures_Algorithms/04_DFS_BFS_CN.md)
+- [动态规划](Data_Structures_Algorithms/05_DP_CN.md)
 - ...
 
 ### 4. **行业实战经验**
