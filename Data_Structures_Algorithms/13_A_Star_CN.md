@@ -19,7 +19,7 @@
 
 ## A-star 算法如何工作？
 
-![A-star-Algorithm.jpeg](assets/images/A-star-Algorithm.jpeg)
+![A-star-Algorithm.jpeg](../assets/images/A-star-Algorithm.jpeg)
 
 A-star 算法使用**启发式**函数来估计到达目标的最佳路径。其核心思想是根据两个值来评估每个节点：
 
@@ -59,7 +59,7 @@ A-star 算法使用**启发式**函数来估计到达目标的最佳路径。其
 
 ### 1. **定义节点（Node）和地图类（Map）**
 
-    ``` csharp
+```csharp
     class Node
     {
         public int NodeId { get; set; }
@@ -78,24 +78,24 @@ A-star 算法使用**启发式**函数来估计到达目标的最佳路径。其
             return Nodes.FirstOrDefault(node => node.NodeId == nodeId);
         }
     }
-    ```
+```
 
 ### 2. **曼哈顿距离作为启发式函数**
 
 为了简化，我们将使用**曼哈顿距离**启发式（假设基于网格的移动）：
 
-    ```csharp
+```csharp
     double Heuristic(Node current, Node goal)
     {
         return Math.Abs(current.X - goal.X) + Math.Abs(current.Y - goal.Y);
     }
-    ```
+```
 
 ### 3. **A-star 算法实现**
 
 在这里，我们将在字典中跟踪每个节点的代价（`G`）、启发值（`H`）以及父节点指针，这些字典特定于算法自身。
 
-    ``` csharp
+```csharp
     List<Node> AStar(Node start, Node goal, Map map)
     {
         var openList = new List<Node> { start };
@@ -146,11 +146,11 @@ A-star 算法使用**启发式**函数来估计到达目标的最佳路径。其
 
         return null; // 无法找到路径
     }
-    ```
+```
 
 ### 4. **重建路径**：从目标节点回溯形成路径
 
-    ``` csharp
+```csharp
     List<Node> ReconstructPath(Dictionary<int, Node> parentMap, Node current)
     {
         var path = new List<Node> { current };
@@ -164,7 +164,7 @@ A-star 算法使用**启发式**函数来估计到达目标的最佳路径。其
         path.Reverse();
         return path;
     }
-    ```
+```
 
 ***
 
