@@ -43,6 +43,13 @@ Explore essential data structures and algorithms with practical examples from Le
 - [Bit Manipulation](Data_Structures_Algorithms/07_Bit_Manipulation_CN.md)
 - [Binary Search](Data_Structures_Algorithms/08_BinarySearch_CN.md)
 - [Divide and Conquer](Data_Structures_Algorithms/09_Divide_Conquer_CN.md)
+- [Heap and PriorityQueue](Data_Structures_Algorithms/10_Heap_PriorityQueue_CN.md)
+- [PrefixSum](Data_Structures_Algorithms/11_PrefixSum_CN.md)
+- [Trie](Data_Structures_Algorithms/12_Trie_CN.md)
+- [A* Algorithm](Data_Structures_Algorithms/13_A_Start_CN.md)
+- [Intervals](Data_Structures_Algorithms/14_Intervals_CN.md)
+- [Monotonic Stacks](Data_Structures_Algorithms/15_Monotonic_Stacks_CN.md)
+- [Backtracking](Data_Structures_Algorithms/16_Backtracking_CN.md)
 - ...
 
 ### 4. **Industry Experience**
@@ -114,6 +121,13 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [位操作](Data_Structures_Algorithms/07_Bit_Manipulation_CN.md)
 - [二分查找](Data_Structures_Algorithms/08_BinarySearch_CN.md)
 - [分治法](Data_Structures_Algorithms/09_Divide_Conquer_CN.md)
+- [堆和优先队列](Data_Structures_Algorithms/10_Heap_PriorityQueue_CN.md)
+- [前缀和](Data_Structures_Algorithms/11_PrefixSum_CN.md)
+- [前缀树](Data_Structures_Algorithms/12_Trie_CN.md)
+- [A* 寻路导航算法](Data_Structures_Algorithms/13_A_Start_CN.md)
+- [区间](Data_Structures_Algorithms/14_Intervals_CN.md)
+- [单调栈](Data_Structures_Algorithms/15_Monotonic_Stacks_CN.md)
+- [回溯算法](Data_Structures_Algorithms/16_Backtracking_CN.md)
 - ...
 
 ### 4. **行业实战经验**

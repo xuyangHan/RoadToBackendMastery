@@ -13,6 +13,13 @@ Master the foundations of computer science with this series. Each article featur
 - [Bit Manipulation](07_Bit_Manipulation_CN.md)
 - [Binary Search](08_BinarySearch_CN.md)
 - [Divide and Conquer](09_Divide_Conquer_CN.md)
+- [Heap and PriorityQueue](10_Heap_PriorityQueue_CN.md)
+- [PrefixSum](11_PrefixSum_CN.md)
+- [Trie](12_Trie_CN.md)
+- [A* Algorithm](13_A_Start_CN.md)
+- [Intervals](14_Intervals_CN.md)
+- [Monotonic Stacks](15_Monotonic_Stacks_CN.md)
+- [Backtracking](16_Backtracking_CN.md)
 - ...
 
 ## ✨ Key Highlights
