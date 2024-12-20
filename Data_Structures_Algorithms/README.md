@@ -12,6 +12,7 @@ Master the foundations of computer science with this series. Each article featur
 - [LinkedList, Tree and Graph](06_LinkedList_Tree_Graph_CN.md)
 - [Bit Manipulation](07_Bit_Manipulation_CN.md)
 - [Binary Search](08_BinarySearch_CN.md)
+- [Divide and Conquer](09_Divide_Conquer_CN.md)
 - ...
 
 ## ✨ Key Highlights

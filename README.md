@@ -42,6 +42,7 @@ Explore essential data structures and algorithms with practical examples from Le
 - [LinkedList, Tree and Graph](Data_Structures_Algorithms/06_LinkedList_Tree_Graph_CN.md)
 - [Bit Manipulation](Data_Structures_Algorithms/07_Bit_Manipulation_CN.md)
 - [Binary Search](Data_Structures_Algorithms/08_BinarySearch_CN.md)
+- [Divide and Conquer](Data_Structures_Algorithms/09_Divide_Conquer_CN.md)
 - ...
 
 ### 4. **Industry Experience**
@@ -112,6 +113,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [链表、树和图](Data_Structures_Algorithms/06_LinkedList_Tree_Graph_CN.md)
 - [位操作](Data_Structures_Algorithms/07_Bit_Manipulation_CN.md)
 - [二分查找](Data_Structures_Algorithms/08_BinarySearch_CN.md)
+- [分治法](Data_Structures_Algorithms/09_Divide_Conquer_CN.md)
 - ...
 
 ### 4. **行业实战经验**
