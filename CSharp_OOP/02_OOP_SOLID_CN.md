@@ -1,4 +1,4 @@
-## 手把手教你编写干净代码：SOLID 原则如何提升你的 C# 面向对象设计
+# 手把手教你编写干净代码：SOLID 原则如何提升你的 C# 面向对象设计
 
 在软件开发领域，创建可维护、可扩展和灵活的应用程序始终是一个重要的目标。随着项目规模和复杂性的增加，遵循稳固的架构原则能够帮助开发者高效管理代码并减少技术债务。**SOLID 原则** 正是为此设计的。
 
@@ -10,7 +10,7 @@
 
 ---
 
-### 1. 单一职责原则 - Single Responsibility Principle(SRP)
+## 1. 单一职责原则 - Single Responsibility Principle(SRP)
 
 - **定义**：一个类应该只有一个改变的原因，意味着它应该只承担一个职责。
 - **示例**：假设我们有一个 `Employee` 类，它同时管理员工信息和薪资发放。这违反了 SRP，因为它有两个改变的理由：一个是员工信息，一个是薪资逻辑。
@@ -53,7 +53,7 @@ public class PayrollProcessor
 
 ---
 
-### 2. 开放封闭原则 - Open/Closed Principle(OCP)
+## 2. 开放封闭原则 - Open/Closed Principle(OCP)
 
 - **定义**：实体（类、模块、函数等）应该对扩展开放(open for extension)，对修改封闭(closed for modification)。
 - **示例**：在添加新功能时，应该扩展这个类，而不是修改基类。
@@ -125,7 +125,7 @@ public class AreaCalculator
 
 ---
 
-### 3. 里氏替换原则 - Liskov Substitution Principle(LSP)
+## 3. 里氏替换原则 - Liskov Substitution Principle(LSP)
 
 - **定义**：子类型必须能够替换其基类型而不改变程序的正确性。
 - **示例**：一个 `Square`（正方形）应该能够替代 `Rectangle`（矩形）而不破坏功能。然而，如果正方形改变了矩形的行为（例如，单独调整高度和宽度），则违反了 LSP。
@@ -170,13 +170,15 @@ public class Square : Rectangle
 ```
 
 - 当我们使用 `Square` 替换 `Rectangle` 时，程序的行为发生了改变。例如：
-  ```csharp
+
+```csharp
   Rectangle rect = new Square();
   rect.Width = 4;  // 设置宽度
   rect.Height = 5; // 设置高度
   Console.WriteLine(rect.GetArea()); // 预期 4 * 5 = 20，但实际是 5 * 5 = 25
-  ```
-  - 由于 `Square` 强制宽度和高度相等，设置宽度后，高度也会被修改，导致计算面积的行为与 `Rectangle` 不一致。
+```
+
+- 由于 `Square` 强制宽度和高度相等，设置宽度后，高度也会被修改，导致计算面积的行为与 `Rectangle` 不一致。
 - 在基类 `Rectangle` 中，我们期望宽度和高度是独立的。但在子类 `Square` 中，这种独立性被破坏了。
 
 **符合原则的示例：**
@@ -215,7 +217,7 @@ public class Square : IShape
 
 ---
 
-### 4. 接口隔离原则 - Interface Segregation Principle(ISP)
+## 4. 接口隔离原则 - Interface Segregation Principle(ISP)
 
 - **定义**：一个类不应被强迫实现它不需要的接口。最好有多个小而具体的接口，而不是一个大的通用接口。
 - **示例**：一个包含 `Work` 和 `Eat` 方法的 `IWorker` 接口是有问题的，因为有些工人可能不需要 `Eat` 方法。
@@ -271,7 +273,7 @@ public class RobotWorker : IWorkable
 
 ---
 
-### 5. 依赖倒置原则 - Dependency Inversion Principle(DIP)
+## 5. 依赖倒置原则 - Dependency Inversion Principle(DIP)
 
 - **定义**：高层模块不应依赖于低层模块。二者应依赖于抽象。抽象不应依赖于细节；细节应依赖于抽象。
 - **示例**：不要让高层类直接依赖低层类，而是应该抽象出依赖关系。
@@ -309,13 +311,15 @@ public class FileSaver
 
 1. **FileManager** 必须直接依赖具体的 `FileSaver` 类，无法轻松切换到其他存储方式（比如保存到数据库、云存储等）。
 2. 如果要替换 `FileSaver`，比如改为 `DatabaseSaver`，就需要修改 `FileManager` 的代码：
-   ```csharp
+
+```csharp
    public FileManager()
    {
        _fileSaver = new DatabaseSaver(); // 修改依赖的具体实现
    }
-   ```
-   这样的设计破坏了代码的扩展性，也违反了开闭原则（OCP：对扩展开放，对修改关闭）。
+```
+
+这样的设计破坏了代码的扩展性，也违反了开闭原则（OCP：对扩展开放，对修改关闭）。
 
 **符合原则的示例：**
 
@@ -363,7 +367,7 @@ public class DatabaseSaver : IStorage
 3. **依赖注入（Dependency Injection）**：
    - 在 `FileManager` 的构造函数中，通过参数传递具体的 `IStorage` 实现。这种方式被称为“依赖注入”，使得依赖的具体实现可以由外部控制。
 
-**DIP 的好处**
+**DIP 的好处:**
 
 1. **灵活性**：
    - 可以轻松切换具体实现，例如从文件存储切换到数据库存储，而无需修改 `FileManager` 的代码。
@@ -374,7 +378,7 @@ public class DatabaseSaver : IStorage
 
 ---
 
-### 6. 迪米特法则 - Law of Demeter(LoD)
+## 6. 迪米特法则 - Law of Demeter(LoD)
 
 - **定义**：一个模块不应了解其他模块的内部工作。它应仅与其直接使用的对象进行交互。
 - **示例**：避免链式调用或通过多层间接访问对象。
@@ -441,12 +445,15 @@ public class Program
    - `Person` 对象对外隐藏了 `Address` 这个实现细节，外部调用者只需要知道如何获取城市名称，而不需要知道它是通过 `Address` 类实现的。这种封装可以减少系统中模块之间的相互依赖。
 3. **代码更健壮：**
    - 如果 `Address` 属性可能为 `null`，我们可以在 `GetCity()` 方法中处理：
-     ```csharp
+
+```csharp
      public string GetCity() => Address?.City ?? "Unknown City";
-     ```
-     这样外部调用者就不需要关心 `Address` 的空值情况，提高了代码的健壮性。
+```
+
+这样外部调用者就不需要关心 `Address` 的空值情况，提高了代码的健壮性。
 4. **易于测试：**
-   - 当需要单元测试时，测试 `Program` 类的逻辑只需模拟 `Person` 的行为，而不需要模拟 `Address` 类。测试的范围更小、边界更清晰。
+
+- 当需要单元测试时，测试 `Program` 类的逻辑只需模拟 `Person` 的行为，而不需要模拟 `Address` 类。测试的范围更小、边界更清晰。
 
 ---
 

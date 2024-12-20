@@ -1,4 +1,4 @@
-## 使用双指针和滑动窗口技术优化 C#中的代码效率：LeetCode 示例解析
+# 使用双指针和滑动窗口技术优化 C#中的代码效率：LeetCode 示例解析
 
 在算法设计的世界中，**效率**是至关重要的。在各种优化代码性能的技术中，**双指针**技术尤为突出，尤其在处理数组和列表时。
 
@@ -164,32 +164,32 @@
 
    **使用快慢指针的解法：**
 
-```csharp
-public bool HasCycle(ListNode head) {
-    if (head == null) return false; // 边界情况：空链表
-    ListNode slow = head, fast = head;
+    ```csharp
+    public bool HasCycle(ListNode head) {
+        if (head == null) return false; // 边界情况：空链表
+        ListNode slow = head, fast = head;
 
-    // 使用两个指针遍历链表
-    while (fast != null && fast.next != null) {
-        slow = slow.next;        // 慢指针每次移动一步
-        fast = fast.next.next;   // 快指针每次移动两步
+        // 使用两个指针遍历链表
+        while (fast != null && fast.next != null) {
+            slow = slow.next;        // 慢指针每次移动一步
+            fast = fast.next.next;   // 快指针每次移动两步
 
-        if (slow == fast) return true; // 如果两个指针相遇，说明有环
+            if (slow == fast) return true; // 如果两个指针相遇，说明有环
+        }
+
+        return false; // 如果快指针到达末尾，说明没有环
     }
+    ```
 
-    return false; // 如果快指针到达末尾，说明没有环
-}
-```
+    **工作原理：**
 
-**工作原理：**
+    - 快指针每次移动两步，而慢指针每次移动一步。如果存在环，快指针最终会追上慢指针，它们会在环内相遇。
+    - 如果快指针到达链表末尾（即 `fast == null` 或 `fast.next == null`），则说明链表中没有环。
 
-- 快指针每次移动两步，而慢指针每次移动一步。如果存在环，快指针最终会追上慢指针，它们会在环内相遇。
-- 如果快指针到达链表末尾（即 `fast == null` 或 `fast.next == null`），则说明链表中没有环。
+    **不使用双指针的比较：**
 
-**不使用双指针的比较：**
-
-- **朴素解法：** 如果不使用双指针，需要标记访问过的节点（例如，通过修改结构或使用哈希表）来检测是否遇到同一个节点。这会增加额外的空间复杂度，时间和空间复杂度均为 O(n)。
-- **快慢指针：** 该技术时间复杂度为 O(n)，空间复杂度为 O(1)，更加节省空间。
+    - **朴素解法：** 如果不使用双指针，需要标记访问过的节点（例如，通过修改结构或使用哈希表）来检测是否遇到同一个节点。这会增加额外的空间复杂度，时间和空间复杂度均为 O(n)。
+    - **快慢指针：** 该技术时间复杂度为 O(n)，空间复杂度为 O(1)，更加节省空间。
 
 4. **无重复字符的最长子串（LeetCode #3）- 滑动窗口**
 
@@ -198,36 +198,36 @@ public bool HasCycle(ListNode head) {
 
    **使用滑动窗口的解法：**
 
-```csharp
-public int LengthOfLongestSubstring(string s) {
-    HashSet<char> set = new HashSet<char>();  // 用于存储当前窗口中的唯一字符
-    int left = 0, maxLength = 0;              // 左指针和最大长度
+    ```csharp
+    public int LengthOfLongestSubstring(string s) {
+        HashSet<char> set = new HashSet<char>();  // 用于存储当前窗口中的唯一字符
+        int left = 0, maxLength = 0;              // 左指针和最大长度
 
-    // 右指针通过移动遍历整个字符串
-    for (int right = 0; right < s.Length; right++) {
-        // 如果当前字符已经在集合中，收缩窗口
-        while (set.Contains(s[right])) {
-            set.Remove(s[left]);
-            left++;  // 通过移动左指针收缩窗口
+        // 右指针通过移动遍历整个字符串
+        for (int right = 0; right < s.Length; right++) {
+            // 如果当前字符已经在集合中，收缩窗口
+            while (set.Contains(s[right])) {
+                set.Remove(s[left]);
+                left++;  // 通过移动左指针收缩窗口
+            }
+
+            set.Add(s[right]);  // 将当前字符添加到集合中
+            maxLength = Math.Max(maxLength, right - left + 1);  // 更新最大长度
         }
 
-        set.Add(s[right]);  // 将当前字符添加到集合中
-        maxLength = Math.Max(maxLength, right - left + 1);  // 更新最大长度
+        return maxLength;
     }
+    ```
 
-    return maxLength;
-}
-```
+    **工作原理：**
 
-**工作原理：**
+    - 滑动窗口技术通过动态调整窗口大小遍历字符串。`left` 指针代表当前窗口的起始位置，`right` 指针代表当前字符的位置。
+    - 如果发现重复字符，窗口通过移动 `left` 指针进行收缩，直到没有重复字符为止，确保窗口中的子串始终是唯一的。
 
-- 滑动窗口技术通过动态调整窗口大小遍历字符串。`left` 指针代表当前窗口的起始位置，`right` 指针代表当前字符的位置。
-- 如果发现重复字符，窗口通过移动 `left` 指针进行收缩，直到没有重复字符为止，确保窗口中的子串始终是唯一的。
+    **不使用双指针的比较：**
 
-**不使用双指针的比较：**
-
-- **朴素解法：** 暴力解法需要检查所有可能的子串，时间复杂度为 O(n²)。对于每个起始位置，需要扫描整个字符串以找到无重复字符的最长子串。
-- **滑动窗口解法：** 滑动窗口解法仅需要 O(n)时间，因为左指针和右指针只会向前移动一次。`HashSet`确保每个字符只会被检查一次，因此效率更高。
+    - **朴素解法：** 暴力解法需要检查所有可能的子串，时间复杂度为 O(n²)。对于每个起始位置，需要扫描整个字符串以找到无重复字符的最长子串。
+    - **滑动窗口解法：** 滑动窗口解法仅需要 O(n)时间，因为左指针和右指针只会向前移动一次。`HashSet`确保每个字符只会被检查一次，因此效率更高。
 
 ---
 
