@@ -39,6 +39,9 @@ Explore essential data structures and algorithms with practical examples from Le
 - [Stack and Queue](Data_Structures_Algorithms/03_Stack_Queue_CN.md)
 - [DFS and BFS](Data_Structures_Algorithms/04_DFS_BFS_CN.md)
 - [Dynamic Programming](Data_Structures_Algorithms/05_DP_CN.md)
+- [LinkedList, Tree and Graph](Data_Structures_Algorithms/06_LinkedList_Tree_Graph_CN.md)
+- [Bit Manipulation](Data_Structures_Algorithms/07_Bit_Manipulation_CN.md)
+- [Binary Search](Data_Structures_Algorithms/08_BinarySearch_CN.md)
 - ...
 
 ### 4. **Industry Experience**
@@ -106,6 +109,9 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [栈和队列](Data_Structures_Algorithms/03_Stack_Queue_CN.md)
 - [深度优先搜索与广度优先搜索](Data_Structures_Algorithms/04_DFS_BFS_CN.md)
 - [动态规划](Data_Structures_Algorithms/05_DP_CN.md)
+- [链表、树和图](Data_Structures_Algorithms/06_LinkedList_Tree_Graph_CN.md)
+- [位操作](Data_Structures_Algorithms/07_Bit_Manipulation_CN.md)
+- [二分查找](Data_Structures_Algorithms/08_BinarySearch_CN.md)
 - ...
 
 ### 4. **行业实战经验**
