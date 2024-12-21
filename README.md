@@ -28,6 +28,10 @@ Deep dives into object-oriented programming concepts and design patterns in C#.
 - [C# Basics](Roadmap_Backend/02_CSharp_Basics_CN.md)
 - [OOP Basics](CSharp_OOP/01_OOP_Concepts_CN.md)
 - [OOP SOLID Design Principles](CSharp_OOP/02_OOP_SOLID_CN.md)
+- [Basic Creational Patterns](CSharp_OOP/03_Creational_1_CN.md)
+- [Advanced Creational Patterns](CSharp_OOP/04_Creational_2_CN.md)
+- [Structural Patterns](CSharp_OOP/05_Structural_CN.md)
+- [Behavioral Patterns](CSharp_OOP/06_Behavioral_CN.md)
 - ...
 
 ### 3. **Data Structures and Algorithms**
@@ -106,6 +110,10 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [C#基础](Roadmap_Backend/02_CSharp_Basics_CN.md)
 - [面向对象编程基础](CSharp_OOP/01_OOP_Concepts_CN.md)
 - [面向对象 SOLID 设计原则](CSharp_OOP/02_OOP_SOLID_CN.md)
+- [基础创建型设计模式](CSharp_OOP/03_Creational_1_CN.md)
+- [高级创建型设计模式](CSharp_OOP/04_Creational_2_CN.md)
+- [结构型设计模式](CSharp_OOP/05_Structural_CN.md)
+- [行为型设计模式](CSharp_OOP/06_Behavioral_CN.md)
 - ...
 
 ### 3. **数据结构与算法**
