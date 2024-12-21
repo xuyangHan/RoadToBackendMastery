@@ -20,7 +20,7 @@
 
 ## 它们是如何工作的？
 
-![BFS-and-DFS-Algorithms.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/a2c82cd063214b5ab65d34f687120e8d~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5LiA5Y-q5ouJ5Y-k:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNDM1MjMwMjA3NTg3NDM5MyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1735225760&x-orig-sign=x4gAbs6tnX0tezhZ6Po%2FKFAIUFQ%3D)
+![BFS_DFS.jpeg](../assets/images/DFS_BFS.jpeg)
 
 ### 深度优先搜索 (DFS)
 
