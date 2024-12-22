@@ -60,6 +60,8 @@ C# 提供了一组您将经常使用的基本数据类型：
 
 妥善处理类型转换对于确保后端逻辑按预期工作至关重要，尤其是在处理不同的 API 或数据格式时。
 
+### **完整的例子**
+
 ```csharp
 using System;
 
@@ -140,12 +142,22 @@ class Program
 
 在我之前的博客中，我探讨了使用 C# 解决各种 LeetCode 问题。本系列深入研究了有效解决这些问题的不同策略和技术，增强了您对语言和底层数据结构的理解。要详细了解特定问题和解决方案，请查看：
 
-- [使用 C# **字典（Dictionary）** 提高代码性能：LeetCode 示例解析](https://juejin.cn/post/7418074037391638554)
-- [使用 **双指针** 和 **滑动窗口** 技术优化 C#中的代码效率：LeetCode 示例解析](https://juejin.cn/post/7420239793014243337)
-- [**深度优先搜索（DFS）与广度优先搜索（BFS）**](https://juejin.cn/post/7420597224516894757)
-- [通过 **栈(Stack)** 和 **队列(Queue)** 优化 C#中的代码效率：实际应用与 LeetCode 算法问题求解](https://juejin.cn/post/7422285890166210587)
-- [掌握 C#中的 **动态规划(Dynamic Programming)**：LeetCode 算法问题求解](https://juejin.cn/post/7423644190313218075)
-- [掌握高级数据结构：LeetCode 中的 **链表(Linked List)**、 **树(Tree)** 和 **图(Graph)** 详解](https://juejin.cn/post/7424865967248900108)
+- [字典](../Data_Structures_Algorithms/01_Dictionary_CN.md)
+- [双指针与滑动窗口](../Data_Structures_Algorithms/02_TwoPointers_CN.md)
+- [栈和队列](../Data_Structures_Algorithms/03_Stack_Queue_CN.md)
+- [深度优先搜索与广度优先搜索](../Data_Structures_Algorithms/04_DFS_BFS_CN.md)
+- [动态规划](../Data_Structures_Algorithms/05_DP_CN.md)
+- [链表、树和图](../Data_Structures_Algorithms/06_LinkedList_Tree_Graph_CN.md)
+- [位操作](../Data_Structures_Algorithms/07_Bit_Manipulation_CN.md)
+- [二分查找](../Data_Structures_Algorithms/08_BinarySearch_CN.md)
+- [分治法](../Data_Structures_Algorithms/09_Divide_Conquer_CN.md)
+- [堆和优先队列](../Data_Structures_Algorithms/10_Heap_PriorityQueue_CN.md)
+- [前缀和](../Data_Structures_Algorithms/11_PrefixSum_CN.md)
+- [前缀树](../Data_Structures_Algorithms/12_Trie_CN.md)
+- [A* 寻路导航算法](../Data_Structures_Algorithms/13_A_Star_CN.md)
+- [区间](../Data_Structures_Algorithms/14_Intervals_CN.md)
+- [单调栈](../Data_Structures_Algorithms/15_Monotonic_Stacks_CN.md)
+- [回溯算法](../Data_Structures_Algorithms/16_Backtracking_CN.md)
 
 在我的 LeetCode 系列中，对这些基础数据结构进行了更详细的讨论。
 
@@ -164,11 +176,12 @@ class Program
 
 我还撰写了关于 C# 中设计模式的综合系列，涵盖了单例、工厂和观察者等各种模式。要深入了解这些概念，请探索以下内容：
 
-- [掌握 C#面 **向对象编程(OOP)核心概念**：理解设计模式的关键](https://juejin.cn/post/7418378848402636810)
-- [掌握 C# 中的 **创建型(Creational)** 模式：**单例模式(Singleton)** 与**工厂方法(Factory Method)**](https://juejin.cn/post/7418767882617815050)
-- [探索高级 **创建型设计模式** ：C# 中的 **抽象工厂(Abstract Factory)** 、**建造者(Builder)** 和 **原型(Prototype)** 模式](https://juejin.cn/post/7419211024064266250)
-- [精通 C# 中的 **结构型模式(structural patterns)** ：全面指南](https://juejin.cn/post/7423261843933888550)
-- [掌握 C# 中的 **行为模式** ： **职责链(Chain of Responsibility)** 、 **命令(Command)** 和 **观察者(Observer)** 模式](https://juejin.cn/post/7424034641378066471)
+- [面向对象编程基础](../CSharp_OOP/01_OOP_Concepts_CN.md)
+- [面向对象 SOLID 设计原则](../CSharp_OOP/02_OOP_SOLID_CN.md)
+- [基础创建型设计模式](../CSharp_OOP/03_Creational_1_CN.md)
+- [高级创建型设计模式](../CSharp_OOP/04_Creational_2_CN.md)
+- [结构型设计模式](../CSharp_OOP/05_Structural_CN.md)
+- [行为型设计模式](../CSharp_OOP/06_Behavioral_CN.md)
 
 ---
 
@@ -183,32 +196,6 @@ class Program
 - **代码管理**：在 **解决方案** 和 **项目** 中有效地组织代码对于维护干净和可管理的代码库至关重要。在 Visual Studio 中，解决方案作为一个或多个项目的容器，使您能够对相关应用程序或组件进行分组。每个项目包含自己的文件、引用和设置，实现模块化开发。这种结构不仅增强了代码的组织性，还简化了跨多个相关应用程序的依赖和资源管理。
 
 通过掌握这些 Visual Studio 基础知识，您将能够高效有效地处理 C# 开发项目。
-
----
-
-## **C#/.NET 中的其他常见面试问题**
-
-### **编码规范**
-
-- 请查看我之前的博客：[**编写干净且一致的 C# 代码：.NET 代码规范指南**](https://juejin.cn/post/7417655263417794586)
-
-### **并行和多线程**
-
-- **C# 中 `Task` 和 `Thread` 的区别是什么？**：**Thread** 是用于异步执行代码的低级构造，而 **Task** 是任务并行库（TPL）提供的高级抽象，简化了异步编程。
-- **C# 中的 `async` 和 `await` 模式是什么？**：该模式支持异步编程，使代码在等待 I/O 操作或长时间运行的进程完成时保持非阻塞。
-
-### **与 LINQ 相关**
-
-- **C# 中的 `LINQ` 是什么，为什么它有用？**：LINQ（语言集成查询）允许您使用 C# 语法查询数据，便于以声明性风格轻松操作集合、数据库和 XML。
-- 请查看我之前的博客：[使用 LINQ 优化 C# 代码：提升代码的优雅性与效率](https://juejin.cn/post/7392104848974282792)
-
-### **异常**
-
-- **如何在 C# 中处理异常？**：通过 `try-catch-finally` 块实现异常处理。
-
-### **了解项目类型**
-
-- **.NET Framework、.NET Core 和 .NET 5+ 之间的区别是什么？**：.NET Framework 是原始实现，仅在 Windows 上运行，而 .NET Core 是跨平台的。 .NET 5+ 统一了该平台，使其能够在多个操作系统上无缝工作。
 
 ---
 
