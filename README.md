@@ -20,6 +20,10 @@ A step-by-step guide for aspiring backend developers, covering everything from i
 - [Internet](Roadmap_Backend/01_Internet_CN.md)
 - [C# Basics](Roadmap_Backend/02_CSharp_Basics_CN.md)
 - [Git and CI/CD](Roadmap_Backend/03_Git_CICD_CN.md)
+- [Database Basics](Roadmap_Backend/04_Database_Basics_CN.md)
+- [Database Advanced](Roadmap_Backend/05_Database_Advanced_CN.md)
+- [API Basics](Roadmap_Backend/06_API_Basics_CN.md)
+- [API Advanced](Roadmap_Backend/07_API_Advanced_CN.md)
 - ...
 
 ### 2. **C# OOP (Basics and Design Patterns)**
@@ -64,6 +68,8 @@ Practical tips and case studies from real-world programming experiences.
 - [Coding Standard](Industry_Experience/01_Code_Standard_CN.md)
 - [Modulized API Strategy](Industry_Experience/02_API_Structure_CN.md)
 - [Linq](Industry_Experience/03_Linq_CN.md)
+- [API Optimization](Industry_Experience/04_API_Optimization_CN.md)
+- [Fix API Overload Issue](Industry_Experience/05_API_Overload_CN.md)
 - ...
 
 ---
@@ -104,6 +110,10 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [互联网如何工作](Roadmap_Backend/01_Internet_CN.md)
 - [C#基础](Roadmap_Backend/02_CSharp_Basics_CN.md)
 - [Git 和 CI/CD](Roadmap_Backend/03_Git_CICD_CN.md)
+- [数据库基础](Roadmap_Backend/04_Database_Basics_CN.md)
+- [数据库进阶](Roadmap_Backend/05_Database_Advanced_CN.md)
+- [API 基础](Roadmap_Backend/06_API_Basics_CN.md)
+- [API 进阶](Roadmap_Backend/07_API_Advanced_CN.md)
 - ...
 
 ### 2. **C# 面向对象编程（基础与设计模式）**
@@ -148,6 +158,8 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [代码规范](Industry_Experience/01_Code_Standard_CN.md)
 - [模块化 API 策略](Industry_Experience/02_API_Structure_CN.md)
 - [Linq](Industry_Experience/03_Linq_CN.md)
+- [API 优化](Industry_Experience/04_API_Optimization_CN.md)
+- [解决API 过载问题](Industry_Experience/05_API_Overload_CN.md)
 - ...
 
 ---
