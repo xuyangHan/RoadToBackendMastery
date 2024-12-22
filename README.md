@@ -70,6 +70,7 @@ Practical tips and case studies from real-world programming experiences.
 - [Linq](Industry_Experience/03_Linq_CN.md)
 - [API Optimization](Industry_Experience/04_API_Optimization_CN.md)
 - [Fix API Overload Issue](Industry_Experience/05_API_Overload_CN.md)
+- [Swagger API Doc](Industry_Experience/06_Swagger_API_Doc_CN.md)
 - ...
 
 ---
@@ -160,6 +161,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [Linq](Industry_Experience/03_Linq_CN.md)
 - [API 优化](Industry_Experience/04_API_Optimization_CN.md)
 - [解决API 过载问题](Industry_Experience/05_API_Overload_CN.md)
+- [Swagger API 文档](Industry_Experience/06_Swagger_API_Doc_CN.md)
 - ...
 
 ---

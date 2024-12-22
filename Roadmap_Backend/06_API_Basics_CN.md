@@ -523,7 +523,7 @@ public IActionResult GetUserInfo()
 
 正确地进行 API 版本管理和文档编写可以增强开发者体验，为使用你的服务提供结构化指南，并确保 API 发展过程中的兼容性。
 
-有关如何为 .NET Core 设置 Swagger 的详细指南，包括自动和手动配置选项，请确保查看 [我之前的文章](https://juejin.cn/post/7414399021043630118)。
+有关如何为 .NET Core 设置 Swagger 的详细指南，包括自动和手动配置选项，请确保查看 [我之前的文章](../Industry_Experience/06_Swagger_API_Doc_CN.md)。
 
 ---
 

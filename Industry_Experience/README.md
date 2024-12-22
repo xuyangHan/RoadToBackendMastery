@@ -9,6 +9,7 @@ Learn from real-world programming scenarios and challenges. This series shares p
 - [Linq](03_Linq_CN.md)
 - [API Optimization](04_API_Optimization_CN.md)
 - [Fix API Overload Issue](05_API_Overload_CN.md)
+- [Swagger API Doc](06_Swagger_API_Doc_CN.md)
 - ...
 
 ## ✨ Key Highlights
