@@ -6,6 +6,7 @@ Learn from real-world programming scenarios and challenges. This series shares p
 
 - [Coding Standard](01_Code_Standard_CN.md)
 - [Modulized API Strategy](02_API_Structure_CN.md)
+- [Linq](03_Linq_CN.md)
 - ...
 
 ## ✨ Key Highlights

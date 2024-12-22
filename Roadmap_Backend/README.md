@@ -6,6 +6,7 @@ This series is a step-by-step guide designed to help you become a backend progra
 
 - [Internet](01_Internet_CN.md)
 - [C# Basics](02_C#_Basics_CN.md)
+- [Git and CI/CD](03_Git_CICD_CN.md)
 - ...
 
 ## ✨ Key Highlights

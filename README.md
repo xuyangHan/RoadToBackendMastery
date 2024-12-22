@@ -19,6 +19,7 @@ A step-by-step guide for aspiring backend developers, covering everything from i
 
 - [Internet](Roadmap_Backend/01_Internet_CN.md)
 - [C# Basics](Roadmap_Backend/02_CSharp_Basics_CN.md)
+- [Git and CI/CD](Roadmap_Backend/03_Git_CICD_CN.md)
 - ...
 
 ### 2. **C# OOP (Basics and Design Patterns)**
@@ -62,6 +63,7 @@ Practical tips and case studies from real-world programming experiences.
 
 - [Coding Standard](Industry_Experience/01_Code_Standard_CN.md)
 - [Modulized API Strategy](Industry_Experience/02_API_Structure_CN.md)
+- [Linq](Industry_Experience/03_Linq_CN.md)
 - ...
 
 ---
@@ -101,6 +103,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 - [互联网如何工作](Roadmap_Backend/01_Internet_CN.md)
 - [C#基础](Roadmap_Backend/02_CSharp_Basics_CN.md)
+- [Git 和 CI/CD](Roadmap_Backend/03_Git_CICD_CN.md)
 - ...
 
 ### 2. **C# 面向对象编程（基础与设计模式）**
@@ -144,6 +147,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 - [代码规范](Industry_Experience/01_Code_Standard_CN.md)
 - [模块化 API 策略](Industry_Experience/02_API_Structure_CN.md)
+- [Linq](Industry_Experience/03_Linq_CN.md)
 - ...
 
 ---
