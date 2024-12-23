@@ -11,6 +11,8 @@ This series is a step-by-step guide designed to help you become a backend progra
 - [Database Advanced](05_Database_Advanced_CN.md)
 - [API Basics](06_API_Basics_CN.md)
 - [API Advanced](07_API_Advanced_CN.md)
+- [Cache](08_Cache_CN.md)
+- [Concurrency](09_Concurrency_CN.md)
 - ...
 
 ## ✨ Key Highlights
