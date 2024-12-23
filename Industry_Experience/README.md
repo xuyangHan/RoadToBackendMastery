@@ -10,6 +10,10 @@ Learn from real-world programming scenarios and challenges. This series shares p
 - [API Optimization](04_API_Optimization_CN.md)
 - [Fix API Overload Issue](05_API_Overload_CN.md)
 - [Swagger API Doc](06_Swagger_API_Doc_CN.md)
+- [Database Connection Using Dapper](07_Dapper_CN.md)
+- [Unix Time](08_UnixTime_CN.md)
+- [Protobuf](09_Protobuf_CN.md)
+- [MQTT](10_MQTT_CN.md)
 - ...
 
 ## ✨ Key Highlights

@@ -78,7 +78,7 @@
   * **概述：** MQTT 是一种轻量级发布-订阅协议，专为低带宽、高延迟网络设计，非常适合物联网应用。
   * **特性：** 针对受限设备进行优化，支持小消息大小和高效带宽利用。提供 QoS 级别，确保可靠投递，设计简单。
   * **使用场景：** 物联网应用，如远程监控、传感器网络和智能家居设备。
-  * **参考：** 更多详情，请查看[我关于在 .NET 应用中使用 MQTT 的博客](https://juejin.cn/post/7376093651413925942)。
+  * **参考：** 更多详情，请查看[我关于在 .NET 应用中使用 MQTT 的博客](../Industry_Experience/10_MQTT_CN.md)。
 
 ***
 
@@ -415,7 +415,7 @@ Kafka Streams 是一个用于在 Kafka 内部进行实时数据处理和转换�
 * [RabbitMQ 官方文档](https://www.rabbitmq.com/documentation.html)
 * [Confluent Kafka for .NET](https://docs.confluent.io/clients-confluent-kafka-dotnet/current/index.html)
 * [RabbitMQ.Client 库 NuGet 页面](https://www.nuget.org/packages/RabbitMQ.Client/)
-* **上一篇博客：** [在 .NET 应用程序中实现 MQTT](https://juejin.cn/post/7376093651413925942) – 适用于轻量级物联网消息传递解决方案。
+* **上一篇博客：** [在 .NET 应用程序中实现 MQTT](../Industry_Experience/10_MQTT_CN.md) – 适用于轻量级物联网消息传递解决方案。
 
 **推荐阅读：**
 

@@ -77,6 +77,10 @@ Practical tips and case studies from real-world programming experiences.
 - [API Optimization](Industry_Experience/04_API_Optimization_CN.md)
 - [Fix API Overload Issue](Industry_Experience/05_API_Overload_CN.md)
 - [Swagger API Doc](Industry_Experience/06_Swagger_API_Doc_CN.md)
+- [Database Connection Using Dapper](Industry_Experience/07_Dapper_CN.md)
+- [Unix Time](Industry_Experience/08_UnixTime_CN.md)
+- [Protobuf](Industry_Experience/09_Protobuf_CN.md)
+- [MQTT](Industry_Experience/10_MQTT_CN.md)
 - ...
 
 ---
@@ -170,10 +174,14 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 - [代码规范](Industry_Experience/01_Code_Standard_CN.md)
 - [模块化 API 策略](Industry_Experience/02_API_Structure_CN.md)
-- [Linq](Industry_Experience/03_Linq_CN.md)
+- [Linq 优化代码](Industry_Experience/03_Linq_CN.md)
 - [API 优化](Industry_Experience/04_API_Optimization_CN.md)
 - [解决API 过载问题](Industry_Experience/05_API_Overload_CN.md)
 - [Swagger API 文档](Industry_Experience/06_Swagger_API_Doc_CN.md)
+- [用Dapper 连接数据库](Industry_Experience/07_Dapper_CN.md)
+- [Unix时间简化时区处理](Industry_Experience/08_UnixTime_CN.md)
+- [Protobuf](Industry_Experience/09_Protobuf_CN.md)
+- [MQTT](Industry_Experience/10_MQTT_CN.md)
 - ...
 
 ---
