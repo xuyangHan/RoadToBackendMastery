@@ -81,6 +81,8 @@ Practical tips and case studies from real-world programming experiences.
 - [Unix Time](Industry_Experience/08_UnixTime_CN.md)
 - [Protobuf](Industry_Experience/09_Protobuf_CN.md)
 - [MQTT](Industry_Experience/10_MQTT_CN.md)
+- [Timed Memorization](Industry_Experience/11_TimedMemorization_CN.md)
+- [Fix Database Overload Issue](Industry_Experience/12_Database_Overload_CN.md)
 - ...
 
 ---
@@ -182,6 +184,8 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [Unix时间简化时区处理](Industry_Experience/08_UnixTime_CN.md)
 - [Protobuf](Industry_Experience/09_Protobuf_CN.md)
 - [MQTT](Industry_Experience/10_MQTT_CN.md)
+- [定时记忆化](Industry_Experience/11_TimedMemorization_CN.md)
+- [解决数据库过载问题](Industry_Experience/12_Database_Overload_CN.md)
 - ...
 
 ---

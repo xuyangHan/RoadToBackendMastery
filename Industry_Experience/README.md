@@ -14,6 +14,8 @@ Learn from real-world programming scenarios and challenges. This series shares p
 - [Unix Time](08_UnixTime_CN.md)
 - [Protobuf](09_Protobuf_CN.md)
 - [MQTT](10_MQTT_CN.md)
+- [Timed Memorization](11_TimedMemorization_CN.md)
+- [Fix Database Overload Issue](12_Database_Overload_CN.md)
 - ...
 
 ## ✨ Key Highlights
