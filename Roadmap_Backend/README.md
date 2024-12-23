@@ -15,6 +15,8 @@ This series is a step-by-step guide designed to help you become a backend progra
 - [Concurrency](09_Concurrency_CN.md)
 - [Unit Test](10_UnitTest_CN.md)
 - [Message Broker](11_Message_Broker_CN.md)
+- [Architectural Patterns](12_Architectural_Patterns_CN.md)
+- [System Design Principles](13_System_Design_Principles_CN.md)
 - ...
 
 ## ✨ Key Highlights

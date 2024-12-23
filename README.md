@@ -28,6 +28,8 @@ A step-by-step guide for aspiring backend developers, covering everything from i
 - [Concurrency](Roadmap_Backend/09_Concurrency_CN.md)
 - [Unit Test](Roadmap_Backend/10_UnitTest_CN.md)
 - [Message Broker](Roadmap_Backend/11_Message_Broker_CN.md)
+- [Architectural Patterns](Roadmap_Backend/12_Architectural_Patterns_CN.md)
+- [System Design Principles](Roadmap_Backend/13_System_Design_Principles_CN.md)
 - ...
 
 ### 2. **C# OOP (Basics and Design Patterns)**
@@ -123,6 +125,8 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [并发编程](Roadmap_Backend/09_Concurrency_CN.md)
 - [单元测试](Roadmap_Backend/10_UnitTest_CN.md)
 - [消息代理](Roadmap_Backend/11_Message_Broker_CN.md)
+- [架构模式](Roadmap_Backend/12_Architectural_Patterns_CN.md)
+- [系统设计原则](Roadmap_Backend/13_System_Design_Principles_CN.md)
 - ...
 
 ### 2. **C# 面向对象编程（基础与设计模式）**
