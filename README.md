@@ -26,6 +26,8 @@ A step-by-step guide for aspiring backend developers, covering everything from i
 - [API Advanced](Roadmap_Backend/07_API_Advanced_CN.md)
 - [Cache](Roadmap_Backend/08_Cache_CN.md)
 - [Concurrency](Roadmap_Backend/09_Concurrency_CN.md)
+- [Unit Test](Roadmap_Backend/10_UnitTest_CN.md)
+- [Message Broker](Roadmap_Backend/11_Message_Broker_CN.md)
 - ...
 
 ### 2. **C# OOP (Basics and Design Patterns)**
@@ -119,6 +121,8 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [API 进阶](Roadmap_Backend/07_API_Advanced_CN.md)
 - [缓存](Roadmap_Backend/08_Cache_CN.md)
 - [并发编程](Roadmap_Backend/09_Concurrency_CN.md)
+- [单元测试](Roadmap_Backend/10_UnitTest_CN.md)
+- [消息代理](Roadmap_Backend/11_Message_Broker_CN.md)
 - ...
 
 ### 2. **C# 面向对象编程（基础与设计模式）**
