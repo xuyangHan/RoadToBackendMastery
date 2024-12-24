@@ -83,6 +83,9 @@ Practical tips and case studies from real-world programming experiences.
 - [MQTT](Industry_Experience/10_MQTT_CN.md)
 - [Timed Memorization](Industry_Experience/11_TimedMemorization_CN.md)
 - [Fix Database Overload Issue](Industry_Experience/12_Database_Overload_CN.md)
+- [Bokeh Responsive Visualizations](Industry_Experience/13_Bokeh_CN.md)
+- [Run Python From CSharp](Industry_Experience/14_RunPythonFromCSharp_CN.md)
+- [Well-Known Binary, WKB](Industry_Experience/15_WKB_CN.md)
 - ...
 
 ---
@@ -186,6 +189,9 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [MQTT](Industry_Experience/10_MQTT_CN.md)
 - [定时记忆化](Industry_Experience/11_TimedMemorization_CN.md)
 - [解决数据库过载问题](Industry_Experience/12_Database_Overload_CN.md)
+- [Bokeh 交互式可视化](Industry_Experience/13_Bokeh_CN.md)
+- [从C#触发Python代码](Industry_Experience/14_RunPythonFromCSharp_CN.md)
+- [知名二进制(WKB)](Industry_Experience/15_WKB_CN.md)
 - ...
 
 ---

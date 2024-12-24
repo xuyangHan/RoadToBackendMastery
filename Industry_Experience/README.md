@@ -16,6 +16,9 @@ Learn from real-world programming scenarios and challenges. This series shares p
 - [MQTT](10_MQTT_CN.md)
 - [Timed Memorization](11_TimedMemorization_CN.md)
 - [Fix Database Overload Issue](12_Database_Overload_CN.md)
+- [Bokeh Responsive Visualizations](13_Bokeh_CN.md)
+- [Run Python From CSharp](14_RunPythonFromCSharp_CN.md)
+- [Well-Known Binary, WKB](15_WKB_CN.md)
 - ...
 
 ## ✨ Key Highlights
