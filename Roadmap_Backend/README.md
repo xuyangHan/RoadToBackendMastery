@@ -17,6 +17,10 @@ This series is a step-by-step guide designed to help you become a backend progra
 - [Message Broker](11_Message_Broker_CN.md)
 - [Architectural Patterns](12_Architectural_Patterns_CN.md)
 - [System Design Principles](13_System_Design_Principles_CN.md)
+- [Container and Docker](14_Container_CN.md)
+- [Web Server](15_Web_Server_CN.md)
+- [ElasticSearch and Kibana](16_ElasticSearch_Kibana.md)
+- [Web Security](17_Web_Security.md)
 - ...
 
 ## ✨ Key Highlights
