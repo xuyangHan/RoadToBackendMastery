@@ -19,8 +19,9 @@ This series is a step-by-step guide designed to help you become a backend progra
 - [System Design Principles](13_System_Design_Principles_CN.md)
 - [Container and Docker](14_Container_CN.md)
 - [Web Server](15_Web_Server_CN.md)
-- [ElasticSearch and Kibana](16_ElasticSearch_Kibana.md)
-- [Web Security](17_Web_Security.md)
+- [ElasticSearch and Kibana](16_ElasticSearch_Kibana_CN.md)
+- [Web Security](17_Web_Security_CN.md)
+- [Distributed Locks](18_Distributed_Locks.md)
 - ...
 
 ## ✨ Key Highlights

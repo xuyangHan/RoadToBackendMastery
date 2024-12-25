@@ -32,8 +32,9 @@ A step-by-step guide for aspiring backend developers, covering everything from i
 - [System Design Principles](Roadmap_Backend/13_System_Design_Principles_CN.md)
 - [Container and Docker](Roadmap_Backend/14_Container_CN.md)
 - [Web Server](Roadmap_Backend/15_Web_Server_CN.md)
-- [ElasticSearch and Kibana](Roadmap_Backend/16_ElasticSearch_Kibana.md)
-- [Web Security](Roadmap_Backend/17_Web_Security.md)
+- [ElasticSearch and Kibana](Roadmap_Backend/16_ElasticSearch_Kibana_CN.md)
+- [Web Security](Roadmap_Backend/17_Web_Security_CN.md)
+- [Distributed Locks](Roadmap_Backend/18_Distributed_Locks.md)
 - ...
 
 ### 2. **C# OOP (Basics and Design Patterns)**
@@ -142,8 +143,9 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [系统设计原则](Roadmap_Backend/13_System_Design_Principles_CN.md)
 - [容器化与Docker](Roadmap_Backend/14_Container_CN.md)
 - [Web服务器](Roadmap_Backend/15_Web_Server_CN.md)
-- [ElasticSearch 和 Kibana](Roadmap_Backend/16_ElasticSearch_Kibana.md)
-- [Web 安全](Roadmap_Backend/17_Web_Security.md)
+- [ElasticSearch 和 Kibana](Roadmap_Backend/16_ElasticSearch_Kibana_CN.md)
+- [Web 安全](Roadmap_Backend/17_Web_Security_CN.md)
+- [分布式锁](Roadmap_Backend/18_Distributed_Locks_CN.md)
 - ...
 
 ### 2. **C# 面向对象编程（基础与设计模式）**
