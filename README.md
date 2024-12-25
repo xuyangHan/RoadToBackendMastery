@@ -17,8 +17,8 @@ Future additions will include interview tips and beginner-friendly C# and SQL tu
 
 A step-by-step guide for aspiring backend developers, covering everything from internet basics to advanced database management.
 
-- [Internet](Roadmap_Backend/01_Internet_CN.md)
-- [C# Basics](Roadmap_Backend/02_CSharp_Basics_CN.md)
+- [Internet](Roadmap_Backend/01_Internet.md)
+- [C# Basics](Roadmap_Backend/02_CSharp_Basics.md)
 - [Git and CI/CD](Roadmap_Backend/03_Git_CICD_CN.md)
 - [Database Basics](Roadmap_Backend/04_Database_Basics_CN.md)
 - [Database Advanced](Roadmap_Backend/05_Database_Advanced_CN.md)
