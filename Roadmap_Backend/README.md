@@ -12,7 +12,7 @@ This series is a step-by-step guide designed to help you become a backend progra
 - [API Basics](06_API_Basics.md)
 - [API Advanced](07_API_Advanced.md)
 - [Cache](08_Cache.md)
-- [Concurrency](09_Concurrency_CN.md)
+- [Concurrency](09_Concurrency.md)
 - [Unit Test](10_UnitTest_CN.md)
 - [Message Broker](11_Message_Broker_CN.md)
 - [Architectural Patterns](12_Architectural_Patterns_CN.md)
