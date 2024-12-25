@@ -6,7 +6,7 @@ This series is a step-by-step guide designed to help you become a backend progra
 
 - [Internet](01_Internet.md)
 - [C# Basics](02_C#_Basics.md)
-- [Git and CI/CD](03_Git_CICD_CN.md)
+- [Git and CI/CD](03_Git_CICD.md)
 - [Database Basics](04_Database_Basics_CN.md)
 - [Database Advanced](05_Database_Advanced_CN.md)
 - [API Basics](06_API_Basics_CN.md)
