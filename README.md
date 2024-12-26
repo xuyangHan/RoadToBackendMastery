@@ -54,11 +54,11 @@ Deep dives into object-oriented programming concepts and design patterns in C#.
 
 Explore essential data structures and algorithms with practical examples from LeetCode.
 
-- [Dictionary](Data_Structures_Algorithms/01_Dictionary_CN.md)
-- [Two Pointers and Sliding Windows](Data_Structures_Algorithms/02_TwoPointers_CN.md)
-- [Stack and Queue](Data_Structures_Algorithms/03_Stack_Queue_CN.md)
-- [DFS and BFS](Data_Structures_Algorithms/04_DFS_BFS_CN.md)
-- [Dynamic Programming](Data_Structures_Algorithms/05_DP_CN.md)
+- [Dictionary](Data_Structures_Algorithms/01_Dictionary.md)
+- [Two Pointers and Sliding Windows](Data_Structures_Algorithms/02_TwoPointers.md)
+- [Stack and Queue](Data_Structures_Algorithms/03_Stack_Queue.md)
+- [DFS and BFS](Data_Structures_Algorithms/04_DFS_BFS.md)
+- [Dynamic Programming](Data_Structures_Algorithms/05_DP.md)
 - [LinkedList, Tree and Graph](Data_Structures_Algorithms/06_LinkedList_Tree_Graph_CN.md)
 - [Bit Manipulation](Data_Structures_Algorithms/07_Bit_Manipulation_CN.md)
 - [Binary Search](Data_Structures_Algorithms/08_BinarySearch_CN.md)
