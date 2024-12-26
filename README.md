@@ -32,8 +32,8 @@ A step-by-step guide for aspiring backend developers, covering everything from i
 - [System Design Principles](Roadmap_Backend/13_System_Design_Principles.md)
 - [Container and Docker](Roadmap_Backend/14_Container.md)
 - [Web Server](Roadmap_Backend/15_Web_Server.md)
-- [ElasticSearch and Kibana](Roadmap_Backend/16_ElasticSearch_Kibana_CN.md)
-- [Web Security](Roadmap_Backend/17_Web_Security_CN.md)
+- [ElasticSearch and Kibana](Roadmap_Backend/16_ElasticSearch_Kibana.md)
+- [Web Security](Roadmap_Backend/17_Web_Security.md)
 - [Distributed Locks](Roadmap_Backend/18_Distributed_Locks.md)
 - ...
 
@@ -41,13 +41,13 @@ A step-by-step guide for aspiring backend developers, covering everything from i
 
 Deep dives into object-oriented programming concepts and design patterns in C#.
 
-- [C# Basics](Roadmap_Backend/02_CSharp_Basics_CN.md)
-- [OOP Basics](CSharp_OOP/01_OOP_Concepts_CN.md)
-- [OOP SOLID Design Principles](CSharp_OOP/02_OOP_SOLID_CN.md)
-- [Basic Creational Patterns](CSharp_OOP/03_Creational_1_CN.md)
-- [Advanced Creational Patterns](CSharp_OOP/04_Creational_2_CN.md)
-- [Structural Patterns](CSharp_OOP/05_Structural_CN.md)
-- [Behavioral Patterns](CSharp_OOP/06_Behavioral_CN.md)
+- [C# Basics](Roadmap_Backend/02_CSharp_Basics.md)
+- [OOP Basics](CSharp_OOP/01_OOP_Concepts.md)
+- [OOP SOLID Design Principles](CSharp_OOP/02_OOP_SOLID.md)
+- [Basic Creational Patterns](CSharp_OOP/03_Creational_1.md)
+- [Advanced Creational Patterns](CSharp_OOP/04_Creational_2.md)
+- [Structural Patterns](CSharp_OOP/05_Structural.md)
+- [Behavioral Patterns](CSharp_OOP/06_Behavioral.md)
 - ...
 
 ### 3. **Data Structures and Algorithms**
