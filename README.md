@@ -83,14 +83,14 @@ Practical tips and case studies from real-world programming experiences.
 - [Fix API Overload Issue](Industry_Experience/05_API_Overload.md)
 - [Swagger API Doc](Industry_Experience/06_Swagger_API_Doc.md)
 - [Database Connection Using Dapper](Industry_Experience/07_Dapper.md)
-- [Unix Time](Industry_Experience/08_UnixTime_CN.md)
-- [Protobuf](Industry_Experience/09_Protobuf_CN.md)
-- [MQTT](Industry_Experience/10_MQTT_CN.md)
-- [Timed Memorization](Industry_Experience/11_TimedMemorization_CN.md)
-- [Fix Database Overload Issue](Industry_Experience/12_Database_Overload_CN.md)
-- [Bokeh Responsive Visualizations](Industry_Experience/13_Bokeh_CN.md)
-- [Run Python From CSharp](Industry_Experience/14_RunPythonFromCSharp_CN.md)
-- [Well-Known Binary, WKB](Industry_Experience/15_WKB_CN.md)
+- [Unix Time](Industry_Experience/08_UnixTime.md)
+- [Protobuf](Industry_Experience/09_Protobuf.md)
+- [MQTT](Industry_Experience/10_MQTT.md)
+- [Timed Memorization](Industry_Experience/11_TimedMemorization.md)
+- [Fix Database Overload Issue](Industry_Experience/12_Database_Overload.md)
+- [Bokeh Responsive Visualizations](Industry_Experience/13_Bokeh.md)
+- [Run Python From CSharp](Industry_Experience/14_RunPythonFromCSharp.md)
+- [Well-Known Binary, WKB](Industry_Experience/15_WKB.md)
 - ...
 
 ---
