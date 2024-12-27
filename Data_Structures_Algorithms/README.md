@@ -17,9 +17,9 @@ Master the foundations of computer science with this series. Each article featur
 - [PrefixSum](11_PrefixSum.md)
 - [Trie](12_Trie.md)
 - [A* Algorithm](13_A_Star.md)
-- [Intervals](14_Intervals_CN.md)
-- [Monotonic Stacks](15_Monotonic_Stacks_CN.md)
-- [Backtracking](16_Backtracking_CN.md)
+- [Intervals](14_Intervals.md)
+- [Monotonic Stacks](15_Monotonic_Stacks.md)
+- [Backtracking](16_Backtracking.md)
 - ...
 
 ## ✨ Key Highlights

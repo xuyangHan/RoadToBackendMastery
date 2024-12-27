@@ -67,9 +67,9 @@ Explore essential data structures and algorithms with practical examples from Le
 - [PrefixSum](Data_Structures_Algorithms/11_PrefixSum.md)
 - [Trie](Data_Structures_Algorithms/12_Trie.md)
 - [A* Algorithm](Data_Structures_Algorithms/13_A_Star.md)
-- [Intervals](Data_Structures_Algorithms/14_Intervals_CN.md)
-- [Monotonic Stacks](Data_Structures_Algorithms/15_Monotonic_Stacks_CN.md)
-- [Backtracking](Data_Structures_Algorithms/16_Backtracking_CN.md)
+- [Intervals](Data_Structures_Algorithms/14_Intervals.md)
+- [Monotonic Stacks](Data_Structures_Algorithms/15_Monotonic_Stacks.md)
+- [Backtracking](Data_Structures_Algorithms/16_Backtracking.md)
 - ...
 
 ### 4. **Industry Experience**
