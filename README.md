@@ -76,8 +76,8 @@ Explore essential data structures and algorithms with practical examples from Le
 
 Practical tips and case studies from real-world programming experiences.
 
-- [Coding Standard](Industry_Experience/01_Code_Standard_CN.md)
-- [Modulized API Strategy](Industry_Experience/02_API_Structure_CN.md)
+- [Coding Standard](Industry_Experience/01_Code_Standard.md)
+- [Modulized API Strategy](Industry_Experience/02_API_Structure.md)
 - [Linq](Industry_Experience/03_Linq_CN.md)
 - [API Optimization](Industry_Experience/04_API_Optimization_CN.md)
 - [Fix API Overload Issue](Industry_Experience/05_API_Overload_CN.md)

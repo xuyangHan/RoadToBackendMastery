@@ -4,8 +4,8 @@ Learn from real-world programming scenarios and challenges. This series shares p
 
 ## 📂 Articles in This Series
 
-- [Coding Standard](01_Code_Standard_CN.md)
-- [Modulized API Strategy](02_API_Structure_CN.md)
+- [Coding Standard](01_Code_Standard.md)
+- [Modulized API Strategy](02_API_Structure.md)
 - [Linq](03_Linq_CN.md)
 - [API Optimization](04_API_Optimization_CN.md)
 - [Fix API Overload Issue](05_API_Overload_CN.md)
