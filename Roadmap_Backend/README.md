@@ -22,6 +22,7 @@ This series is a step-by-step guide designed to help you become a backend progra
 - [ElasticSearch and Kibana](16_ElasticSearch_Kibana.md)
 - [Web Security](17_Web_Security.md)
 - [Distributed Locks](18_Distributed_Locks.md)
+- [Real-Time Data](19_Real_Time_Data.md)
 - ...
 
 ## ✨ Key Highlights
