@@ -1,4 +1,4 @@
-# RoadToBackendMastery by Xuyang
+# Road To Backend Mastery
 
 Welcome to my tech blog repository! This is a comprehensive guide for beginners and intermediates to master backend programming. This repository features a rich collection of tutorials, practical examples, and real-world experiences, organized into well-defined series:
 
@@ -110,7 +110,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 ---
 
-# **后端开发大师进阶之路** by Xuyang
+# **后端开发大师进阶之路**
 
 欢迎来到我的技术博客仓库！本仓库为初学者和中级开发者提供一条清晰的路线，帮助你掌握后端开发技能。这里包含丰富的教程、实用示例和真实的开发经验，分为以下几个系列：
 
