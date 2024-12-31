@@ -36,6 +36,7 @@ A step-by-step guide for aspiring backend developers, covering everything from i
 - [Web Security](Roadmap_Backend/17_Web_Security.md)
 - [Distributed Locks](Roadmap_Backend/18_Distributed_Locks.md)
 - [Real-Time Data](Roadmap_Backend/19_Real_Time_Data.md)
+- [Build For Scaling](Roadmap_Backend/20_BuildForScaling.md)
 - ...
 
 ### 2. **C# OOP (Basics and Design Patterns)**
@@ -148,6 +149,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [Web 安全](Roadmap_Backend/17_Web_Security_CN.md)
 - [分布式锁](Roadmap_Backend/18_Distributed_Locks_CN.md)
 - [实时数据](Roadmap_Backend/19_Real_Time_Data_CN.md)
+- [构建可扩展系统](Roadmap_Backend/20_BuildForScaling.md)
 - ...
 
 ### 2. **C# 面向对象编程（基础与设计模式）**
