@@ -95,6 +95,19 @@ Practical tips and case studies from real-world programming experiences.
 - [Well-Known Binary, WKB](Industry_Experience/15_WKB.md)
 - ...
 
+### 5. **System Design**
+
+A step-by-step guide for aspiring backend developers, covering everything from system design basics to practical interview questions.
+
+- [Typical production app architectures](System_Design/01.md)
+- [Design requirements and principles](System_Design/02.md)
+- [Architectural design patterns](System_Design/03.md)
+- [API design](System_Design/04.md)
+- [Database design](System_Design/05.md)
+- [Proxy servers and load balancers](System_Design/06.md)
+- [Docker and containerization](System_Design/07.md)
+- [Mock interview: How to design a TikTok-like app](System_Design/08.md)
+
 ---
 
 ## 📂 How to Use This Repository
