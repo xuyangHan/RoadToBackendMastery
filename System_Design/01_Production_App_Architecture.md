@@ -80,7 +80,7 @@ This workflow ensures that changes are deployed safely and efficiently without d
 
 Below is a visual representation of the architecture, showing the flow of a client request through the system and the roles of each component:
 
-![production_app_architecture.png](../assets/images/system design/production_app_architecture.png)
+![production_app_architecture.png](../assets/images/system_design/production_app_architecture.png)
 
 ---
 

@@ -80,7 +80,7 @@
 
 下方是架构的可视化表示，展示了客户端请求通过系统的流程以及各组件的角色：
 
-![production_app_architecture.png](../assets/images/system design/production_app_architecture.png)
+![production_app_architecture.png](../assets/images/system_design/production_app_architecture.png)
 
 ---
 
