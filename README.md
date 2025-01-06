@@ -50,7 +50,7 @@ Deep dives into object-oriented programming concepts and design patterns in C#.
 - [Advanced Creational Patterns](CSharp_OOP/04_Creational_2.md)
 - [Structural Patterns](CSharp_OOP/05_Structural.md)
 - [Behavioral Patterns](CSharp_OOP/06_Behavioral.md)
-- ...
+- [OOP Mock Interview](CSharp_OOP/07_OOP_Mock_Interview.md)
 
 ### 3. **Data Structures and Algorithms**
 
@@ -176,7 +176,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [高级创建型设计模式](CSharp_OOP/04_Creational_2_CN.md)
 - [结构型设计模式](CSharp_OOP/05_Structural_CN.md)
 - [行为型设计模式](CSharp_OOP/06_Behavioral_CN.md)
-- ...
+- [面向对象(OOP)设计模拟面试](CSharp_OOP/07_OOP_Mock_Interview_CN.md)
 
 ### 3. **数据结构与算法**
 

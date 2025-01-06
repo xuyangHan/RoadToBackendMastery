@@ -11,7 +11,7 @@ Dive into the world of object-oriented programming with C#. This series covers e
 - [Advanced Creational Patterns](04_Creational_2.md)
 - [Structural Patterns](05_Structural.md)
 - [Behavioral Patterns](06_Behavioral.md)
-- ...
+- [OOP Mock Interview](07_OOP_Mock_Interview.md)
 
 ## ✨ Key Highlights
 
