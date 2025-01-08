@@ -99,8 +99,8 @@ Practical tips and case studies from real-world programming experiences.
 
 A step-by-step guide for aspiring backend developers, covering everything from system design basics to practical interview questions.
 
-- [Typical production app architectures](System_Design/01_Production_App_Architecture.md)
-- [Design requirements and principles](System_Design/02.md)
+- [Typical Production App Architectures](System_Design/01_Production_App_Architecture.md)
+- [Design Requirements and Principles](System_Design/02_System_Design_Requirements.md)
 - [Architectural design patterns](System_Design/03.md)
 - [API design](System_Design/04.md)
 - [Database design](System_Design/05.md)
@@ -227,8 +227,8 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 为有志成为系统架构师的人提供逐步指导，涵盖从系统设计基础到实战的各个知识点。
 
-- [Typical production app architectures](System_Design/01_Production_App_Architecture_CN.md)
-- [Design requirements and principles](System_Design/02.md)
+- [典型的生产应用架构](System_Design/01_Production_App_Architecture_CN.md)
+- [系统设计中的需求与原则](System_Design/02_System_Design_Requirements_CN.md)
 - [Architectural design patterns](System_Design/03.md)
 - [API design](System_Design/04.md)
 - [Database design](System_Design/05.md)

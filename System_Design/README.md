@@ -34,8 +34,8 @@ This series is designed for:
 
 Each post in this series will cover one specific topic, building upon the knowledge from previous posts. Here's a sneak peek at the roadmap:
 
-- [Typical production app architectures](01_Production_App_Architecture.md)
-- [Design requirements and principles](02.md)
+- [Typical Production App Architectures](01_Production_App_Architecture.md)
+- [Design Requirements and Principles](02_System_Design_Requirements.md)
 - [Architectural design patterns](03.md)
 - [API design](04.md)
 - [Database design](05.md)
