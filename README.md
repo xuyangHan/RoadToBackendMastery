@@ -229,7 +229,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 - [典型的生产应用架构](System_Design/01_Production_App_Architecture_CN.md)
 - [系统设计中的需求与原则](System_Design/02_System_Design_Requirements_CN.md)
-- [系统架构设计模式](System_Design/03_Architectural_Design_Patterns.md)
+- [系统架构设计模式](System_Design/03_Architectural_Design_Patterns_CN.md)
 - [API design](System_Design/04.md)
 - [Database design](System_Design/05.md)
 - [Proxy servers and load balancers](System_Design/06.md)
