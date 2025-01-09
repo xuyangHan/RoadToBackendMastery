@@ -36,7 +36,7 @@ Each post in this series will cover one specific topic, building upon the knowle
 
 - [Typical Production App Architectures](01_Production_App_Architecture.md)
 - [Design Requirements and Principles](02_System_Design_Requirements.md)
-- [Architectural design patterns](03.md)
+- [Architectural Design Patterns](03_Architectural_Design_Patterns.md)
 - [API design](04.md)
 - [Database design](05.md)
 - [Proxy servers and load balancers](06.md)
