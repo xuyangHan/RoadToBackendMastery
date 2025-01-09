@@ -18,7 +18,7 @@
 
 分层架构（Layered Architecture），又称n层架构，将系统组织成多个层级，例如表示层、业务逻辑层和数据访问层，从而实现关注点分离。
 
-想深入了解如何通过分层架构设置API，可参考我的上一篇文章：[分层项目中的API设计](../Industry_Experience/02_API_Structure.md)。
+想深入了解如何通过分层架构设置API，可参考我的上一篇文章：[分层项目中的API设计](../Industry_Experience/02_API_Structure_CN.md)。
 
 ![layered_Architecture.png](../assets/images/system_design/layered_Architecture.png)
 
@@ -53,7 +53,7 @@
 
 微服务架构（Microservices Architecture）将系统划分为小型、独立可部署的服务。每个服务专注于特定的业务功能，通过API与其他服务通信。
 
-有关微服务的深入探讨，请参考我的上一篇文章：[理解架构设计模式](../Roadmap_Backend/12_Architectural_Patterns.md)。
+有关微服务的深入探讨，请参考我的上一篇文章：[理解架构设计模式](../Roadmap_Backend/12_Architectural_Patterns_CN.md)。
 
 ### **2.4 事件驱动架构**
 
@@ -85,13 +85,13 @@
 
 无服务器架构（Serverless Architecture）抽象了基础设施管理，允许开发者专注于编写代码。云服务提供商负责资源的配置、扩展和维护。
 
-有关无服务器系统的详细信息，请参阅我的文章：[理解架构设计模式](../Roadmap_Backend/12_Architectural_Patterns.md)。
+有关无服务器系统的详细信息，请参阅我的文章：[理解架构设计模式](../Roadmap_Backend/12_Architectural_Patterns_CN.md)。
 
 ### **2.6 单体架构**
 
 单体架构（Monolithic Architecture）将系统的所有组件整合到单一代码库中。尽管开发和部署较为简单，但随着系统的增长，其扩展性和维护性会变得更加困难。
 
-有关单体系统的详细分析，请参考我的文章：[理解架构设计模式](../Roadmap_Backend/12_Architectural_Patterns.md)。
+有关单体系统的详细分析，请参考我的文章：[理解架构设计模式](../Roadmap_Backend/12_Architectural_Patterns_CN.md)。
 
 ### **2.7 点对点架构**
 
