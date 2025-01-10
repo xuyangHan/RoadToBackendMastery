@@ -521,7 +521,7 @@ Proper documentation is essential for making your API easy to understand and int
 
 Proper API versioning and documentation enhance the developer experience, provide structured guidance for consuming your service, and ensure compatibility as the API evolves.
 
-For a detailed guide on setting up Swagger for .NET Core, including both automatic and manual configuration options, make sure to check out [my previous article](../Industry_Experience/06_Swagger_API_Doc_EN.md).
+For a detailed guide on setting up Swagger for .NET Core, including both automatic and manual configuration options, make sure to check out [my previous article](../Industry_Experience/06_Swagger_API_Doc.md).
 
 ---
 

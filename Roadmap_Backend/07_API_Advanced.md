@@ -107,14 +107,14 @@ Understanding both foundational and advanced concepts in API design can signific
 
 In previous articles, I discussed various strategies for improving API efficiency and managing database-related issues. Here's a quick recap:
 
-- [**API Optimization**](../Industry_Experience/05_API_Overload_CN.md):
+- [**API Optimization**](../Industry_Experience/05_API_Overload.md):
   - **Batch Data Access/Insertion**: Minimize multiple calls by sending batch data wherever possible.
   - **Caching**: Store frequently accessed data in memory to reduce database queries.
   - **Optimizing SQL/Database Tables**: Optimize queries and indexes for faster execution.
   - **Asynchronous Programming and Multithreading**: Improve performance through concurrent task handling.
   - **Callbacks for Long-Running Tasks**: Use callbacks or webhooks to manage time-consuming operations.
 
-- [**Solving Database Overload in API-Driven Applications**](../Industry_Experience/04_API_Optimization_CN.md):
+- [**Solving Database Overload in API-Driven Applications**](../Industry_Experience/04_API_Optimization.md):
   - **Logging**: Track API requests and performance to identify bottlenecks.
   - **Authentication**: Implement secure, optimized authentication mechanisms to reduce processing overhead.
   - **Rate Limiting**: Protect the backend by limiting API usage per user.
