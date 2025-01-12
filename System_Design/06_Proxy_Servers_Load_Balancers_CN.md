@@ -14,6 +14,8 @@
 
 **代理服务器**是一种系统组件，它在客户端和服务器之间充当中介，路由请求和响应，同时提供额外功能，如缓存、访问控制和安全性。在系统架构中，代理服务器主要分为两种类型，每种类型在架构中扮演不同角色：
 
+![forward_proxy_vs_reverse_proxy-f.png](../assets/images/system_design/forward_proxy_vs_reverse_proxy-f.png)
+
 ### **代理服务器的类型**
 
 1. **正向代理（Forward Proxy）**  
@@ -52,6 +54,8 @@
 ## **3. 什么是负载均衡器？**
 
 **负载均衡器**是系统架构中的关键组件，用于将传入的网络流量分配到多个服务器上，以确保单个服务器不会超载。它充当“流量管理器”，通过有效地平衡负载来提高系统的可靠性、可扩展性和性能。在高流量应用中，负载均衡器尤为重要，能够确保服务不中断并提供容错能力。
+
+![load_balancer.jpeg](../assets/images/system_design/load_balancer.jpeg)
 
 ### **负载均衡器的类型**
 
@@ -121,6 +125,8 @@
 ---
 
 ## **5. 反向代理与负载均衡器**
+
+![ProxyServer_vs_LoadBalancer.jpg](../assets/images/system_design/ProxyServer_vs_LoadBalancer.jpg)
 
 ### **关键差异与重叠**
 

@@ -14,6 +14,8 @@ Their importance extends beyond practical implementations, as understanding thes
 
 A **proxy server** is a system component that acts as an intermediary between clients and servers, routing requests and responses while providing additional functionalities such as caching, access control, and security. Proxy servers come in two primary types, each serving distinct purposes in system architecture:
 
+![forward_proxy_vs_reverse_proxy-f.png](../assets/images/system_design/forward_proxy_vs_reverse_proxy-f.png)
+
 ### **Types of Proxy Servers**
 
 1. **Forward Proxy**  
@@ -52,6 +54,8 @@ While proxy servers offer numerous benefits, they also come with challenges:
 ## **3. What is a Load Balancer?**
 
 A **load balancer** is a crucial component in system architecture that distributes incoming network traffic across multiple servers to ensure no single server is overwhelmed. It acts as the “traffic manager,” improving system reliability, scalability, and performance by balancing the load effectively. Load balancers are especially critical in high-traffic applications where uninterrupted service and fault tolerance are essential.
+
+![load_balancer.jpeg](../assets/images/system_design/load_balancer.jpeg)
 
 ### **Types of Load Balancers**
 
@@ -121,6 +125,8 @@ Each algorithm has its strengths and weaknesses, and the choice depends on the s
 ---
 
 ## **5. Reverse Proxy vs. Load Balancer**
+
+![ProxyServer_vs_LoadBalancer.jpg](../assets/images/system_design/ProxyServer_vs_LoadBalancer.jpg)
 
 ### **Key Differences and Overlap**
 
