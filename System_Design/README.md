@@ -39,8 +39,7 @@ Each post in this series will cover one specific topic, building upon the knowle
 - [Architectural Design Patterns](03_Architectural_Design_Patterns.md)
 - [API Design](04_API_Design.md)
 - [Database Design](05_Database_Design.md)
-- [Proxy servers and load balancers](06.md)
-- [Docker and containerization](07.md)
+- [Proxy Servers and Load Balancers](06_Proxy_Servers_Load_Balancers.md)
 - [Mock interview: How to design a TikTok-like app](08.md)
 
 ...and much more!

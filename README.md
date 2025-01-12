@@ -104,8 +104,7 @@ A step-by-step guide for aspiring backend developers, covering everything from s
 - [Architectural Design Patterns](System_Design/03_Architectural_Design_Patterns.md)
 - [API Design](System_Design/04_API_Design.md)
 - [Database Design](System_Design/05_Database_Design.md)
-- [Proxy servers and load balancers](System_Design/06.md)
-- [Docker and containerization](System_Design/07.md)
+- [Proxy Servers and Load Balancers](System_Design/06_Proxy_Servers_Load_Balancers.md)
 - [Mock interview: How to design a TikTok-like app](System_Design/08.md)
 
 ---
@@ -232,8 +231,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [系统架构设计模式](System_Design/03_Architectural_Design_Patterns_CN.md)
 - [API 设计](System_Design/04_API_Design_CN.md)
 - [数据库设计](System_Design/05_Database_Design_CN.md)
-- [Proxy servers and load balancers](System_Design/06.md)
-- [Docker and containerization](System_Design/07.md)
+- [代理服务器和负载均衡](System_Design/06_Proxy_Servers_Load_Balancers.md)
 - [Mock interview: How to design a TikTok-like app](System_Design/08.md)
 
 ## 📂 **如何使用本仓库**
