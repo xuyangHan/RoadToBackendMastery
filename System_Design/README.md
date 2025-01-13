@@ -40,9 +40,7 @@ Each post in this series will cover one specific topic, building upon the knowle
 - [API Design](04_API_Design.md)
 - [Database Design](05_Database_Design.md)
 - [Proxy Servers and Load Balancers](06_Proxy_Servers_Load_Balancers.md)
-- [Mock interview: How to design a TikTok-like app](08.md)
-
-...and much more!
+- [Mock interview: How to Design an eBook Reader App](07_SystemDesign_Mock_Interview.md)
 
 ## Stay Tuned
 

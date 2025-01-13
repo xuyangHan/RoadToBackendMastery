@@ -24,7 +24,6 @@ This series is a step-by-step guide designed to help you become a backend progra
 - [Distributed Locks](18_Distributed_Locks.md)
 - [Real-Time Data](19_Real_Time_Data.md)
 - [Build For Scaling](20_BuildForScaling.md)
-- ...
 
 ## ✨ Key Highlights
 

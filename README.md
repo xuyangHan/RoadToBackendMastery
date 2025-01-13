@@ -105,7 +105,7 @@ A step-by-step guide for aspiring backend developers, covering everything from s
 - [API Design](System_Design/04_API_Design.md)
 - [Database Design](System_Design/05_Database_Design.md)
 - [Proxy Servers and Load Balancers](System_Design/06_Proxy_Servers_Load_Balancers.md)
-- [Mock interview: How to design a TikTok-like app](System_Design/08.md)
+- [Mock interview: How to Design an eBook Reader App](System_Design/07_SystemDesign_Mock_Interview.md)
 
 ---
 
@@ -232,7 +232,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [API 设计](System_Design/04_API_Design_CN.md)
 - [数据库设计](System_Design/05_Database_Design_CN.md)
 - [代理服务器和负载均衡](System_Design/06_Proxy_Servers_Load_Balancers_CN.md)
-- [Mock interview: How to design a TikTok-like app](System_Design/08.md)
+- [模拟面试：如何设计一款电子书阅读器应用](System_Design/07_SystemDesign_Mock_Interview_CN.md)
 
 ## 📂 **如何使用本仓库**
 
