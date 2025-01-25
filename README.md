@@ -2,12 +2,14 @@
 
 Welcome to my tech blog repository! This is a comprehensive guide for beginners and intermediates to master backend programming. This repository features a rich collection of tutorials, practical examples, and real-world experiences, organized into well-defined series:
 
-- **Roadmap to Backend Programming Mastery**: Step-by-step guidance from internet basics to advanced database management.
-- **C# OOP and Design Patterns**: Learn object-oriented programming concepts and implement design patterns in C#.
-- **Data Structures and Algorithms**: Explore essential concepts with practical examples using LeetCode problems.
-- **Industry Experiences**: Insights and solutions for real-world programming challenges, such as optimizing APIs and implementing caching strategies.
+- **Roadmap to Backend Programming Mastery**: Step-by-step guidance, from internet basics to advanced database management.  
+- **C# OOP and Design Patterns**: Learn object-oriented programming concepts and implement design patterns in C#.  
+- **Data Structures and Algorithms**: Explore essential concepts with practical examples using LeetCode problems.  
+- **Industry Experiences**: Insights and solutions for real-world programming challenges, such as optimizing APIs and implementing caching strategies.  
+- **System Design**: Comprehensive coverage, from system design fundamentals to solving practical system design interview questions.  
+- **Interview Preparation Guide**: A complete series to help you ace backend programming interviews. Includes behavioral questions, C# concepts, and database interview challenges.  
 
-Future additions will include interview tips and beginner-friendly C# and SQL tutorials. Whether you're just starting your programming journey or sharpening your backend skills, this repository has something for everyone.
+Future additions will include interview tips and beginner-friendly C# and SQL tutorials. Whether you're just starting your programming journey or sharpening your backend skills, this repository has something for everyone. 🚀
 
 ---
 
@@ -17,6 +19,7 @@ Future additions will include interview tips and beginner-friendly C# and SQL tu
 
 A step-by-step guide for aspiring backend developers, covering everything from internet basics to advanced database management.
 
+- [Series Overview](Roadmap_Backend/README.md)
 - [Internet](Roadmap_Backend/01_Internet.md)
 - [C# Basics](Roadmap_Backend/02_CSharp_Basics.md)
 - [Git and CI/CD](Roadmap_Backend/03_Git_CICD.md)
@@ -43,6 +46,7 @@ A step-by-step guide for aspiring backend developers, covering everything from i
 
 Deep dives into object-oriented programming concepts and design patterns in C#.
 
+- [Series Overview](CSharp_OOP/README.md)
 - [C# Basics](Roadmap_Backend/02_CSharp_Basics.md)
 - [OOP Basics](CSharp_OOP/01_OOP_Concepts.md)
 - [OOP SOLID Design Principles](CSharp_OOP/02_OOP_SOLID.md)
@@ -56,6 +60,7 @@ Deep dives into object-oriented programming concepts and design patterns in C#.
 
 Explore essential data structures and algorithms with practical examples from LeetCode.
 
+- [Series Overview](Data_Structures_Algorithms/README.md)
 - [Dictionary](Data_Structures_Algorithms/01_Dictionary.md)
 - [Two Pointers and Sliding Windows](Data_Structures_Algorithms/02_TwoPointers.md)
 - [Stack and Queue](Data_Structures_Algorithms/03_Stack_Queue.md)
@@ -78,6 +83,7 @@ Explore essential data structures and algorithms with practical examples from Le
 
 Practical tips and case studies from real-world programming experiences.
 
+- [Series Overview](Industry_Experience/README.md)
 - [Coding Standard](Industry_Experience/01_Code_Standard.md)
 - [Modulized API Strategy](Industry_Experience/02_API_Structure.md)
 - [Linq](Industry_Experience/03_Linq.md)
@@ -99,6 +105,7 @@ Practical tips and case studies from real-world programming experiences.
 
 A step-by-step guide for aspiring backend developers, covering everything from system design basics to practical interview questions.
 
+- [Series Overview](System_Design/README.md)
 - [Typical Production App Architectures](System_Design/01_Production_App_Architecture.md)
 - [Design Requirements and Principles](System_Design/02_System_Design_Requirements.md)
 - [Architectural Design Patterns](System_Design/03_Architectural_Design_Patterns.md)
@@ -106,6 +113,14 @@ A step-by-step guide for aspiring backend developers, covering everything from s
 - [Database Design](System_Design/05_Database_Design.md)
 - [Proxy Servers and Load Balancers](System_Design/06_Proxy_Servers_Load_Balancers.md)
 - [Mock interview: How to Design an eBook Reader App](System_Design/07_SystemDesign_Mock_Interview.md)
+
+### 6. **Interview Preparation Guide**
+
+This series is a step-by-step guide designed to help you crack backend programming interview. From behavior questions to C# and database interview questions, you'll find everything you need to know.
+
+- [Series Overview](Interview_Questions/README.md)
+- [Behavior Questions](Interview_Questions/Behavior_Questions.md)
+- [DBMS Questions](Interview_Questions/DBMS_Questions.md)
 
 ---
 
@@ -127,10 +142,12 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 欢迎来到我的技术博客仓库！本仓库为初学者和中级开发者提供一条清晰的路线，帮助你掌握后端开发技能。这里包含丰富的教程、实用示例和真实的开发经验，分为以下几个系列：
 
-- **后端开发进阶路线图**：从互联网基础到高级数据库管理的逐步指导。
-- **C# 面向对象编程与设计模式**：学习面向对象编程概念，并在 C# 中实现设计模式。
-- **数据结构与算法**：结合 LeetCode 问题，通过实际示例掌握核心概念。
-- **行业实战经验**：提供实际编程挑战的解决方案，例如优化 API 性能和实现缓存策略等。
+- **后端编程掌握路线图**：从互联网基础到高级数据库管理的逐步指导。  
+- **C# 面向对象编程与设计模式**：学习面向对象编程的核心概念，并用 C# 实现常用设计模式。  
+- **数据结构与算法**：通过 LeetCode 问题实践，深入探索关键概念与实用案例。  
+- **行业经验分享**：解决真实编程挑战的见解与方案，例如优化 API 和实现缓存策略。  
+- **系统设计**：全面覆盖，从系统设计基础知识到解决实际的系统设计面试问题。  
+- **面试准备指南**：一套完整的系列，帮助你成功通过后端编程面试。包括行为问题、C# 概念和数据库面试技巧。  
 
 未来还将添加面试技巧以及面向初学者的 C# 和 SQL 教程。无论你是刚开始编程之旅，还是正在提升后端技能，这里都有适合你的内容。
 
@@ -142,6 +159,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 为有志成为后端开发者的人提供逐步指导，涵盖从互联网基础到高级数据库管理的各个知识点。
 
+- [Series Overview](Roadmap_Backend/README.md)
 - [互联网如何工作](Roadmap_Backend/01_Internet_CN.md)
 - [C#基础](Roadmap_Backend/02_CSharp_Basics_CN.md)
 - [Git 和 CI/CD](Roadmap_Backend/03_Git_CICD_CN.md)
@@ -168,6 +186,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 深入学习面向对象编程概念，并在 C# 中实现设计模式。
 
+- [Series Overview](CSharp_OOP/README.md)
 - [C#基础](Roadmap_Backend/02_CSharp_Basics_CN.md)
 - [面向对象编程基础](CSharp_OOP/01_OOP_Concepts_CN.md)
 - [面向对象 SOLID 设计原则](CSharp_OOP/02_OOP_SOLID_CN.md)
@@ -181,6 +200,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 结合 LeetCode 问题，通过实际示例掌握数据结构与算法的核心知识。
 
+- [Series Overview](Data_Structures_Algorithms/README.md)
 - [字典](Data_Structures_Algorithms/01_Dictionary_CN.md)
 - [双指针与滑动窗口](Data_Structures_Algorithms/02_TwoPointers_CN.md)
 - [栈和队列](Data_Structures_Algorithms/03_Stack_Queue_CN.md)
@@ -203,6 +223,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 分享实际开发中的技巧与案例分析。
 
+- [Series Overview](Industry_Experience/README.md)
 - [代码规范](Industry_Experience/01_Code_Standard_CN.md)
 - [模块化 API 策略](Industry_Experience/02_API_Structure_CN.md)
 - [Linq 优化代码](Industry_Experience/03_Linq_CN.md)
@@ -226,6 +247,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 为有志成为系统架构师的人提供逐步指导，涵盖从系统设计基础到实战的各个知识点。
 
+- [Series Overview](System_Design/README.md)
 - [典型的生产应用架构](System_Design/01_Production_App_Architecture_CN.md)
 - [系统设计中的需求与原则](System_Design/02_System_Design_Requirements_CN.md)
 - [系统架构设计模式](System_Design/03_Architectural_Design_Patterns_CN.md)
@@ -233,6 +255,14 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [数据库设计](System_Design/05_Database_Design_CN.md)
 - [代理服务器和负载均衡](System_Design/06_Proxy_Servers_Load_Balancers_CN.md)
 - [模拟面试：如何设计一款电子书阅读器应用](System_Design/07_SystemDesign_Mock_Interview_CN.md)
+
+### 6. **面试准备指南**
+
+这个系列是帮助你成功通过后端编程面试的逐步指导。从行为面试问题到 C# 和数据库相关问题，你可以在这里找到所有需要的内容。
+
+- [Series Overview](Interview_Questions/README.md)
+- [行为面试问题](Interview_Questions/Behavior_Questions_CN.md)  
+- [数据库管理系统（DBMS）问题](Interview_Questions/DBMS_Questions_CN.md)  
 
 ## 📂 **如何使用本仓库**
 
