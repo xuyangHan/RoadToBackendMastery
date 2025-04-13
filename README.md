@@ -77,7 +77,8 @@ Explore essential data structures and algorithms with practical examples from Le
 - [Intervals](Data_Structures_Algorithms/14_Intervals.md)
 - [Monotonic Stacks](Data_Structures_Algorithms/15_Monotonic_Stacks.md)
 - [Backtracking](Data_Structures_Algorithms/16_Backtracking.md)
-- [Sweep Line](Data_Structures_Algorithms/17_SweepLine.md)
+- [Sweep Line Algorithm](Data_Structures_Algorithms/17_SweepLine.md)
+- [Greedy Algorithm](Data_Structures_Algorithms/18_Greedy.md)
 - ...
 
 ### 4. **Industry Experience**
@@ -220,6 +221,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [单调栈](Data_Structures_Algorithms/15_Monotonic_Stacks_CN.md)
 - [回溯算法](Data_Structures_Algorithms/16_Backtracking_CN.md)
 - [扫描线算法](Data_Structures_Algorithms/17_SweepLine_CN.md)
+- [贪心算法](Data_Structures_Algorithms/18_Greedy_CN.md)
 - ...
 
 ### 4. **行业实战经验**

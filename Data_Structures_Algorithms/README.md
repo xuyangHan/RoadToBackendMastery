@@ -20,7 +20,8 @@ Master the foundations of computer science with this series. Each article featur
 - [Intervals](14_Intervals.md)
 - [Monotonic Stacks](15_Monotonic_Stacks.md)
 - [Backtracking](16_Backtracking.md)
-- [Sweep Line](17_SweepLine.md)
+- [Sweep Line Algorithm](17_SweepLine.md)
+- [Greedy Algorithm](18_Greedy.md)
 - ...
 
 ## ✨ Key Highlights
