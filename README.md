@@ -101,6 +101,7 @@ Practical tips and case studies from real-world programming experiences.
 - [Bokeh Responsive Visualizations](Industry_Experience/13_Bokeh.md)
 - [Run Python From CSharp](Industry_Experience/14_RunPythonFromCSharp.md)
 - [Well-Known Binary, WKB](Industry_Experience/15_WKB.md)
+- [Regular Expression](Industry_Experience/16_Regex.md)
 - ...
 
 ### 5. **System Design**
@@ -244,6 +245,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [Bokeh 交互式可视化](Industry_Experience/13_Bokeh_CN.md)
 - [从C#触发Python代码](Industry_Experience/14_RunPythonFromCSharp_CN.md)
 - [知名二进制(WKB)](Industry_Experience/15_WKB_CN.md)
+- [正则表达式(Regex)](Industry_Experience/16_Regex_CN.md)
 - ...
 
 ---

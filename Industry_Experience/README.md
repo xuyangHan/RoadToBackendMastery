@@ -19,6 +19,7 @@ Learn from real-world programming scenarios and challenges. This series shares p
 - [Bokeh Responsive Visualizations](13_Bokeh.md)
 - [Run Python From CSharp](14_RunPythonFromCSharp.md)
 - [Well-Known Binary, WKB](15_WKB.md)
+- [Regular Expression](16_Regex.md)
 - ...
 
 ## ✨ Key Highlights
