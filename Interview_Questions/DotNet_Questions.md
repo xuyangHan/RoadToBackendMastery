@@ -413,26 +413,3 @@ void ModifyOut(out int value) => value = 20;
 
 Use `ref` when the input value needs to be modified, and `out` when only the result matters.
 
----
-
-### Question 19. Your friend asks: “Please go to the store to pick up a loaf of bread. If they have eggs, get a dozen.” How would you interpret and execute this request as a software developer?
-
-**Answer:**  
-The request implies conditional logic:  
-
-1. Check if the store has eggs.  
-2. If true, buy a dozen eggs and a loaf of bread.  
-3. If false, buy only the bread.  
-This mimics basic `if-else` logic in programming:  
-
-```csharp
-if (Store.HasEggs)  
-{  
-    Buy("Bread");  
-    Buy("Eggs", 12);  
-}  
-else  
-{  
-    Buy("Bread");  
-}
-```
