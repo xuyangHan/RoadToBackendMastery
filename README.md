@@ -6,7 +6,8 @@ Welcome to my tech blog repository! This is a comprehensive guide for beginners 
 - **C# OOP and Design Patterns**: Learn object-oriented programming concepts and implement design patterns in C#.  
 - **Data Structures and Algorithms**: Explore essential concepts with practical examples using LeetCode problems.  
 - **Industry Experiences**: Insights and solutions for real-world programming challenges, such as optimizing APIs and implementing caching strategies.  
-- **System Design**: Comprehensive coverage, from system design fundamentals to solving practical system design interview questions.  
+- **System Design**: Comprehensive coverage, from system design fundamentals to solving practical system design interview questions. 
+- **Roadmap to DevOps Mastery**: Step-by-step guide designed to help you build strong DevOps skills.  
 - **Interview Preparation Guide**: A complete series to help you ace backend programming interviews. Includes behavioral questions, C# concepts, and database interview challenges.  
 
 Future additions will include interview tips and beginner-friendly C# and SQL tutorials. Whether you're just starting your programming journey or sharpening your backend skills, this repository has something for everyone. 🚀
@@ -118,7 +119,14 @@ A step-by-step guide for aspiring backend developers, covering everything from s
 - [Proxy Servers and Load Balancers](System_Design/06_Proxy_Servers_Load_Balancers.md)
 - [Mock interview: How to Design an eBook Reader App](System_Design/07_SystemDesign_Mock_Interview.md)
 
-### 6. **Interview Preparation Guide**
+### 6. **Roadmap to DevOps Mastery**
+
+This series is a step-by-step guide designed to help you build strong DevOps skills.  
+From Linux fundamentals to advanced cloud automation, this roadmap will walk through the essential tools, practices, and concepts every DevOps engineer should know.  
+
+- [Linux Foundations for DevOps (Part 1)](01_Linux_Basics.md)
+
+### 7. **Interview Preparation Guide**
 
 This series is a step-by-step guide designed to help you crack backend programming interview. From behavior questions to C# and database interview questions, you'll find everything you need to know.
 
@@ -265,7 +273,14 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [代理服务器和负载均衡](System_Design/06_Proxy_Servers_Load_Balancers_CN.md)
 - [模拟面试：如何设计一款电子书阅读器应用](System_Design/07_SystemDesign_Mock_Interview_CN.md)
 
-### 6. **面试准备指南**
+### 6. **DevOps 精通之路**
+
+本系列是一个循序渐进的指南，旨在帮助你建立扎实的 DevOps 技能。  
+从 Linux 基础到高级的云端自动化，这份路线图将带你逐步掌握每个 DevOps 工程师都应了解的核心工具、实践和概念。  
+
+- [DevOps 的 Linux 基础（第一部分）](01_Linux_Basics_CN.md)
+
+### 7. **面试准备指南**
 
 这个系列是帮助你成功通过后端编程面试的逐步指导。从行为面试问题到 C# 和数据库相关问题，你可以在这里找到所有需要的内容。
 
