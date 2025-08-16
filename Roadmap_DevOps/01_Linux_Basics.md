@@ -178,7 +178,7 @@ Learning Linux can feel overwhelming because it’s such a broad topic. The good
 Here are some resources that helped me:
 
 - **Roadmap.sh – Linux Roadmap**  
-  [https://roadmap.sh/linux](https://roadmap.sh/linux)  
+  [Linux Roadmap](https://roadmap.sh/linux)  
   A visual roadmap showing which Linux topics are most relevant for developers and DevOps.
 
 - **YouTube Crash Courses**  

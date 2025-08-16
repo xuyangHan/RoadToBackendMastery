@@ -184,7 +184,7 @@ i
 以下是对我有帮助的一些资源：
 
 * **Roadmap.sh – Linux 学习路线图**
-  [https://roadmap.sh/linux](https://roadmap.sh/linux)
+  [Linux 学习路线图](https://roadmap.sh/linux)
   一个可视化的路线图，展示了开发者和 DevOps 最相关的 Linux 知识点。
 
 * **YouTube 速成课**
