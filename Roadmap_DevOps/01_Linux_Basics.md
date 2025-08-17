@@ -1,4 +1,4 @@
-# Linux Foundations for DevOps (Part 1)
+# Linux Foundations for DevOps
 
 When people talk about **DevOps**, the conversation often jumps straight into flashy tools like Docker, Kubernetes, or Terraform. But beneath all of those tools lies a foundation that every DevOps engineer must understand: **Linux**.
 

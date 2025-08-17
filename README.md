@@ -124,7 +124,9 @@ A step-by-step guide for aspiring backend developers, covering everything from s
 This series is a step-by-step guide designed to help you build strong DevOps skills.  
 From Linux fundamentals to advanced cloud automation, this roadmap will walk through the essential tools, practices, and concepts every DevOps engineer should know.  
 
-- [Linux Foundations for DevOps (Part 1)](Roadmap_DevOps/01_Linux_Basics.md)
+- [Series Overview](Roadmap_DevOps/README.md)
+- [Linux Foundations for DevOps](Roadmap_DevOps/01_Linux_Basics.md)
+- [Virtualization & Networking Basics](Roadmap_DevOps/02_Virtualization_Networking_Yaml_Basics.md)
 
 ### 7. **Interview Preparation Guide**
 
@@ -278,7 +280,9 @@ If you find anything missing or have suggestions for improvement, feel free to o
 本系列是一个循序渐进的指南，旨在帮助你建立扎实的 DevOps 技能。  
 从 Linux 基础到高级的云端自动化，这份路线图将带你逐步掌握每个 DevOps 工程师都应了解的核心工具、实践和概念。  
 
-- [DevOps 的 Linux 基础（第一部分）](Roadmap_DevOps/01_Linux_Basics_CN.md)
+- [Series Overview](Roadmap_DevOps/README.md)
+- [DevOps 的 Linux 基础](Roadmap_DevOps/01_Linux_Basics_CN.md)
+- [虚拟化、网络与 YAML 基础](Roadmap_DevOps/02_Virtualization_Networking_Yaml_Basics_CN.md)
 
 ### 7. **面试准备指南**
 

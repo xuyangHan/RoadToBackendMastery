@@ -1,4 +1,4 @@
-# DevOps 的 Linux 基础（第一部分）
+# DevOps 的 Linux 基础
 
 当人们谈论 **DevOps** 时，话题往往会很快跳到一些炫酷的工具，比如 Docker、Kubernetes 或 Terraform。
 但在这些工具之下，有一个每个 DevOps 工程师都必须掌握的基石：**Linux**。

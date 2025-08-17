@@ -5,8 +5,8 @@ From Linux fundamentals to advanced cloud automation, this roadmap will walk thr
 
 ## 📂 Articles in This Series
 
-- [Linux Foundations for DevOps (Part 1)](01_Linux_Basics.md)
-- Virtualization & Networking Basics (Part 2) *(coming soon)*
+- [Linux Foundations for DevOps](01_Linux_Basics.md)
+- [Virtualization & Networking Basics](02_Virtualization_Networking_Yaml_Basics.md)
 - Git, CI/CD Pipelines, and Automation *(planned)*
 - Docker and Containerization *(planned)*
 - Kubernetes Fundamentals *(planned)*
