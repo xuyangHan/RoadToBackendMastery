@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-In [the previous blog](01_Linux_Foundations.md), we explored the **Linux basics** every DevOps engineer needs: navigating with Bash, managing services, and installing software with package managers.  
+In [the previous blog](01_Linux_Basics.md), we explored the **Linux basics** every DevOps engineer needs: navigating with Bash, managing services, and installing software with package managers.  
 
 Now, it’s time to take the next step in the journey. To truly understand DevOps, you need to know more than just commands inside a single machine — you need to understand how **environments are created, how they communicate, and how we configure them consistently**.  
 
