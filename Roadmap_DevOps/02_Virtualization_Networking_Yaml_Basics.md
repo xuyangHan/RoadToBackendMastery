@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-In [the previous blog](01_Linux_Basics.md), we explored the **Linux basics** every DevOps engineer needs: navigating with Bash, managing services, and installing software with package managers.  
+In [the previous blog](02_Linux_Basics.md), we explored the **Linux basics** every DevOps engineer needs: navigating with Bash, managing services, and installing software with package managers.  
 
 Now, it’s time to take the next step in the journey. To truly understand DevOps, you need to know more than just commands inside a single machine — you need to understand how **environments are created, how they communicate, and how we configure them consistently**.  
 
@@ -22,6 +22,7 @@ At its core, **virtualization** means running “a computer inside your computer
 Instead of needing multiple physical servers, virtualization lets you create virtual ones on the same hardware.  
 
 Why does this matter for DevOps?  
+
 - You can spin up **repeatable test environments** without extra hardware.  
 - You can run **safe experiments** — break things in a VM without harming your laptop.  
 - It’s the foundation for **cloud computing**, where companies run thousands of virtual machines at scale.  
@@ -43,6 +44,7 @@ Why does this matter for DevOps?
 ### Virtualization in the Industry
 
 While VirtualBox and Vagrant are useful for learning, modern companies usually rely on:  
+
 - **Cloud VMs** like AWS EC2, Azure VMs, and Google Cloud Compute Engine.  
 - **Containers** (Docker) for lightweight, fast, and portable environments.  
 
@@ -76,11 +78,13 @@ When we move from a single computer to multiple systems, the key question become
 That’s where networking concepts come in. As a DevOps engineer, you don’t need to be a network engineer, but you do need to understand the basics to debug and deploy systems.
 
 ### DNS (Domain Name System)
+
 - DNS is like the internet’s phonebook.  
 - It translates human-friendly names like `google.com` into machine-friendly IP addresses like `142.250.191.46`.  
 - Why it matters in DevOps: if DNS is misconfigured, your services won’t be reachable, even if the servers are running fine.
 
 ### IP Addresses
+
 - An **IP address** identifies a machine on a network.  
 - **IPv4 basics**: looks like `192.168.0.1`.  
 - **Private IPs**: used inside networks (e.g., home WiFi or cloud VPCs).  
@@ -89,6 +93,7 @@ That’s where networking concepts come in. As a DevOps engineer, you don’t ne
 💡 **Tip**: In the cloud, a single VM may have both a private IP (internal communication) and a public IP (external access).  
 
 ### Ports
+
 - One machine (IP) can run many services at once. **Ports** separate them.  
 - Common ports:  
   - 80 → HTTP (websites)  
@@ -162,4 +167,3 @@ In the next article, we’ll build on this foundation and take the first step in
 * Setting up a simple **CI/CD pipeline** to automate builds, tests, and deployments.
 
 Stay tuned — this is where DevOps starts to feel magical 🚀.
-

@@ -4,15 +4,6 @@ When people talk about **DevOps**, the conversation often jumps straight into fl
 
 Most servers in the cloud run on Linux. Containers are Linux-based. CI/CD pipelines often run in Linux environments. If you’re deploying applications, troubleshooting production issues, or automating workflows, chances are you’ll be working on Linux.  
 
-If you’ve been following my previous blogs, you’ll know that up until now I’ve mostly shared insights around **backend programming, APIs, and system design**. That’s been a big part of my journey so far.  
-
-Now, it’s time to open a **new chapter: DevOps**.  
-This will be a new series of technical blogs where I’ll walk through the fundamentals and gradually build up to more advanced topics in the DevOps field.  
-
-And like any good journey, we start with the foundation.  
-This article is covering Linux basics — the essential prerequisite for anyone looking to step into the world of DevOps.  
-
-
 ---
 
 ## Shells: Bash vs. PowerShell
