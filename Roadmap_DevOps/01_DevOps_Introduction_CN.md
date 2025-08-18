@@ -30,6 +30,8 @@ DevOps 的目标既简单又有力：
 
 **计划 → 编码 → 构建 → 测试 → 发布 → 部署 → 运维 → 监控**
 
+![DevOps Loop](../assets/images/DevOps/DevOpsLoop.png "DevOps Loop")
+
 简要说明如下：  
 
 - **计划（Plan）** → 定义需求、跟踪问题（如 Jira、GitHub Issues）。  

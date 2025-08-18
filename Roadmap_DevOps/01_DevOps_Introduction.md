@@ -32,6 +32,8 @@ A common way to visualize DevOps is through the **infinity loop**, representing 
 
 **Plan → Code → Build → Test → Release → Deploy → Operate → Monitor**
 
+![DevOps Loop](../assets/images/DevOps/DevOpsLoop.png "DevOps Loop")
+
 Here’s a quick breakdown:
 
 - **Plan** → Define requirements, track issues (e.g., Jira, GitHub Issues).  
