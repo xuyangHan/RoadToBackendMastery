@@ -8,7 +8,7 @@ From Linux fundamentals to advanced cloud automation, this roadmap will walk thr
 - [What is DevOps](01_DevOps_Introduction.md)
 - [Linux Foundations for DevOps](02_Linux_Basics.md)
 - [Virtualization & Networking Basics](03_Virtualization_Networking_Yaml_Basics.md)
-- Git, CI/CD Pipelines, and Automation *(planned)*
+- [Code Review Automation: TDD, CI, and Code Coverage](04_Code_Review_Automation.md)
 - Docker and Containerization *(planned)*
 - Kubernetes Fundamentals *(planned)*
 - Infrastructure as Code (Terraform, Ansible) *(planned)*

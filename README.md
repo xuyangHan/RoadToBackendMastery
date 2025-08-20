@@ -41,7 +41,6 @@ A step-by-step guide for aspiring backend developers, covering everything from i
 - [Distributed Locks](Roadmap_Backend/18_Distributed_Locks.md)
 - [Real-Time Data](Roadmap_Backend/19_Real_Time_Data.md)
 - [Build For Scaling](Roadmap_Backend/20_BuildForScaling.md)
-- ...
 
 ### 2. **C# OOP (Basics and Design Patterns)**
 
@@ -128,6 +127,8 @@ From Linux fundamentals to advanced cloud automation, this roadmap will walk thr
 - [What is DevOps](Roadmap_DevOps/01_DevOps_Introduction.md)
 - [Linux Foundations for DevOps](Roadmap_DevOps/02_Linux_Basics.md)
 - [Virtualization & Networking Basics](Roadmap_DevOps/03_Virtualization_Networking_Yaml_Basics.md)
+[Code Review Automation: TDD, CI, and Code Coverage](Roadmap_DevOps/04_Code_Review_Automation.md)
+- ...
 
 ### 7. **Interview Preparation Guide**
 
@@ -196,7 +197,6 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [分布式锁](Roadmap_Backend/18_Distributed_Locks_CN.md)
 - [实时数据](Roadmap_Backend/19_Real_Time_Data_CN.md)
 - [构建可扩展系统](Roadmap_Backend/20_BuildForScaling.md)
-- ...
 
 ### 2. **C# 面向对象编程（基础与设计模式）**
 
@@ -285,6 +285,8 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [DevOps 宏观概览](Roadmap_DevOps/01_DevOps_Introduction_CN.md)
 - [DevOps 的 Linux 基础](Roadmap_DevOps/02_Linux_Basics_CN.md)
 - [虚拟化、网络与 YAML 基础](Roadmap_DevOps/03_Virtualization_Networking_Yaml_Basics_CN.md)
+- [代码审查自动化：TDD、CI 与代码覆盖率](Roadmap_DevOps/04_Code_Review_Automation_CN.md)
+- ...
 
 ### 7. **面试准备指南**
 
