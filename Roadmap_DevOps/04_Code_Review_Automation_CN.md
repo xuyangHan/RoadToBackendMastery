@@ -89,13 +89,13 @@ TDD 的目标不仅仅是写更多的测试，而是 **设计更好的代码**�
 
 ### 实践中的例子
 
-* **LayerCI / GitHub Actions**
+* **LayerCI / [GitHub Actions](https://github.com/features/actions)**
 
   * 在每个 PR 上自动运行测试、Lint 和安全检查。
   * 开发者能在 PR 中直接看到构建是否通过。
   * 示例：如果单元测试或风格检查失败，PR 就不能合并。
 
-* **GitLab + SonarQube**
+* **GitLab + [SonarQube](https://www.sonarsource.com/sem/products/sonarqube/)**
 
   * GitLab CI 可以集成 **SonarQube**，一个流行的静态分析工具。
   * 它会检查代码异味、重复、复杂度和潜在安全漏洞。

@@ -83,13 +83,13 @@ The main idea: the **main branch** of your project should *always* be in a “wo
 
 ### Examples in Practice
 
-* **LayerCI / GitHub Actions**
+* **LayerCI / [GitHub Actions](https://github.com/features/actions)**
 
   * Run automated tests, linters, and security checks **on every pull request**.
   * Developers see right in the PR if their code passes or fails.
   * Example: a PR won’t be merged unless unit tests and style checks succeed.
 
-* **GitLab + SonarQube**
+* **GitLab + [SonarQube](https://www.sonarsource.com/sem/products/sonarqube/)**
 
   * GitLab CI pipelines can integrate directly with **SonarQube**, a popular static analysis tool.
   * SonarQube checks for code smells, duplication, complexity, and potential security vulnerabilities.
