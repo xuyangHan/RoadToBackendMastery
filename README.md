@@ -287,6 +287,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [DevOps 的 Linux 基础](Roadmap_DevOps/02_Linux_Basics_CN.md)
 - [虚拟化、网络与 YAML 基础](Roadmap_DevOps/03_Virtualization_Networking_Yaml_Basics_CN.md)
 - [代码审查自动化：TDD、CI 与代码覆盖率](Roadmap_DevOps/04_Code_Review_Automation_CN.md)
+- [DevOps 中的部署策略](Roadmap_DevOps/05_Deployment_Strategies_CN.md)
 - ...
 
 ### 7. **面试准备指南**
