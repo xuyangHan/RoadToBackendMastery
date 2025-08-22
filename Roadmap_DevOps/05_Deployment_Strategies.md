@@ -77,7 +77,7 @@ Once your application is packaged (VMs or containers), the next challenge is: **
   * **Blue** = the live production environment.
   * **Green** = a staging environment with the new version.
 
-![BlueGreen Deployments](..\assets\images\DevOps\BlueGreenDeployments.jpg "BlueGreen Deployments")
+![BlueGreen Deployments](../assets/images/DevOps/BlueGreenDeployments.jpg "BlueGreen Deployments")
 
 * Once the green environment is ready and tested, traffic is switched from blue → green in one step.
 
@@ -118,7 +118,7 @@ Deployment doesn’t end once the code is live. Applications need to handle **tr
 
 * **Definition**: automatically adjusting the number of servers or containers based on load.
 
-![AWS Auto Scaling](..\assets\images\DevOps\AWS_Auto_Scaling.png "AWS Auto Scaling")
+![AWS Auto Scaling](../assets/images/DevOps/AWS_Auto_Scaling.png "AWS Auto Scaling")
 
 * **How it works**:
   * If CPU usage spikes, more containers are spun up.
@@ -138,7 +138,7 @@ Deployment doesn’t end once the code is live. Applications need to handle **tr
 
 In microservices, containers are constantly being created and destroyed. Hardcoding IPs is impossible.
 
-![service discovery](..\assets\images\DevOps\service_discovery.png "service discovery")
+![service discovery](../assets/images/DevOps/service_discovery.png "service discovery")
 
 * **Service Discovery** = a system that allows services to find each other dynamically.
 
