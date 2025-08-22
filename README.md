@@ -128,6 +128,7 @@ From Linux fundamentals to advanced cloud automation, this roadmap will walk thr
 - [Linux Foundations for DevOps](Roadmap_DevOps/02_Linux_Basics.md)
 - [Virtualization & Networking Basics](Roadmap_DevOps/03_Virtualization_Networking_Yaml_Basics.md)
 - [Code Review Automation: TDD, CI, and Code Coverage](Roadmap_DevOps/04_Code_Review_Automation.md)
+- [Deployment Strategies in DevOps](Roadmap_DevOps/05_Deployment_Strategies.md)
 - ...
 
 ### 7. **Interview Preparation Guide**
