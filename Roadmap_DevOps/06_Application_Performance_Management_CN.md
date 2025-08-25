@@ -41,7 +41,7 @@
 
 ![Kibana.jpeg](../assets/images/Kibana.jpeg)
 
-📌 *如果你关注过我的 后台编程路线图，会记得我写过一篇关于 [**ELK Stack**](../Roadmap_Backend/16_ElasticSearch_Kibana.md) 的详细文章。那篇文章深入讲解了 ElasticSearch、Logstash 和 Kibana 如何协作。在本系列中，我们仅强调它们在 DevOps 中的重要性。*
+📌 *如果你关注过我的 后台编程路线图，会记得我写过一篇关于 [**ELK Stack**](../Roadmap_Backend/16_ElasticSearch_Kibana_CN.md) 的详细文章。那篇文章深入讲解了 ElasticSearch、Logstash 和 Kibana 如何协作。在本系列中，我们仅强调它们在 DevOps 中的重要性。*
 
 👉 **实际示例**：假设用户反馈无法登录。如果没有日志聚合，你需要分别在 API 服务器、auth-service 和数据库中手动查日志。使用集中化日志后，只需在一个仪表盘中搜索所有服务日志——节省数小时排查时间，加快问题解决。
 
