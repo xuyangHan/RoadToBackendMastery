@@ -14,8 +14,6 @@ At the heart of this approach are the **three pillars of observability**:
 * **Metrics** → the quantitative health signals (CPU, error rate, latency).
 * **Traces** → the story of a request as it flows through multiple services.
 
-This blog focuses on the first two pillars — **logs and metrics** — and how they power effective APM.
-
 ---
 
 ## 2. What is Log Aggregation?
