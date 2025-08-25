@@ -125,10 +125,11 @@ From Linux fundamentals to advanced cloud automation, this roadmap will walk thr
 
 - [Series Overview](Roadmap_DevOps/README.md)
 - [What is DevOps](Roadmap_DevOps/01_DevOps_Introduction.md)
-- [Linux Foundations for DevOps](Roadmap_DevOps/02_Linux_Basics.md)
+- [Linux Foundations](Roadmap_DevOps/02_Linux_Basics.md)
 - [Virtualization & Networking Basics](Roadmap_DevOps/03_Virtualization_Networking_Yaml_Basics.md)
 - [Code Review Automation: TDD, CI, and Code Coverage](Roadmap_DevOps/04_Code_Review_Automation.md)
-- [Deployment Strategies in DevOps](Roadmap_DevOps/05_Deployment_Strategies.md)
+- [Deployment Strategies](Roadmap_DevOps/05_Deployment_Strategies.md)
+- [Application Performance Management (APM)](Roadmap_DevOps/06_Application_Performance_Management.md)
 - ...
 
 ### 7. **Interview Preparation Guide**
@@ -284,10 +285,11 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 - [Series Overview](Roadmap_DevOps/README.md)
 - [DevOps 宏观概览](Roadmap_DevOps/01_DevOps_Introduction_CN.md)
-- [DevOps 的 Linux 基础](Roadmap_DevOps/02_Linux_Basics_CN.md)
+- [Linux 基础](Roadmap_DevOps/02_Linux_Basics_CN.md)
 - [虚拟化、网络与 YAML 基础](Roadmap_DevOps/03_Virtualization_Networking_Yaml_Basics_CN.md)
 - [代码审查自动化：TDD、CI 与代码覆盖率](Roadmap_DevOps/04_Code_Review_Automation_CN.md)
-- [DevOps 中的部署策略](Roadmap_DevOps/05_Deployment_Strategies_CN.md)
+- [部署策略](Roadmap_DevOps/05_Deployment_Strategies_CN.md)
+- [应用性能管理 (APM)](Roadmap_DevOps/06_Application_Performance_Management_CN.md)
 - ...
 
 ### 7. **面试准备指南**
