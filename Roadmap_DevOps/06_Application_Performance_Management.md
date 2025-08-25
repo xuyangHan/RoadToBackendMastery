@@ -39,7 +39,9 @@ That’s why DevOps teams use **log aggregation** — the practice of collecting
   * **Kibana** provides rich dashboards and visualizations, making it easy to spot errors, trends, or spikes in activity.
   * Great for teams that want flexibility and control, but it does require more setup and maintenance compared to managed services.
 
-📌 *If you’ve been following my [Backend Programming Roadmap](../Roadmap_Backend/16_ElasticSearch_Kibana.md), you’ll remember I wrote a detailed article about the **ELK Stack**. That post dives deep into ElasticSearch, Logstash, and Kibana, explaining how they work together. In this series, we’ll just highlight their importance in the DevOps context.*
+![Kibana.jpeg](../assets/images/Kibana.jpeg)
+
+📌 *If you’ve been following my Backend Programming Roadmap, you’ll remember I wrote a detailed article about the [**ELK Stack**](../Roadmap_Backend/16_ElasticSearch_Kibana.md). That post dives deep into ElasticSearch, Logstash, and Kibana, explaining how they work together. In this series, we’ll just highlight their importance in the DevOps context.*
 
 👉 **Example in action:** Imagine a user reports they can’t log in. Without log aggregation, you’d have to manually dig through logs on the API server, auth-service, and database separately. With centralized logs, you just search across all services in one dashboard — saving hours of guesswork and accelerating resolution.
 
@@ -83,6 +85,8 @@ When systems go live, raw logs alone aren’t enough — you need **metrics** to
   * Provides **real-time dashboards** that can show system metrics (CPU, memory), application latency, or business KPIs on a single screen.
   * Supports **alerts** — e.g., send a Slack notification if error rate > 5% or if CPU > 90% for 10 minutes.
   * Teams often build **custom dashboards** for different audiences (DevOps team = infra metrics, Product team = business metrics).
+
+![Grafana.png](../assets/images/DevOps/Grafana.png)
 
 👉 **How they work together:** Prometheus collects and stores the raw metrics, while Grafana visualizes them and makes the data actionable for engineers and stakeholders. Together, they form the backbone of monitoring in many modern DevOps setups.
 

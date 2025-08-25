@@ -39,7 +39,9 @@
   * **Kibana** 提供丰富仪表盘和可视化功能，轻松发现错误、趋势或活动峰值。
   * 适合希望灵活控制的团队，但相比托管服务需要更多配置和维护。
 
-📌 *如果你关注过我的 [后台编程路线图](../Roadmap_Backend/16_ElasticSearch_Kibana.md)，会记得我写过一篇关于 **ELK Stack** 的详细文章。那篇文章深入讲解了 ElasticSearch、Logstash 和 Kibana 如何协作。在本系列中，我们仅强调它们在 DevOps 中的重要性。*
+![Kibana.jpeg](../assets/images/Kibana.jpeg)
+
+📌 *如果你关注过我的 后台编程路线图，会记得我写过一篇关于 [**ELK Stack**](../Roadmap_Backend/16_ElasticSearch_Kibana.md) 的详细文章。那篇文章深入讲解了 ElasticSearch、Logstash 和 Kibana 如何协作。在本系列中，我们仅强调它们在 DevOps 中的重要性。*
 
 👉 **实际示例**：假设用户反馈无法登录。如果没有日志聚合，你需要分别在 API 服务器、auth-service 和数据库中手动查日志。使用集中化日志后，只需在一个仪表盘中搜索所有服务日志——节省数小时排查时间，加快问题解决。
 
@@ -83,6 +85,8 @@
   * 提供 **实时仪表盘**，在同一屏幕展示系统指标（CPU、内存）、应用延迟或业务 KPI。
   * 支持 **告警** —— 例如错误率 >5% 或 CPU >90% 持续 10 分钟时发送 Slack 通知。
   * 团队常为不同受众构建 **自定义仪表盘**（DevOps 团队 = 基础设施指标，产品团队 = 业务指标）。
+
+![Grafana.png](../assets/images/DevOps/Grafana.png)
 
 👉 **协作方式**：Prometheus 收集并存储原始指标，Grafana 可视化并让工程师和管理者快速采取行动。它们共同构成现代 DevOps 监控体系的核心。
 
