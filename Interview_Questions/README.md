@@ -7,5 +7,6 @@ This series is a step-by-step guide designed to help you crack backend programmi
 - [Behavior Questions](Behavior_Questions.md)
 - [DBMS Questions](DBMS_Questions.md)
 - [.Net Questions](DotNet_Questions.md)
+- [Preparing for a Code Review Interview](Code_Review_Interview.md)
 
 Stay tuned for more updates in this series!
