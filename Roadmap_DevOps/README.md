@@ -11,6 +11,7 @@ From Linux fundamentals to advanced cloud automation, this roadmap will walk thr
 - [Code Review Automation: TDD, CI, and Code Coverage](04_Code_Review_Automation.md)
 - [Deployment Strategies](05_Deployment_Strategies.md)
 - [Application Performance Management (APM)](06_Application_Performance_Management.md)
+- [Prometheus + Grafana in Action](07_Prometheus_Grafana.md)
 - Infrastructure as Code (Terraform, Ansible) *(planned)*
 - Cloud Platforms (AWS, Azure, GCP) *(planned)*
 - Security and Secrets Management *(planned)*

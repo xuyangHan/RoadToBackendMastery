@@ -130,6 +130,7 @@ From Linux fundamentals to advanced cloud automation, this roadmap will walk thr
 - [Code Review Automation: TDD, CI, and Code Coverage](Roadmap_DevOps/04_Code_Review_Automation.md)
 - [Deployment Strategies](Roadmap_DevOps/05_Deployment_Strategies.md)
 - [Application Performance Management (APM)](Roadmap_DevOps/06_Application_Performance_Management.md)
+- [Prometheus + Grafana in Action](Roadmap_DevOps/07_Prometheus_Grafana.md)
 - ...
 
 ### 7. **Interview Preparation Guide**
