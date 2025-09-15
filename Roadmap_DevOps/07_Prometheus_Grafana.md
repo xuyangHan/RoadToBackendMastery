@@ -128,6 +128,8 @@ app.MapGet("/logout/{region}/{platform}", (string region, string platform) =>
 app.Run();
 ```
 
+![prometheus-metrics.png](../assets/images/DevOps/prometheus-metrics.png)
+
 ### **4. Why This Matters**
 
 By designing metrics this way:
@@ -185,6 +187,8 @@ With this in place, Prometheus starts polling your app. Each scrape produces ent
 app_user_logins_total{region="NorthAmerica", platform="ios", job="uniqlo-app-metrics", env="dev"} 124
 ```
 
+![prometheus_counter_example.png](../assets/images/DevOps/prometheus_counter_example.png)
+
 Notice how Prometheus automatically adds `job` and any custom labels you configured in `prometheus.yml`. This metadata is what makes filtering and aggregating later in Grafana so powerful.
 
 ### Best Practice: Don’t Query the DB on Scrape
@@ -240,6 +244,8 @@ sum by (region) (app_user_logins_total)
 ```
 
 This query would show the total logins per region across all platforms.
+
+![Grafana.png](../assets/images/DevOps/Grafana.png)
 
 ### Embedding Panels with Real-Time Updates
 

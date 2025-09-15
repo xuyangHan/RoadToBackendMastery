@@ -6,7 +6,7 @@ Welcome to my tech blog repository! This is a comprehensive guide for beginners 
 - **C# OOP and Design Patterns**: Learn object-oriented programming concepts and implement design patterns in C#.  
 - **Data Structures and Algorithms**: Explore essential concepts with practical examples using LeetCode problems.  
 - **Industry Experiences**: Insights and solutions for real-world programming challenges, such as optimizing APIs and implementing caching strategies.  
-- **System Design**: Comprehensive coverage, from system design fundamentals to solving practical system design interview questions. 
+- **System Design**: Comprehensive coverage, from system design fundamentals to solving practical system design interview questions.
 - **Roadmap to DevOps Mastery**: Step-by-step guide designed to help you build strong DevOps skills.  
 - **Interview Preparation Guide**: A complete series to help you ace backend programming interviews. Includes behavioral questions, C# concepts, and database interview challenges.  
 
@@ -292,6 +292,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [代码审查自动化：TDD、CI 与代码覆盖率](Roadmap_DevOps/04_Code_Review_Automation_CN.md)
 - [部署策略](Roadmap_DevOps/05_Deployment_Strategies_CN.md)
 - [应用性能管理 (APM)](Roadmap_DevOps/06_Application_Performance_Management_CN.md)
+- [Prometheus + Grafana 实战](Roadmap_DevOps/07_Prometheus_Grafana_CN.md)
 - ...
 
 ### 7. **面试准备指南**
