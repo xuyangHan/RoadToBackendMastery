@@ -62,6 +62,7 @@ Deep dives into object-oriented programming concepts and design patterns in C#.
 Explore essential data structures and algorithms with practical examples from LeetCode.
 
 - [Series Overview](Data_Structures_Algorithms/README.md)
+- [String, Array, List and HashSet](Data_Structures_Algorithms/00_Collections.md)
 - [Dictionary](Data_Structures_Algorithms/01_Dictionary.md)
 - [Two Pointers and Sliding Windows](Data_Structures_Algorithms/02_TwoPointers.md)
 - [Stack and Queue](Data_Structures_Algorithms/03_Stack_Queue.md)
