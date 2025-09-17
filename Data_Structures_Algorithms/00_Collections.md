@@ -438,6 +438,23 @@ public bool IsPalindrome(string s)
 * Built-in methods like `char.IsLetterOrDigit` and `char.ToLower` make checks easy.
 * Two-pointer technique is efficient: `O(n)` time, `O(1)` space.
 
+**Problem: Number of Segments in a String (LC 434)**
+*Count how many words (segments) exist in a string, where a segment is defined as a contiguous sequence of non-space characters.*
+
+```csharp
+public int CountSegments(string s) {
+    if (string.IsNullOrWhiteSpace(s)) {
+        return 0;
+    }
+
+    return s.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+}
+```
+
+* Uses **`Split`** with `StringSplitOptions.RemoveEmptyEntries` to avoid counting empty strings caused by multiple spaces.
+* Edge cases like leading, trailing, or multiple spaces between words are handled automatically.
+* Runs in `O(n)` time (needs to scan the string once) and `O(n)` space (stores split parts).
+
 ### **6.2 Arrays**
 
 **Problem: Two Sum (LC 1)**
