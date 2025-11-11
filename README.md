@@ -63,7 +63,7 @@ Explore essential data structures and algorithms with practical examples from Le
 
 - [Series Overview](Data_Structures_Algorithms/README.md)
 - [Strings](Data_Structures_Algorithms/00_Collections_1_Strings.md)
-- [Array, List and HashSet](Data_Structures_Algorithms/00_Collections.md)
+- [Array, List and HashSet](Data_Structures_Algorithms/00_Collections_2.md)
 - [Dictionary](Data_Structures_Algorithms/01_Dictionary.md)
 - [Two Pointers and Sliding Windows](Data_Structures_Algorithms/02_TwoPointers.md)
 - [Stack and Queue](Data_Structures_Algorithms/03_Stack_Queue.md)
@@ -225,6 +225,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 
 - [Series Overview](Data_Structures_Algorithms/README.md)
 - [字符串](Data_Structures_Algorithms/00_Collections_1_Strings_CN.md)
+- [数组、列表与哈希集](Data_Structures_Algorithms/00_Collections_2_CN.md)
 - [字典](Data_Structures_Algorithms/01_Dictionary_CN.md)
 - [双指针与滑动窗口](Data_Structures_Algorithms/02_TwoPointers_CN.md)
 - [栈和队列](Data_Structures_Algorithms/03_Stack_Queue_CN.md)

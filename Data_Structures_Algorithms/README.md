@@ -5,7 +5,7 @@ Master the foundations of computer science with this series. Each article featur
 ## 📂 Articles in This Series
 
 - [Strings](00_Collections_1_Strings.md)
-- [Array, List and HashSet](00_Collections.md)
+- [Array, List and HashSet](00_Collections_2.md)
 - [Dictionary](01_Dictionary.md)
 - [Two Pointers and Sliding Windows](02_TwoPointers.md)
 - [Stack and Queue](03_Stack_Queue.md)
