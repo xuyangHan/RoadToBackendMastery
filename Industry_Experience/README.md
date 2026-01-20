@@ -20,6 +20,7 @@ Learn from real-world programming scenarios and challenges. This series shares p
 - [Run Python From CSharp](14_RunPythonFromCSharp.md)
 - [Well-Known Binary, WKB](15_WKB.md)
 - [Regular Expression](16_Regex.md)
+- [Locking Down Swagger](17_Swagger_Auth.md)
 - ...
 
 ## ✨ Key Highlights
