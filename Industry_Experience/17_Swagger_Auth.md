@@ -111,6 +111,8 @@ app.UseHttpsRedirection();
 
 ```
 
+![swagger_basic_auth](../assets/images/swagger_basic_auth.PNG)  
+
 By adding this layer, you've successfully hidden your API "blueprint" from the public eye.
 
 ---
@@ -212,6 +214,9 @@ public class SwaggerApiKeyMiddleware
 }
 
 ```
+
+
+![swagger_api_auth](../assets/images/swagger_api_auth.PNG)  
 
 ### Why this is "Smart"
 

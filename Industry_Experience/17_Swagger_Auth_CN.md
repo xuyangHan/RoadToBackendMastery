@@ -112,6 +112,8 @@ app.UseHttpsRedirection();
 
 ```
 
+![swagger_basic_auth](../assets/images/swagger_basic_auth.PNG)  
+
 通过添加这一层，你已经成功地将 API “蓝图”从公众视野中隐藏了起来。
 
 ---
@@ -214,6 +216,8 @@ public class SwaggerApiKeyMiddleware
 
 ```
 
+![swagger_api_auth](../assets/images/swagger_api_auth.PNG)  
+
 ### 为什么说这是“智能”的
 
 该中间件充当了**上下文感知守卫**。如果你从 Postman 调用 API，中间件发现没有“Swagger”来源，就会让开路径，让你标准的 API 认证逻辑接管。但一旦有人尝试在你公开的 Swagger 页面上点击 “Try it out” 按钮，他们就必须输入正确的 API Key。
@@ -266,5 +270,3 @@ public class SwaggerApiKeyMiddleware
 * **迁移到 JWT/OpenID Connect：** 当你的 API 需要细粒度的用户权限（Scopes）、多因素认证，或者正在被公开的第三方开发者调用时。
 
 保护 Swagger 并不意味着要隐藏它。通过几行策略性的中间件代码，你可以将你的文档从安全隐患转变为整个组织的安全、专业的资产。
-
----
