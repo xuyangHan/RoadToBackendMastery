@@ -21,6 +21,7 @@ Learn from real-world programming scenarios and challenges. This series shares p
 - [Well-Known Binary, WKB](15_WKB.md)
 - [Regular Expression](16_Regex.md)
 - [Locking Down Swagger](17_Swagger_Auth.md)
+- [API Keys vs. Tokens](18_API_Key_vs_Token.md)
 - ...
 
 ## ✨ Key Highlights
