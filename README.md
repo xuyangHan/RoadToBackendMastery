@@ -107,6 +107,7 @@ Practical tips and case studies from real-world programming experiences.
 - [Regular Expression](Industry_Experience/16_Regex.md)
 - [Locking Down Swagger](Industry_Experience/17_Swagger_Auth.md)
 - [API Keys vs. Tokens](Industry_Experience/18_API_Key_vs_Token.md)
+- [Line Endings](Industry_Experience/19_Line_Endings.md)
 - ...
 
 ### 5. **System Design**
@@ -271,6 +272,7 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [正则表达式(Regex)](Industry_Experience/16_Regex_CN.md)
 - [Swagger文档管控](Industry_Experience/17_Swagger_Auth_CN.md)
 - [API 密钥 (Keys) vs. 令牌 (Tokens)](Industry_Experience/18_API_Key_vs_Token_CN.md)
+- [换行符问题](Industry_Experience/19_Line_Endings_CN.md)
 - ...
 
 ---

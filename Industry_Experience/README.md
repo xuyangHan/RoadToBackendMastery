@@ -22,6 +22,7 @@ Learn from real-world programming scenarios and challenges. This series shares p
 - [Regular Expression](16_Regex.md)
 - [Locking Down Swagger](17_Swagger_Auth.md)
 - [API Keys vs. Tokens](18_API_Key_vs_Token.md)
+- [Line Endings](19_Line_Endings.md)
 - ...
 
 ## ✨ Key Highlights
