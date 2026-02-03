@@ -64,6 +64,8 @@ git ls-files --eol
 
 一旦看到了数据，你就可以做出明智的选择。如果 90% 的文件已经是 LF，那就不用想了：我们需要把那剩下的 10% 拉回正轨。如果是五五开，那是时候选边站队，划清界限，彻底修复它了。
 
+![The Audit: Which Files are the Culprits](../assets/images/EoL_audit.PNG)  
+
 ---
 
 ## 4. 盾牌：`.gitattributes`
