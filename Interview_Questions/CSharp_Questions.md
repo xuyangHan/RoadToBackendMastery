@@ -1,0 +1,349 @@
+# 📚 C# Traps & Edge Cases — Part 1: From Basics Through Async
+
+This article is **Part 1** of a two-part series. It covers **Sections 1–7** (types through **`async`/`Task`**). **[Part 2](CSharp_Questions_Part2.md)** continues with OOP, generics, disposal, patterns, and a cheat sheet—so neither post tries to do everything at once.
+
+## 1. 🚀 Introduction
+
+C# often looks straightforward on the page. Many interview questions use small snippets that behave in a way you did not expect. That gap usually comes from rules the language applies for you—defaults, type rules, and timing you never had to spell out in code.
+
+This guide is a review of those “traps”: things that are easy to get wrong even if you rarely write them by hand in day-to-day work. The point is not to memorize every edge case. It is to know *why* the language does what it does so you can reason through new questions calmly.
+
+Two ideas show up again and again:
+
+* **Compile time vs run time.** The compiler accepts some code or chooses overloads and types before your program runs. Other behavior only appears when the code executes (nulls, virtual calls, deferred LINQ, async continuations). Confusing those two moments is a common source of surprises.
+
+* **Hidden defaults.** Fields, generics, enums, and collections all have default values and rules you might never have written explicitly. When a question assumes those defaults, the answer can look “wrong” until you remember what the language filled in for you.
+
+---
+
+## 2. 🧱 Data Types & Defaults (Foundation)
+
+Most “trick” questions about C# still come back to types: what gets copied, what can be null, and what the language assumes when you do not write a value explicitly. This section is that background in one place.
+
+**Value types and reference types** are the first split. Value types (such as `int`, `bool`, `DateTime`, structs) are usually copied when you assign or pass them around; each variable holds its own bits. Reference types (classes, interfaces, delegates, arrays) store a reference to an object; copying the variable copies the reference, not a full duplicate. Interviews often check whether you know *when* assignment shares one object versus two.
+
+**Defaults and `default`.** Every type has a default value: numeric zero, `false` for `bool`, `null` for reference types, and “all fields set to *their* defaults” for structs. You can write `default(T)` or, when the compiler already knows `T`, the `default` literal. Remember the difference between **fields** and **local variables**: fields get default values automatically if you do not assign them; locals must be definitely assigned before use, or the compiler reports an error.
+
+```csharp
+int a = default(int);   // 0
+int b = default;        // same, when type is inferred from the left-hand side
+string s = default;     // null for a reference type
+
+class Example
+{
+    int count;            // 0
+    bool flag;            // false
+    decimal amount;       // 0m
+    double ratio;         // 0d
+    DateTime when;        // DateTime.MinValue (0001-01-01, 00:00:00)
+    string label;         // non-nullable `string` (NRT): same runtime default as any reference field (null) until you assign; compiler may warn (CS8618)
+    string? name;         // nullable `string?`: default null; meaning is “may be null” in the type system
+    int? optional;        // null — no value
+    Guid id;              // Guid.Empty
+    char ch;              // '\0' (U+0000)
+
+    struct Pair { public int A; public string? B; }
+    Pair pair;            // A = 0, B = null
+
+    void M()
+    {
+        Console.WriteLine($"count    = {count}");       // output: count    = 0
+        Console.WriteLine($"flag     = {flag}");       // output: flag     = False
+        Console.WriteLine($"amount   = {amount}");     // output: amount   = 0
+        Console.WriteLine($"ratio    = {ratio}");      // output: ratio    = 0
+        Console.WriteLine($"when     = {when:O}");     // output: when     = 0001-01-01T00:00:00.0000000
+        Console.WriteLine($"label    = {(label is null ? "null" : label)}"); // output: label    = null
+        Console.WriteLine($"name     = {(name is null ? "null" : name)}");     // output: name     = null
+        Console.WriteLine($"optional = {(optional.HasValue ? optional.Value.ToString() : "null")}"); // output: optional = null
+        Console.WriteLine($"id       = {id}");         // output: id       = 00000000-0000-0000-0000-000000000000
+        Console.WriteLine($"ch       = {(ch == '\0' ? "\\0 (nul)" : ch.ToString())}"); // output: ch       = \0 (nul)
+        Console.WriteLine($"pair     = (A={pair.A}, B={(pair.B is null ? "null" : pair.B)})"); // output: pair     = (A=0, B=null)
+
+        int local;
+        // Console.WriteLine(local); // error: local not definitely assigned
+        local = default;
+        Console.WriteLine($"local (after assign) = {local}"); // output: local (after assign) = 0
+    }
+}
+```
+
+Things interviewers like to tie to defaults and types:
+
+* **`string`.** It is a reference type, but it behaves like a value in many APIs: immutable, and `==` compares character content, not reference identity. That trips people who only memorized “reference types use reference equality.”
+
+* **`DateTime`.** A plain `DateTime` is a value type and is *never* null. If you need “no date,” use `DateTime?` (`Nullable<DateTime>`). Comparing `DateTime` to `null` is a compile-time mistake unless you use the nullable form.
+
+* **`Nullable<T>` (`int?`, etc.).** Wraps a value type so it can represent “no value” alongside normal values. Know how it lifts operators and how `HasValue` / `Value` work when you move past basics.
+
+* **Boxing and unboxing.** Putting a value type in an `object` or a non-generic interface slot allocates a boxed copy on the heap. That costs memory and can change how equality behaves (for example, comparing boxed values). Hot paths and subtle bugs both show up here.
+
+* **`decimal` vs `double`.** `double` is binary floating point: fast, but fractions like `0.1` are not always exact, so `0.1 + 0.2` is a classic surprise. `decimal` is decimal floating point and is the usual choice for money and exact decimal math, at some performance cost.
+
+* **`const`, `readonly`, and `init`.** `const` must be a compile-time constant (literals and simple combinations). `readonly` fields are set once—in an instance constructor or static constructor for static fields. `init` setters allow assignment only during object initialization (including object initializers), which is handy for immutable-looking objects without full constructor boilerplate.
+
+* **Enums.** The default numeric value is `0` even if you never defined a name for zero. Casts from integers can produce values that are not named; `[Flags]` enums are combined with `|` and tested with `HasFlag` or bit masks—`HasFlag` is clear but not always the fastest in tight loops.
+
+* **`record` and `record struct`.** `record` types (usually reference types) get value-based equality and `with` for non-destructive copy by default. Inheritance rules for records differ from plain classes, so know the basics before guessing. Structs still get `default` that zeroes every field; with C# 10+ struct features, be explicit about what “default” means if your struct holds reference-type fields.
+
+**Nullable reference types (NRT)** are a compile-time layer on top of reference types: `string` means “should not be null,” `string?` means “may be null,” and the compiler warns when you ignore that. The `!` operator only tells the compiler to stop warning; it does not add a runtime check. **Section 5** goes deeper into null handling and how NRT fits day-to-day code.
+
+Common traps:
+
+* **`null` vs empty string.** `null` is “no string”; `""` is a real string with length zero. Under NRT, assigning `null` to a non-nullable `string` is a warning (or error if you treat warnings as errors).
+
+* **`DateTime` and null.** Use `DateTime?` or check against `default(DateTime)` when the scenario needs “missing,” not `null` on a non-nullable `DateTime`.
+
+* **Arrays after creation.** A new array of a reference type fills slots with `null`; a new array of a value type fills slots with that type’s default bits.
+
+* **Locals vs fields.** Expecting a local variable to “default” like a field leads to compile errors; expecting a field to behave like a definite-assignment local leads to subtle zero or null bugs.
+
+* **Boxing in comparisons.** Equality and identity can surprise you when one side is boxed and the other is not; prefer clear types and unboxed comparisons when it matters.
+
+---
+
+## 3. ➕ Operators & Expressions
+
+Expressions look small, but the compiler is busy: it picks overloads, promotes types, and applies rules you never wrote down. Interview questions often exploit that gap—especially when `+`, `==`, or `switch` do something that “feels” like math or equality in English but means something stricter in C#.
+
+**Pattern matching** is where the language inspects a value’s shape at run time and binds names in one step. You will see `is` with type and property patterns, relational patterns (ranges, comparisons), and nested property tests. **`switch` expressions** produce a value and encourage exhaustive handling; **classic `switch`** is statement-based and falls through unless you `break` or `return`. With **enums**, the compiler may warn if you do not cover every named value—but **casts from integers can still produce invalid enum values at run time**, so “exhaustive” at compile time is not the same as “impossible at run time.” **`when` guards** add extra conditions on each arm without nesting huge `if` chains.
+
+```csharp
+// `is`: type + property pattern (binds `s` only when non-null and non-empty)
+if (obj is string { Length: > 0 } s)
+    Console.WriteLine(s);
+
+// `switch` expression: every input needs an arm — often `_` for “everything else”
+static string Describe(object? x) => x switch
+{
+    int n when n < 0 => "negative",   // `when` guard
+    int n => $"int {n}",
+    null => "null",
+    _ => "other",
+};
+
+// Enum: named members covered; cast from int can still produce an unnamed value at run time
+enum Level { Off = 0, On = 1 }
+Level rogue = (Level)99;
+string label = rogue switch
+{
+    Level.Off => "off",
+    Level.On => "on",
+    _ => "not a named member",  // e.g. (Level)99 lands here
+};
+```
+
+**`checked` and `unchecked`.** Integer arithmetic normally wraps in an *unchecked* context (the default for plain `int` code unless the project sets checked arithmetic). In a *checked* context, overflow throws `OverflowException` instead of silently wrapping. Whole-project settings (`<CheckForOverflowUnderflow>` or legacy `/checked`) can flip what you expect from a snippet on a whiteboard.
+
+Things interviewers like to probe in operators and expressions:
+
+* **`is` and patterns.** `value is int i`, `value is { Length: > 0 }`, combining type tests with conditions—know that patterns run at run time even when the code reads like a type check.
+
+* **`switch` expression vs statement.** Expressions must cover all inputs (often with `_`) or the compiler complains; statements can fall through by mistake if you forget `break` in older style arms.
+
+* **Exhaustiveness vs reality.** A `switch` on an enum can look complete and still receive a numeric value that is not a named enum member. Defensive code sometimes uses a default arm or validates before casting.
+
+Common traps:
+
+* **`char` and `+`.** `'a' + 'b' + 'c'` promotes to `int` (Unicode code points) and adds: 97 + 98 + 99 = **294**, not a string. Only when a `string` appears in the chain does `+` become concatenation for the rest of the expression as usual.
+
+* **Strings vs numbers.** `"1" + 2` is string concatenation (`"12"`). `1 + 2 + "3"` evaluates left to right: first `3`, then `"33"`. The fix for “I meant math” is parentheses or explicit parsing.
+
+* **`==` vs `.Equals()`.** For many types, `==` is overloaded or lifted (nullable types). **`x.Equals(y)` throws if `x` is null**; **`Equals(x, y)`** (static on `object`) or **`string.Equals(a, b)`** handles nulls safely. Know which side can be null before you pick a form.
+
+* **Reference equality vs value equality.** Two different strings with the same characters may or may not share reference equality; `string` compares value for `==`. For your own types, behavior depends on whether you override `Equals`/`GetHashCode` and how you use `==` (reference equality unless overloaded).
+
+```csharp
+// --- Null-safety: who is allowed to be null? ---
+string? a = null;
+string b = "hi";
+
+// a.Equals(b);                 // NullReferenceException — instance method on null
+bool ok1 = b.Equals(a);        // false; `b` is not null, so the call is safe
+bool ok2 = object.Equals(a, b); // false; static helper, either side may be null
+bool ok3 = string.Equals(a, b); // false; same idea for strings
+bool ok4 = a == b;             // false; string `==` allows null on the left
+
+// --- Same text, different objects: value equal, reference not equal ---
+string s1 = new string(new[] { 'a', 'b', 'c' });
+string s2 = new string(new[] { 'a', 'b', 'c' });
+bool sameChars = s1 == s2;                 // true — string overloads `==` by content
+bool sameInstance = ReferenceEquals(s1, s2); // false — two heap objects
+
+// Typed as `object`: `==` is reference equality only (no string overload applies)
+object o1 = s1;
+object o2 = s2;
+bool objectOpEquals = o1 == o2;            // false — different references
+bool objectEquals = o1.Equals(o2);       // true — run-time type is still `string`
+
+// Another reference type with no `==` overload: same “shape,” different identity
+var list1 = new List<int> { 1, 2, 3 };
+var list2 = new List<int> { 1, 2, 3 };
+bool listsSameRef = list1 == list2;      // false — two `List<>` instances
+bool listsSameElements = Enumerable.SequenceEqual(list1, list2); // true — same sequence
+// For your own `class`, `==` is reference equality too unless you overload it.
+```
+
+* **Events vs delegate fields.** An **`event`** is not a normal field from the outside: other types can only `+=` and `-=` subscribers, not assign or invoke it like a bare delegate. Only the declaring type can raise it. Treating an event like a regular delegate variable in another class fails by design. **[Part 2](CSharp_Questions_Part2.md)** (Section 11) picks up delegates, multicast, and the `EventHandler` pattern in more detail.
+
+---
+
+## 4. 🔁 Collections & LINQ
+
+Collections hold data; **LINQ** describes *how* to walk and filter that data. A common trap is forgetting that many LINQ operations return **lazy** `IEnumerable` pipelines: nothing runs until something **pulls** the sequence (for example `foreach`, `ToList()`, or another consuming operator). Until then, the “query” is a recipe, not a snapshot. That ties back to **run time**: the source can change before you enumerate, and enumerating twice can run the whole pipeline twice.
+
+**Operators that throw** encode strict expectations. **`First()`** demands at least one element; **`FirstOrDefault()`** returns `default(T)` when the sequence is empty—pick the one that matches whether “none” is normal or exceptional. **`Single()`** insists on **exactly one** element (throws if there are zero or more than one). **`SingleOrDefault()`** allows **zero or one** (returns `default(T)` when empty, throws when two or more match). That makes `Single*` a poor choice when the sequence was never meant to be unique. **`Last()`**, **`ElementAt(index)`**, and similar APIs often have `*OrDefault` variants—same idea: throw versus default when the position or uniqueness rule fails.
+
+```csharp
+using System.Linq;
+
+var empty = Array.Empty<string>();
+// empty.First();              // InvalidOperationException — sequence is empty
+var a = empty.FirstOrDefault(); // null; for `int` sequences, empty → `0` (easy to confuse with a real zero)
+
+var one = new[] { "only" };
+var b = one.Single();           // "only"
+// one.SingleOrDefault();      // same — still exactly one element
+
+var none = Array.Empty<string>();
+// none.Single();              // InvalidOperationException — zero elements
+var c = none.SingleOrDefault(); // null — zero elements allowed
+
+var two = new[] { "x", "y" };
+// two.Single();               // InvalidOperationException — more than one
+// two.SingleOrDefault();      // same — still more than one
+
+var nums = new[] { 10, 20, 30 };
+// nums.ElementAt(10);        // ArgumentOutOfRangeException
+var d = nums.ElementAtOrDefault(10); // 0 — default for `int`, not “missing” semantics for value types
+
+// nums.Last();               // 30
+// Array.Empty<int>().Last(); // InvalidOperationException
+```
+
+**Equality inside LINQ** follows the type’s rules, not what you wish it meant. **`Distinct()`** uses the element type’s default equality (for reference types, that usually means **`Equals`/`GetHashCode`** if overridden; otherwise reference identity). Two different object instances with the same “business” fields can still count as distinct. If you need value semantics, you override equality, use a projection (`Select`) into something comparable, or pass an **`IEqualityComparer<T>`**.
+
+**Dictionaries** map keys to values. **`Add(key, value)`** throws if the key already exists; the **indexer** `dict[key] = value` **replaces** the value when the key is present—easy to mix up in interviews. **`TryGetValue`** fetches in one lookup and tells you whether the key was found; calling the indexer twice or using `ContainsKey` plus indexer does extra work and can still race if another thread mutates the dictionary (for concurrent scenarios, different types apply). **Null keys** depend on the dictionary: **`Dictionary<TKey,TValue>`** does not allow a null key when `TKey` is a non-nullable reference type; with nullable keys, `null` may be allowed or may be a deliberate “missing key” smell—know your contract.
+
+Things interviewers like to probe in collections and LINQ:
+
+* **Throwing vs non-throwing queries.** When is “no match” an error (`First`) versus a normal outcome (`FirstOrDefault`)? When is uniqueness a real invariant (`Single`) versus an assumption that breaks on real data?
+
+* **Deferred execution.** Chained `Where`/`Select` builds a pipeline; side effects in lambdas run **each time** you enumerate. **`ToArray()` / `ToList()`** copy results **once** at that moment—after that, the list does not “follow” later changes to the original source unless you rebuild.
+
+* **Multiple enumeration.** Storing `IEnumerable<T>` and enumerating it twice can mean **two full passes** (and **two rounds** of any expensive logic or side effects). If you need a stable snapshot, materialize.
+
+Common traps:
+
+* **`foreach` and mutation.** Changing a collection’s structure (adding/removing) while iterating often throws **`InvalidOperationException`** (“collection was modified”). Use a copy, a `for` loop over indices with care, or types designed for concurrent modification.
+
+* **Results that “move.”** If you build a query over a **mutable** list and enumerate **after** the list changes, you see the **current** contents—not the contents at the time you wrote the query. Materialize early when you need a fixed picture.
+
+* **Empty vs null.** A **null** collection variable is not the same as an **empty** sequence; LINQ extension methods throw on `null` unless you guard first.
+
+---
+
+## 5. ⚠️ Null Handling
+
+**`null`** means “no object” for reference types, and **`Nullable<T>`** (`int?`, and so on) means “maybe no value” for value types. Interview questions often mix those ideas with collections and strings, so the goal here is the same as elsewhere: know what runs at **run time** versus what the **compiler** can only warn about.
+
+**`NullReferenceException`** is what you get when you use a member on a reference that is **`null`**—call a method, read a property, index as if the reference pointed at an object. The fix is not “catch every NRE”; it is to **test**, use **null-conditional** access, or **guarantee** invariants at construction time (constructors, factories, APIs that never return null when the contract says they must not).
+
+**The null-conditional operator `?.`** stops the chain as soon as one step is **`null`**. The rest of the expression is skipped, and the whole expression evaluates to **`null`** when the final result type is a reference type or nullable value type. **`?.` chained** (`a?.b?.c`) is one short pattern for deep graphs without nested `if` noise—just remember **short-circuit** behavior: later parts never run if an earlier part was **`null`**.
+
+**`??` (null-coalescing)** picks the right-hand side when the left is **`null`**. **`??=`** assigns the right-hand side **only if** the left is **`null`**—handy for lazy defaults on fields and locals. Neither operator removes **`null`** from the world; they only choose a fallback at that moment in the code.
+
+**Nullable reference types (NRT)** add **`?`** on reference types (`string?`) and warnings when you might dereference **`null`**. That is **not** a runtime feature: **`null` can still appear** where the type says it should not, if you disable checks, use legacy libraries, or lie to the compiler. The **null-forgiving postfix `!`** means “I assert this is not null here”—it **silences a warning**; it does **not** insert a check. If you were wrong, you still get **`NullReferenceException`** at run time. **Section 2** already tied **`string`** / **`string?`** and field defaults to this picture.
+
+**Mental model (same story as Section 2).** For **value types**, “missing” is **`T?`** / **`Nullable<T>`** with **`HasValue`**. For **reference types**, **`null`** is always a possible run-time value until your design rules it out; NRT is there to **catch mistakes early**, not to erase **`null`** from the CLR.
+
+Things interviewers like to probe in null handling:
+
+* **Where the exception actually throws.** A long chain of calls: which dereference was **null**? Can you rewrite with **`?.`** or split into locals so the next reader (and debugger) can see it?
+
+* **“No” vs “empty.”** **`null`**, **empty string**, and **empty collection** answer different questions; APIs should say which they use, and callers should not treat them as interchangeable.
+
+* **NRT discipline.** When is **`!`** justified (after a guard you truly trust) versus papering over warnings? When should the return type be **`string?`** so callers are forced to think?
+
+Common traps:
+
+* **`list == null` vs empty list.** **`Count == 0`** does not tell you the variable is non-null; check **`null`** first, or use **null-conditional** (`list?.Count`) and handle both “no list” and “no items.”
+
+* **`string.IsNullOrEmpty`** and **`IsNullOrWhiteSpace`.** Treat **`null`**, **`""`**, and (for whitespace) **`"   "`** in one call when that matches your business rule—do not reimplement with easy-to-miss edge cases.
+
+* **Assuming NRT proves safety at run time.** Warnings are only as good as the annotations and the code paths you analyzed; **`null`** from interop, serialization, or reflection still happens.
+
+---
+
+## 6. 🔥 Exception Handling
+
+Exceptions are for **exceptional** control flow: failures you did not want in the happy path. In interviews—and in production—the recurring theme is whether you **preserve information** (especially the **stack trace**), whether you **catch the right thing**, and whether **`finally`** and **cancellation** still behave the way readers expect.
+
+**`throw;` vs `throw ex;`.** Inside a **`catch`**, bare **`throw;`** rethrows the **same** exception object and **keeps the original stack trace**—that is what you usually want when you are not transforming the error. **`throw ex;`** (or **`throw new Exception(..., ex)`** without care) often **rewinds** the stack to the current frame, which makes production logs far harder to read. Wrap with a **new** exception type only when you are adding context and you **chain** with **`InnerException`** (or equivalent) so the old stack is not lost.
+
+**`catch` order and `catch when`.** The runtime matches **`catch`** blocks **top to bottom**; the **first compatible type** wins. Put **more specific** types **before** **`catch (Exception)`**, or the general handler will swallow things you meant to handle differently. **`catch (Exception ex) when (condition)`** filters **without** changing which exception type you caught—you still catch **`Exception`**, but only when **`condition`** is true. That avoids awkward **`catch`** / rethrow patterns when you only wanted a subset of cases.
+
+**`finally` and control flow.** A **`finally`** block **runs** when control leaves the associated **`try`**—whether that is by **normal completion**, **`return`**, **`break`**, **`continue`**, or a **thrown** exception (unless the process tears down first). If **`try`** contains **`return`**, **`finally`** still runs **before** the method actually returns to the caller; side effects in **`finally`** can still run after the return value is chosen—know the language rules before you argue about quiz output.
+
+**Design habits.** Wrapping with **`InnerException`** carries the original cause; a bare **`throw;`** says “this layer has nothing to add.” Many systems **log once at a boundary** (HTTP middleware, top-level handler) instead of **catching everywhere**. **Empty `catch`** blocks and **`catch (Exception)`** that only **swallow** hide bugs—cancellation and **`OutOfMemoryException`** included. **`ExceptionDispatchInfo.Capture(ex).Throw()`** (or related patterns) can **rethrow with the original stack** when you had to store an exception and throw later—for example across some **`await`** boundaries—without rewriting the stack the way **`throw ex;`** does.
+
+**Cancellation** is normal control flow in modern C#, not always a “bug.” **`OperationCanceledException`** and **`TaskCanceledException`** often mean “this work was stopped on purpose.” Catching **`Exception`** and **ignoring** them breaks **cooperative cancellation** unless you **rethrow** or filter. Prefer **`CancellationToken.ThrowIfCancellationRequested()`** and passing **tokens** through APIs; **Section 7** goes deeper on **async** and tokens.
+
+**Resources and disposal** belong in the same mental bucket: **`using`** maps to **`try` / `finally` / `Dispose()`** so cleanup runs even when **`try`** throws. **[Part 2](CSharp_Questions_Part2.md)** (Section 12) expands on **`IDisposable`**, **`using var`**, and async disposal.
+
+Things interviewers like to probe in exception handling:
+
+* **Stack integrity.** Why does **`throw;`** preserve the stack while **`throw ex;`** usually does not? When is wrapping in a **new** exception justified?
+
+* **`finally` quiz questions.** What runs, and in what order, when **`try`** returns or throws? Can **`finally`** override the return value? (Know the spec, not vibes.)
+
+* **Filtering.** **`catch when`** vs catching and rethrowing after an **`if`**—when does each read more clearly?
+
+Common traps:
+
+* **Broad catch as a default.** **`catch (Exception)`** that logs nothing and continues—especially around **async** or **cancel**—masks real failures.
+
+* **Swallowing cancellation.** Treat **cancel** as a first-class outcome; filter or rethrow unless the layer truly owns the lifetime of the work.
+
+* **Dropping the inner cause.** New wrapper exceptions without an **`InnerException`** link erase the chain debugging tools rely on.
+
+---
+
+## 7. ⚡ Async / Task Pitfalls
+
+**`async` / `await`** splits work across time: the method can **yield** while waiting on I/O or other tasks, without blocking a thread for the whole wait. The traps are almost always about **what the caller can observe** (return type, exceptions, ordering) and about **blocking** a thread that the continuation still needs.
+
+**Return types: `async void` vs `async Task`.** Use **`async void`** almost only for **event handlers** (where the framework cannot `await` your method anyway). Callers **cannot await** `async void`, and failures surface through **`TaskScheduler.UnobservedTaskException`** or other process-level hooks—not a clean, local contract. Normal APIs should return **`Task`** or **`Task<T>`** so callers can **`await`**, compose, and observe **faulted** tasks. Exceptions thrown inside an **`async Task`** method are stored on the **`Task`** until someone **observes** them (usually by **`await`**ing); an **`await`** on a faulted task **rethrows** the stored exception (see **Section 6** for stack and wrapping habits).
+
+**Forgetting `await`.** If you call an **`async`** method but drop the **`await`**, you get a **`Task`** that may still be running—**fire-and-forget** unless you attach explicit continuation or error handling. Completion order relative to the rest of the method is wrong, and exceptions may become **unobserved** until later. If you meant to run work in the background, say so in the design instead of doing it by accident.
+
+**Sync-over-async and deadlocks.** **`Task.Result`** and **`.Wait()`** **block** the calling thread until the task finishes. On contexts that **capture a synchronization context** (classic **UI** threads, older **ASP.NET** with a request **`SynchronizationContext`**), the **continuation** after an **`await`** may need to **marshal back** to that same thread. If that thread is **blocked** in **`.Wait()`**, you can **deadlock**: the task cannot finish until the continuation runs, and the continuation cannot run until the thread is free. The durable fix is **`await`** **end-to-end** instead of blocking. In **library** code that does not need the original context, **`ConfigureAwait(false)`** on **`await`** avoids **posting** back (still important for **UI** and reusable libraries; **ASP.NET Core** typically has no classic **`HttpContext`**-based sync context, but the lesson survives wherever a **sync context** exists).
+
+**Cancellation** in async code should be **cooperative**: pass **`CancellationToken`** into APIs, use **`ThrowIfCancellationRequested()`**, and **honor** the token in loops and **`Delay`** calls. Broad **`catch (Exception)`** that swallows **cancel** breaks that story—**Section 6** already called that out.
+
+**`IAsyncEnumerable<T>`** (optional, modern stack) is **async streaming**: consumers use **`await foreach`** and items arrive over time. The same **“when does it run?”** instinct as **deferred `IEnumerable`** applies—work runs as it is **pulled**, not when the method returns.
+
+Things interviewers like to probe in async code:
+
+* **Why `async void` is a bad default.** What can the caller not do? Where do failures go?
+
+* **Deadlock stories.** A **UI** handler blocks on **`.Result`** while the inner work **`await`s** back to the **UI** thread—why can that hang?
+
+* **`ConfigureAwait(false)`** — what problem does it reduce, and when is it irrelevant or the wrong tool?
+
+Common traps:
+
+* **`async void`** in **library** or **business** code “because it compiles.”
+
+* **Blocking** on **`.Result` / `.Wait()`** in **request** or **UI** paths that already sit on a **captured** context.
+
+* **Tokens dropped** after the first layer—every **downstream** method that could run long should accept and **use** the same **`CancellationToken`** when possible.
+
+---
+
+## 🏁 Conclusion (end of Part 1)
+
+You have walked through the traps that dominate **language-level** interviews: **types and defaults**, **operators and equality**, **LINQ**, **nulls**, **exceptions**, and **`async`/`Task`**. If those ideas feel connected—not memorized in isolation—you are ready for a large slice of C# screening questions.
+
+**Continue with [Part 2](CSharp_Questions_Part2.md)** for **inheritance and polymorphism**, **`static`**, **generics, delegates, and events**, **`using` / disposal**, a **modern C#** snapshot, optional **SQL** notes, **real-world patterns**, and a **cheat sheet** for a last pass before you talk to someone.
+
+> “Most bugs don’t come from complex code, but from misunderstood simple behavior”—and that line still applies after Part 1; Part 2 adds the object-model and architecture layers where those bugs show up at scale.

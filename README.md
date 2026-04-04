@@ -145,6 +145,8 @@ This series is a step-by-step guide designed to help you crack backend programmi
 - [Series Overview](Interview_Questions/README.md)
 - [Behavior Questions](Interview_Questions/Behavior_Questions.md)
 - [DBMS Questions](Interview_Questions/DBMS_Questions.md)
+- [C# Traps & Edge Cases — Part 1](Interview_Questions/CSharp_Questions.md)
+- [C# Traps & Edge Cases — Part 2: OOP, Patterns & Cheat Sheet](Interview_Questions/CSharp_Questions_Part2.md)
 - [.Net Questions](Interview_Questions/DotNet_Questions.md)
 - [Preparing for a Code Review Interview](Interview_Questions/Code_Review_Interview.md)
 
@@ -312,6 +314,8 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [Series Overview](Interview_Questions/README.md)
 - [行为面试问题](Interview_Questions/Behavior_Questions_CN.md)  
 - [数据库管理系统（DBMS）问题](Interview_Questions/DBMS_Questions_CN.md)  
+- [C# 问题 1](Interview_Questions/CSharp_Questions_CN.md)
+- [C# 问题 2](Interview_Questions/CSharp_Questions_Part2_CN.md)
 - [.Net 问题](Interview_Questions/DotNet_Questions_CN.md)
 - [代码审查面试准备](Interview_Questions/Code_Review_Interview_CN.md)
 
