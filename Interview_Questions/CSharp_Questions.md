@@ -77,13 +77,61 @@ Things interviewers like to tie to defaults and types:
 
 * **Boxing and unboxing.** Putting a value type in an `object` or a non-generic interface slot allocates a boxed copy on the heap. That costs memory and can change how equality behaves (for example, comparing boxed values). Hot paths and subtle bugs both show up here.
 
+    ```csharp
+    int x = 5;
+    object boxed = x;        // boxing: int copied to object on the heap
+    int y = (int)boxed;      // unboxing: object cast back to int
+
+    Console.WriteLine(x == y);        // True: compares values (both ints)
+    Console.WriteLine(boxed == (object)y); // False: different boxed objects (references not the same)
+
+
+    // Even when values are equal, boxed objects are different instances!
+
+    void Log(object value)
+    {
+        Console.WriteLine(value);
+    }
+
+    Log(42); // ⚠️ boxing happens here
+    ```
+
 * **`decimal` vs `double`.** `double` is binary floating point: fast, but fractions like `0.1` are not always exact, so `0.1 + 0.2` is a classic surprise. `decimal` is decimal floating point and is the usual choice for money and exact decimal math, at some performance cost.
 
-* **`const`, `readonly`, and `init`.** `const` must be a compile-time constant (literals and simple combinations). `readonly` fields are set once—in an instance constructor or static constructor for static fields. `init` setters allow assignment only during object initialization (including object initializers), which is handy for immutable-looking objects without full constructor boilerplate.
+* **`const` and `readonly`.**  
+  - `const` must be a compile-time constant (literals and simple combinations).  
+  - `readonly` fields are set once—in an instance constructor or static constructor for static fields.  
 
-* **Enums.** The default numeric value is `0` even if you never defined a name for zero. Casts from integers can produce values that are not named; `[Flags]` enums are combined with `|` and tested with `HasFlag` or bit masks—`HasFlag` is clear but not always the fastest in tight loops.
+```csharp
+public class Example
+{
+    public const int ConstValue = 10; // replaced by value at compile time, must be constant
+    public readonly int ReadonlyField; // can only set in constructor
 
-* **`record` and `record struct`.** `record` types (usually reference types) get value-based equality and `with` for non-destructive copy by default. Inheritance rules for records differ from plain classes, so know the basics before guessing. Structs still get `default` that zeroes every field; with C# 10+ struct features, be explicit about what “default” means if your struct holds reference-type fields.
+    public int NormalField; // can be changed at any time
+
+    public Example(int val)
+    {
+        ReadonlyField = val; // Allowed: set in the constructor
+        // ConstValue = 20;   // ❌ Error: cannot assign to const
+    }
+}
+```
+
+**Summary Table**
+
+| Feature   | Set When?                       | Modifiable After Init? | Usage Example            |
+|-----------|---------------------------------|------------------------|--------------------------|
+| `const`   | At declaration (compile time)   | ❌ No                  | `public const int X = 1;`  |
+| `readonly`| In constructor (run time)       | ❌ No                  | `public readonly int Y;`   |
+
+* **Enums.** The default numeric value is `0` even if you never defined a name for zero. Casts from integers can produce values that are not named; 
+
+```csharp
+enum Color { Red = 1, Green = 2, Blue = 4 }
+Color c1 = (Color)0;         // 0 is valid, but not named
+Color c2 = (Color)7;         // 7 is not a named value, but is valid at runtime
+```
 
 **Nullable reference types (NRT)** are a compile-time layer on top of reference types: `string` means “should not be null,” `string?` means “may be null,” and the compiler warns when you ignore that. The `!` operator only tells the compiler to stop warning; it does not add a runtime check. **Section 5** goes deeper into null handling and how NRT fits day-to-day code.
 
@@ -105,42 +153,75 @@ Common traps:
 
 Expressions look small, but the compiler is busy: it picks overloads, promotes types, and applies rules you never wrote down. Interview questions often exploit that gap—especially when `+`, `==`, or `switch` do something that “feels” like math or equality in English but means something stricter in C#.
 
-**Pattern matching** is where the language inspects a value’s shape at run time and binds names in one step. You will see `is` with type and property patterns, relational patterns (ranges, comparisons), and nested property tests. **`switch` expressions** produce a value and encourage exhaustive handling; **classic `switch`** is statement-based and falls through unless you `break` or `return`. With **enums**, the compiler may warn if you do not cover every named value—but **casts from integers can still produce invalid enum values at run time**, so “exhaustive” at compile time is not the same as “impossible at run time.” **`when` guards** add extra conditions on each arm without nesting huge `if` chains.
+**Pattern matching** is where the language inspects a value’s type at run time and binds names in one step. You will see `is` with type checks. **Classic `switch`** statements are statement-based and fall through unless you `break` or `return`. With **enums**, the compiler does **not** warn if you do not cover every named value—casts from integers can still produce invalid enum values at run time, so “exhaustive” handling cannot be guaranteed. **`when` guards** can add extra conditions on each `case` without nesting huge `if` chains.
 
 ```csharp
-// `is`: type + property pattern (binds `s` only when non-null and non-empty)
-if (obj is string { Length: > 0 } s)
-    Console.WriteLine(s);
-
-// `switch` expression: every input needs an arm — often `_` for “everything else”
-static string Describe(object? x) => x switch
+// `is` type check only (pre-C# 8)
+object obj = "hello";
+if (obj is string s)   // type check + bind to s
 {
-    int n when n < 0 => "negative",   // `when` guard
-    int n => $"int {n}",
-    null => "null",
-    _ => "other",
-};
+    if (s.Length > 0)  // separate check for length
+        Console.WriteLine(s);
+}
 
-// Enum: named members covered; cast from int can still produce an unnamed value at run time
+// Classic switch statement with `when` guards (pre-C# 8)
+static string Describe(object x)
+{
+    switch (x)
+    {
+        case int n when n < 0:
+            return "negative";
+        case int n:
+            return $"int {n}";
+        case null:
+            return "null";
+        default:
+            return "other";
+    }
+}
+
+// Enum example (pre-C# 8)
 enum Level { Off = 0, On = 1 }
-Level rogue = (Level)99;
-string label = rogue switch
+
+Level rogue = (Level)99; // cast from int, may not be named
+
+string label;
+switch (rogue)
 {
-    Level.Off => "off",
-    Level.On => "on",
-    _ => "not a named member",  // e.g. (Level)99 lands here
-};
+    case Level.Off:
+        label = "off";
+        break;
+    case Level.On:
+        label = "on";
+        break;
+    default:
+        label = "not a named member"; // catch any invalid enum
+        break;
+}
 ```
 
 **`checked` and `unchecked`.** Integer arithmetic normally wraps in an *unchecked* context (the default for plain `int` code unless the project sets checked arithmetic). In a *checked* context, overflow throws `OverflowException` instead of silently wrapping. Whole-project settings (`<CheckForOverflowUnderflow>` or legacy `/checked`) can flip what you expect from a snippet on a whiteboard.
 
-Things interviewers like to probe in operators and expressions:
+```csharp
+int max = int.MaxValue;
 
-* **`is` and patterns.** `value is int i`, `value is { Length: > 0 }`, combining type tests with conditions—know that patterns run at run time even when the code reads like a type check.
+// Default (unchecked): wraps around on overflow (no error)
+int wrapped = max + 1;  // wraps to int.MinValue (overflow, but no exception)
+Console.WriteLine(wrapped); // Output: -2147483648
 
-* **`switch` expression vs statement.** Expressions must cover all inputs (often with `_`) or the compiler complains; statements can fall through by mistake if you forget `break` in older style arms.
+// Checked: throws on overflow
+try
+{
+    int result = checked(max + 1); // throws OverflowException
+}
+catch (OverflowException)
+{
+    Console.WriteLine("Overflow detected!");
+}
 
-* **Exhaustiveness vs reality.** A `switch` on an enum can look complete and still receive a numeric value that is not a named enum member. Defensive code sometimes uses a default arm or validates before casting.
+// You can also force no exception with 'unchecked':
+int noError = unchecked(max + 1); // always wraps, never throws
+```
 
 Common traps:
 
@@ -189,7 +270,19 @@ bool listsSameElements = Enumerable.SequenceEqual(list1, list2); // true — sam
 
 ## 4. 🔁 Collections & LINQ
 
-Collections hold data; **LINQ** describes *how* to walk and filter that data. A common trap is forgetting that many LINQ operations return **lazy** `IEnumerable` pipelines: nothing runs until something **pulls** the sequence (for example `foreach`, `ToList()`, or another consuming operator). Until then, the “query” is a recipe, not a snapshot. That ties back to **run time**: the source can change before you enumerate, and enumerating twice can run the whole pipeline twice.
+Collections hold data; **LINQ** describes *how* to walk and filter that data. A common trap is forgetting that many LINQ operations return **lazy** `IEnumerable` pipelines: nothing runs until something **pulls** the sequence (for example `foreach`, `ToList()`, or another consuming operator). Until then, the “query” is a recipe, not a snapshot. That ties back to **run time**: the source or even variables used inside your query can change before you enumerate, and enumerating twice can run the whole pipeline twice.
+
+For example:
+
+```csharp
+int b = 3;
+var query = list.Where(a => a > b); // defines a query, but does NOT run it
+
+b = 1; // b changes AFTER query is defined, but BEFORE enumeration
+var results = query.ToList(); // filters with b == 1, not 3!
+```
+
+In this example, the value of `b` used in the filter is not "captured" at the time you create the query, but rather at the time you enumerate it. This is a classic demonstration of deferred execution and can lead to surprises if you expect the query to be a snapshot of data and variables "at definition."
 
 **Operators that throw** encode strict expectations. **`First()`** demands at least one element; **`FirstOrDefault()`** returns `default(T)` when the sequence is empty—pick the one that matches whether “none” is normal or exceptional. **`Single()`** insists on **exactly one** element (throws if there are zero or more than one). **`SingleOrDefault()`** allows **zero or one** (returns `default(T)` when empty, throws when two or more match). That makes `Single*` a poor choice when the sequence was never meant to be unique. **`Last()`**, **`ElementAt(index)`**, and similar APIs often have `*OrDefault` variants—same idea: throw versus default when the position or uniqueness rule fails.
 
@@ -222,6 +315,28 @@ var d = nums.ElementAtOrDefault(10); // 0 — default for `int`, not “missing�
 
 **Equality inside LINQ** follows the type’s rules, not what you wish it meant. **`Distinct()`** uses the element type’s default equality (for reference types, that usually means **`Equals`/`GetHashCode`** if overridden; otherwise reference identity). Two different object instances with the same “business” fields can still count as distinct. If you need value semantics, you override equality, use a projection (`Select`) into something comparable, or pass an **`IEqualityComparer<T>`**.
 
+```csharp
+class Person
+{
+    public string Name;
+    public int Age;
+
+    // public override bool Equals(object obj)
+    //    => obj is Person p && p.Name == Name && p.Age == Age;
+
+    // public override int GetHashCode() => HashCode.Combine(Name, Age);
+}
+
+var list = new List<Person>
+{
+    new Person { Name = "Alice", Age = 25 },
+    new Person { Name = "Alice", Age = 25 }
+};
+
+var distinct = list.Distinct();
+Console.WriteLine(distinct.Count()); // 2 ❌
+```
+
 **Dictionaries** map keys to values. **`Add(key, value)`** throws if the key already exists; the **indexer** `dict[key] = value` **replaces** the value when the key is present—easy to mix up in interviews. **`TryGetValue`** fetches in one lookup and tells you whether the key was found; calling the indexer twice or using `ContainsKey` plus indexer does extra work and can still race if another thread mutates the dictionary (for concurrent scenarios, different types apply). **Null keys** depend on the dictionary: **`Dictionary<TKey,TValue>`** does not allow a null key when `TKey` is a non-nullable reference type; with nullable keys, `null` may be allowed or may be a deliberate “missing key” smell—know your contract.
 
 Things interviewers like to probe in collections and LINQ:
@@ -246,11 +361,36 @@ Common traps:
 
 **`null`** means “no object” for reference types, and **`Nullable<T>`** (`int?`, and so on) means “maybe no value” for value types. Interview questions often mix those ideas with collections and strings, so the goal here is the same as elsewhere: know what runs at **run time** versus what the **compiler** can only warn about.
 
-**`NullReferenceException`** is what you get when you use a member on a reference that is **`null`**—call a method, read a property, index as if the reference pointed at an object. The fix is not “catch every NRE”; it is to **test**, use **null-conditional** access, or **guarantee** invariants at construction time (constructors, factories, APIs that never return null when the contract says they must not).
+**`NullReferenceException`** is what you get when you use a member on a reference that is **`null`**—for example, if you try to call a method, read a property, or index as if the reference pointed at an object, but in reality it is `null`.
+
+```csharp
+string s = null;
+Console.WriteLine(s.Length); // Throws NullReferenceException
+```
+
+The fix is not “catch every NRE”; it is to **test**, use **null-conditional** access, or **guarantee** invariants at construction time (constructors, factories, APIs that never return null when the contract says they must not).
 
 **The null-conditional operator `?.`** stops the chain as soon as one step is **`null`**. The rest of the expression is skipped, and the whole expression evaluates to **`null`** when the final result type is a reference type or nullable value type. **`?.` chained** (`a?.b?.c`) is one short pattern for deep graphs without nested `if` noise—just remember **short-circuit** behavior: later parts never run if an earlier part was **`null`**.
 
+```csharp
+class Node { public Node? Next; public string? Label; }
+
+Node? head = null;
+
+string? name = head?.Next?.Label; // Evaluates to null, no exception is thrown.
+```
+
+If you wrote this without the null-conditional operator, you'd need nested `if` checks to avoid a `NullReferenceException`.
+
 **`??` (null-coalescing)** picks the right-hand side when the left is **`null`**. **`??=`** assigns the right-hand side **only if** the left is **`null`**—handy for lazy defaults on fields and locals. Neither operator removes **`null`** from the world; they only choose a fallback at that moment in the code.
+
+```csharp
+string? name = null;
+string display = name ?? "Unknown";  // "Unknown" if name is null
+
+string? label = null;
+label ??= "Default Label";           // label is now "Default Label"
+```
 
 **Nullable reference types (NRT)** add **`?`** on reference types (`string?`) and warnings when you might dereference **`null`**. That is **not** a runtime feature: **`null` can still appear** where the type says it should not, if you disable checks, use legacy libraries, or lie to the compiler. The **null-forgiving postfix `!`** means “I assert this is not null here”—it **silences a warning**; it does **not** insert a check. If you were wrong, you still get **`NullReferenceException`** at run time. **Section 2** already tied **`string`** / **`string?`** and field defaults to this picture.
 
