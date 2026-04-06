@@ -418,25 +418,243 @@ Common traps:
 
 Exceptions are for **exceptional** control flow: failures you did not want in the happy path. In interviews—and in production—the recurring theme is whether you **preserve information** (especially the **stack trace**), whether you **catch the right thing**, and whether **`finally`** and **cancellation** still behave the way readers expect.
 
-**`throw;` vs `throw ex;`.** Inside a **`catch`**, bare **`throw;`** rethrows the **same** exception object and **keeps the original stack trace**—that is what you usually want when you are not transforming the error. **`throw ex;`** (or **`throw new Exception(..., ex)`** without care) often **rewinds** the stack to the current frame, which makes production logs far harder to read. Wrap with a **new** exception type only when you are adding context and you **chain** with **`InnerException`** (or equivalent) so the old stack is not lost.
+**`throw;` vs `throw ex;`.**  
+Inside a **`catch`**, bare **`throw;`** rethrows the **same** exception object and **keeps the original stack trace**—that is what you usually want when you are not transforming the error. **`throw ex;`** (or **`throw new Exception(..., ex)`** without care) often **rewinds** the stack to the current frame, which makes production logs far harder to read. Wrap with a **new** exception type only when you are adding context and you **chain** with **`InnerException`** (or equivalent) so the old stack is not lost.
 
-**`catch` order and `catch when`.** The runtime matches **`catch`** blocks **top to bottom**; the **first compatible type** wins. Put **more specific** types **before** **`catch (Exception)`**, or the general handler will swallow things you meant to handle differently. **`catch (Exception ex) when (condition)`** filters **without** changing which exception type you caught—you still catch **`Exception`**, but only when **`condition`** is true. That avoids awkward **`catch`** / rethrow patterns when you only wanted a subset of cases.
+```csharp
+try
+{
+    throw new InvalidOperationException("Original error.");
+}
+catch (Exception ex)
+{
+    // Rethrows the SAME exception; stack trace is preserved:
+    throw;
+    // If you do:
+    // throw ex; 
+    // ...the stack trace will now start from THIS line, not the original throw above.
+}
 
-**`finally` and control flow.** A **`finally`** block **runs** when control leaves the associated **`try`**—whether that is by **normal completion**, **`return`**, **`break`**, **`continue`**, or a **thrown** exception (unless the process tears down first). If **`try`** contains **`return`**, **`finally`** still runs **before** the method actually returns to the caller; side effects in **`finally`** can still run after the return value is chosen—know the language rules before you argue about quiz output.
+// OR: new exception but WITH inner exception for context:
+try
+{
+    throw new InvalidOperationException("Original error.");
+}
+catch (Exception ex)
+{
+    throw new ApplicationException("Extra context here.", ex); // Chains, stack is preserved in 'ex'
+}
+```
 
-**Design habits.** Wrapping with **`InnerException`** carries the original cause; a bare **`throw;`** says “this layer has nothing to add.” Many systems **log once at a boundary** (HTTP middleware, top-level handler) instead of **catching everywhere**. **Empty `catch`** blocks and **`catch (Exception)`** that only **swallow** hide bugs—cancellation and **`OutOfMemoryException`** included. **`ExceptionDispatchInfo.Capture(ex).Throw()`** (or related patterns) can **rethrow with the original stack** when you had to store an exception and throw later—for example across some **`await`** boundaries—without rewriting the stack the way **`throw ex;`** does.
+---
+
+**`catch` order and `catch when`.**  
+The runtime matches **`catch`** blocks **top to bottom**; the **first compatible type** wins. Put **more specific** types **before** **`catch (Exception)`**, or the general handler will swallow things you meant to handle differently. **`catch (Exception ex) when (condition)`** filters **without** changing which exception type you caught—you still catch **`Exception`**, but only when **`condition`** is true. That avoids awkward **`catch`** / rethrow patterns when you only wanted a subset of cases.
+
+```csharp
+try
+{
+    // Code that might throw any type of exception
+}
+catch (ArgumentNullException ex) // Specific type FIRST
+{
+    Console.WriteLine("Caught ArgumentNullException: " + ex.Message);
+}
+catch (Exception ex) // More general handler
+{
+    Console.WriteLine("Caught some other exception: " + ex.Message);
+}
+
+// Using 'catch when' filter
+try
+{
+    // Code that may throw
+}
+catch (Exception ex) when (ex.Message.Contains("transient")) // Only when the message matches
+{
+    Console.WriteLine("Transient error, try again maybe.");
+}
+```
+
+---
+
+**`finally` and control flow.**  
+A **`finally`** block **runs** when control leaves the associated **`try`**—whether that is by **normal completion**, **`return`**, **`break`**, **`continue`**, or a **thrown** exception (unless the process tears down first). If **`try`** contains **`return`**, **`finally`** still runs **before** the method actually returns to the caller; side effects in **`finally`** can still run after the return value is chosen—know the language rules before you argue about quiz output.
+
+```csharp
+int TestFinally()
+{
+    try
+    {
+        return 42; // 'finally' will STILL RUN
+    }
+    finally
+    {
+        Console.WriteLine("Finally block runs, even after return.");
+    }
+} // Console writes before method returns.
+
+void TestBreakContinue()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        try
+        {
+            if (i == 1) break;
+            if (i == 2) continue;
+        }
+        finally
+        {
+            Console.WriteLine($"Finally runs for i={i}");
+        }
+    }
+}
+// Output will include 'finally' for each loop iteration, even if 'break' or 'continue' occurs.
+```
+
+---
+
+**Design habits.**  
+Wrapping with **`InnerException`** carries the original cause; a bare **`throw;`** says “this layer has nothing to add.” Many systems **log once at a boundary** (HTTP middleware, top-level handler) instead of **catching everywhere**. **Empty `catch`** blocks and **`catch (Exception)`** that only **swallow** hide bugs—cancellation and **`OutOfMemoryException`** included. **`ExceptionDispatchInfo.Capture(ex).Throw()`** (or related patterns) can **rethrow with the original stack** when you had to store an exception and throw later—for example across some **`await`** boundaries—without rewriting the stack the way **`throw ex;`** does.
+
+```csharp
+// Bad: empty catch block swallows all exceptions (can hide bugs)
+try
+{
+    DangerousStuff();
+}
+catch (Exception)
+{
+    // Catches and ignores EVERY exception (including OutOfMemory, which you probably shouldn't)
+}
+
+// Good: wrap with context and preserve cause
+try
+{
+    DangerousStuff();
+}
+catch (Exception ex)
+{
+    throw new ApplicationException("Something failed in DangerousStuff.", ex);
+}
+
+// Rethrow with preserved stack after storing exception (advanced/async case)
+using System.Runtime.ExceptionServices;
+
+ExceptionDispatchInfo captured = null;
+try
+{
+    DangerousStuff();
+}
+catch (Exception ex)
+{
+    captured = ExceptionDispatchInfo.Capture(ex); // Stores exception for later
+}
+
+// ... later in the code, perhaps after an 'await':
+if (captured != null)
+    captured.Throw(); // Throws the original, with original stack trace!
+```
+
+---
 
 **Cancellation** is normal control flow in modern C#, not always a “bug.” **`OperationCanceledException`** and **`TaskCanceledException`** often mean “this work was stopped on purpose.” Catching **`Exception`** and **ignoring** them breaks **cooperative cancellation** unless you **rethrow** or filter. Prefer **`CancellationToken.ThrowIfCancellationRequested()`** and passing **tokens** through APIs; **Section 7** goes deeper on **async** and tokens.
 
-**Resources and disposal** belong in the same mental bucket: **`using`** maps to **`try` / `finally` / `Dispose()`** so cleanup runs even when **`try`** throws. **[Part 2](CSharp_Questions_Part2.md)** (Section 12) expands on **`IDisposable`**, **`using var`**, and async disposal.
+```csharp
+void CancelMe(CancellationToken token)
+{
+    // Correct: honor token cancellation
+    token.ThrowIfCancellationRequested();
+    // Do cancelable work...
+}
+
+try
+{
+    var cts = new CancellationTokenSource();
+    cts.Cancel();
+    CancelMe(cts.Token);
+}
+catch (OperationCanceledException)
+{
+    Console.WriteLine("Cancellation was requested and respected.");
+}
+
+// BAD: swallowing ALL exceptions breaks cancellation
+try
+{
+    var cts = new CancellationTokenSource();
+    cts.Cancel();
+    CancelMe(cts.Token);
+}
+catch (Exception) // Should filter or rethrow for cancellation, not swallow!
+{
+    // Now cancellation is hidden -- the caller can't tell work was cancelled
+}
+```
+
+---
+
+**Resources and disposal** belong in the same mental bucket: **`using`** maps to **`try` / `finally` / `Dispose()`** so cleanup runs even when **`try`** throws.
+
+```csharp
+using (var stream = new FileStream("myfile.txt", FileMode.Open))
+{
+    // Work with the file
+    // If an exception is thrown here, Dispose() is still called (file closed) before propagating error
+}
+// Equivalent to:
+FileStream stream = null;
+try
+{
+    stream = new FileStream("myfile.txt", FileMode.Open);
+    // Work with the file
+}
+finally
+{
+    if (stream != null)
+        stream.Dispose();
+}
+```
+
+---
 
 Things interviewers like to probe in exception handling:
 
-* **Stack integrity.** Why does **`throw;`** preserve the stack while **`throw ex;`** usually does not? When is wrapping in a **new** exception justified?
+* **Stack integrity.**  
+  Why does **`throw;`** preserve the stack while **`throw ex;`** usually does not?  
+  (See code samples above.)
 
-* **`finally` quiz questions.** What runs, and in what order, when **`try`** returns or throws? Can **`finally`** override the return value? (Know the spec, not vibes.)
+* **`finally` quiz questions.**
+  What runs, and in what order, when **`try`** returns or throws?  
+  Can **`finally`** override the return value? (No, but it can throw another exception, which replaces the original return/exception.)
 
-* **Filtering.** **`catch when`** vs catching and rethrowing after an **`if`**—when does each read more clearly?
+* **Filtering.**  
+  **`catch when`** vs catching and rethrowing after an **`if`**—when does each read more clearly?
+  ```csharp
+  // Filtering with 'catch when'
+  try
+  {
+      PossiblyTransientWork();
+  }
+  catch (Exception ex) when (IsTransient(ex))
+  {
+      Console.WriteLine("Handle only transient errors.");
+  }
+
+  // Equivalent but noisier:
+  try
+  {
+      PossiblyTransientWork();
+  }
+  catch (Exception ex)
+  {
+      if (IsTransient(ex))
+          Console.WriteLine("Handle only transient errors.");
+      else
+          throw;
+  }
+  ```
+
 
 Common traps:
 
@@ -450,17 +668,129 @@ Common traps:
 
 ## 7. ⚡ Async / Task Pitfalls
 
-**`async` / `await`** splits work across time: the method can **yield** while waiting on I/O or other tasks, without blocking a thread for the whole wait. The traps are almost always about **what the caller can observe** (return type, exceptions, ordering) and about **blocking** a thread that the continuation still needs.
+**`async` / `await`** splits work across time: an `async` method can **yield** while waiting for I/O or other tasks, without blocking a thread for the entire wait. Understanding traps is all about what the **caller** actually observes: return type, exceptions, ordering, and when you accidentally block a thread the code still needs.
 
-**Return types: `async void` vs `async Task`.** Use **`async void`** almost only for **event handlers** (where the framework cannot `await` your method anyway). Callers **cannot await** `async void`, and failures surface through **`TaskScheduler.UnobservedTaskException`** or other process-level hooks—not a clean, local contract. Normal APIs should return **`Task`** or **`Task<T>`** so callers can **`await`**, compose, and observe **faulted** tasks. Exceptions thrown inside an **`async Task`** method are stored on the **`Task`** until someone **observes** them (usually by **`await`**ing); an **`await`** on a faulted task **rethrows** the stored exception (see **Section 6** for stack and wrapping habits).
+---
 
-**Forgetting `await`.** If you call an **`async`** method but drop the **`await`**, you get a **`Task`** that may still be running—**fire-and-forget** unless you attach explicit continuation or error handling. Completion order relative to the rest of the method is wrong, and exceptions may become **unobserved** until later. If you meant to run work in the background, say so in the design instead of doing it by accident.
+**Return types: `async void` vs `async Task`**
 
-**Sync-over-async and deadlocks.** **`Task.Result`** and **`.Wait()`** **block** the calling thread until the task finishes. On contexts that **capture a synchronization context** (classic **UI** threads, older **ASP.NET** with a request **`SynchronizationContext`**), the **continuation** after an **`await`** may need to **marshal back** to that same thread. If that thread is **blocked** in **`.Wait()`**, you can **deadlock**: the task cannot finish until the continuation runs, and the continuation cannot run until the thread is free. The durable fix is **`await`** **end-to-end** instead of blocking. In **library** code that does not need the original context, **`ConfigureAwait(false)`** on **`await`** avoids **posting** back (still important for **UI** and reusable libraries; **ASP.NET Core** typically has no classic **`HttpContext`**-based sync context, but the lesson survives wherever a **sync context** exists).
+*Use `async void` almost only for event handlers.* Callers **cannot `await`** an `async void` method, so errors go to process-wide handlers—not back to the caller. For normal APIs, always return `Task` or `Task<T>`. Exceptions in `async Task` methods are captured on the `Task` and rethrown on `await`.
+```csharp
+// BAD: async void as a regular API means the caller can't await or catch errors cleanly
+public async void DoWorkAsync_Bad()
+{
+    await Task.Delay(1000);
+    throw new Exception("Error is uncatchable by caller!");
+}
 
-**Cancellation** in async code should be **cooperative**: pass **`CancellationToken`** into APIs, use **`ThrowIfCancellationRequested()`**, and **honor** the token in loops and **`Delay`** calls. Broad **`catch (Exception)`** that swallows **cancel** breaks that story—**Section 6** already called that out.
+// GOOD: async Task API lets callers await and catch exceptions
+public async Task DoWorkAsync_Good()
+{
+    await Task.Delay(1000);
+    throw new Exception("Error will be caught by awaiter.");
+}
 
-**`IAsyncEnumerable<T>`** (optional, modern stack) is **async streaming**: consumers use **`await foreach`** and items arrive over time. The same **“when does it run?”** instinct as **deferred `IEnumerable`** applies—work runs as it is **pulled**, not when the method returns.
+// Typical event handler pattern (only here is async void okay)
+private async void Button_Click(object sender, EventArgs e)
+{
+    await DoWorkAsync_Good();
+}
+```
+
+---
+
+**Forgetting `await`**
+
+If you call an `async` method but forget to `await`, you get a `Task` that may still run (**fire-and-forget**). Exceptions are delayed, and the rest of your method may run out of order.
+```csharp
+public async Task ExampleAsync()
+{
+    Task t = DoWorkAsync_Good();  // Forgot 'await'! The work runs in the background.
+
+    // The following line may run BEFORE DoWorkAsync_Good() is done (or even started).
+    Console.WriteLine("This might print before work completes!");
+
+    // The exception from DoWorkAsync_Good() may go unobserved unless you later await:
+    await t; // Only here will the exception get thrown to your code.
+}
+```
+
+---
+
+**Sync-over-async and deadlocks**
+
+Calling `.Result` or `.Wait()` on an async method **blocks** the calling thread, risking a deadlock—especially in GUI or ASP.NET SynchronizationContext scenarios. Always prefer awaiting directly.
+```csharp
+public async Task DeadlockExample()
+{
+    // This is fine in a console app, but on a UI thread, this can deadlock:
+    // Don't do this in WinForms/WPF/ASP.NET!
+    Task t = DoWorkAsync_Good();
+
+    // BLOCKS the current thread!
+    t.Wait();  // Or: var result = t.Result;
+    // If DoWorkAsync_Good tries to do work on this context, it will hang forever.
+}
+
+// Fix: use await all the way
+public async Task NoDeadlockExample()
+{
+    await DoWorkAsync_Good(); // Never blocks the thread!
+}
+
+// If context resume is not needed, use ConfigureAwait(false) in libraries
+public async Task LibraryCode()
+{
+    await DoWorkAsync_Good().ConfigureAwait(false); // Won't marshal back to capture context
+}
+```
+
+---
+
+**Cancellation**
+
+Make async cancellation **cooperative**: pass a CancellationToken, use `ThrowIfCancellationRequested`, and honor the token.
+```csharp
+public async Task WorkWithCancelAsync(CancellationToken token)
+{
+    for (int i = 0; i < 5; i++)
+    {
+        token.ThrowIfCancellationRequested(); // Throws if cancelled
+        await Task.Delay(500, token);         // Passes token to delay
+    }
+}
+
+// Usage:
+CancellationTokenSource cts = new CancellationTokenSource();
+var task = WorkWithCancelAsync(cts.Token);
+cts.Cancel(); // Cancel whenever needed
+```
+
+---
+
+**`IAsyncEnumerable<T>`** (async streaming)
+
+Use `IAsyncEnumerable<T>` for async streaming: items are produced and consumed over time, with `await foreach`. Execution starts as the consumer iterates.
+```csharp
+public async IAsyncEnumerable<int> CountAsync()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        await Task.Delay(1000); // Pretend async work per item
+        yield return i;
+    }
+}
+
+public async Task Consume()
+{
+    await foreach (var x in CountAsync())
+    {
+        Console.WriteLine(x); // Prints 0, then 1, then 2, with delays
+    }
+}
+```
+*Deferred execution applies: nothing runs in CountAsync until you enter the `await foreach` loop.*
+
 
 Things interviewers like to probe in async code:
 
