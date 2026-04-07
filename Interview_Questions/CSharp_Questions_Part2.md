@@ -92,7 +92,28 @@ static class DispatchDemo
 
 The compiler warns when you probably meant **`override`** but used **`new`** (CS0108/CS0114 family—wording varies by scenario). Treat that warning as a hint: **`new`** is almost always intentional **hiding**, not a substitute for polymorphism.
 
-**Abstract classes vs interfaces (C# 8+).** An **abstract class** is a single inheritance anchor: you can put **fields**, **protected** state, and **shared** implementation in one place. C# allows only **one** base class, so abstract classes “cost” that slot. An **interface** is a **contract**: a type can implement **many** interfaces. Since **C# 8**, interfaces may declare **default interface methods (DIM)**—a body on an interface member implementing types inherit unless they **override** (explicit implementation and diamond scenarios are interview favorites). C# does not do C++-style implicit multiple-inheritance diamonds for state; when two interfaces give conflicting defaults, the **implementing class** usually must **resolve** explicitly (which default wins or an explicit implementation). You do not need every edge case memorized—you need the story: **defaults exist**, **conflicts are resolved in the type system**, and **explicit implementation** is the escape hatch when names collide.
+**Abstract classes vs interfaces.** An **abstract class** is a single inheritance anchor: you can put **fields**, **protected** state, and **shared** implementation in one place. C# allows only **one** base class, so abstract classes “cost” that slot. An **interface** is a **contract**: a type can implement **many** interfaces.
+
+```csharp
+abstract class Animal
+{
+    protected string Name;
+    public Animal(string name) { Name = name; }
+    public abstract void Speak(); // Can have fields and shared implementation
+}
+
+interface IFly
+{
+    void Fly(); // Just a contract - no fields
+}
+
+class Bird : Animal, IFly
+{
+    public Bird(string name) : base(name) { }
+    public override void Speak() => Console.WriteLine($"{Name} says tweet!");
+    public void Fly() => Console.WriteLine($"{Name} flies!");
+}
+```
 
 **Access modifiers that sound alike.** Most interviews stick to **`public` / `private` / `protected` / `internal`**. The combined forms trip people up:
 
@@ -189,13 +210,125 @@ Common traps:
 
 ## 10. 🧪 Static vs Instance
 
-**Instance** members belong to an **object**: each instance has its own **fields**, and **`this`** refers to that object. **Static** members belong to the **type**: one **`static` field** is shared by **all** instances (and by code that has no instance at all). There is no **`this`** in a **`static`** method because there is no **receiver object**—only the **type**.
+**Instance** members belong to an **object**: each instance has its own **fields**, and **`this`** refers to that object.  
+**Static** members belong to the **type**: one **`static` field** is shared by **all** instances (and by code that has no instance at all).  
+There is no **`this`** in a **`static`** method because there is no **receiver object**—only the **type**.
 
-**When `static` fits.** **Pure** helpers with **no** per-object state (**`Math.Max`**, string utilities). **Singleton-ish** factories or **shared caches**—with care for **thread safety** and **testability**. **`const`** / **`static readonly`** invariants (**`TimeSpan.Zero`**). **Extension method** containers must be **`static`** classes. **Operator overloads** and **implicit conversions** are **`static`** by language rule. The interview-friendly line: reach for **`static`** when the behavior is **a function of the arguments** (and perhaps shared global state you truly mean to share), not **a function of “this object’s” identity**.
+```csharp
+class Counter
+{
+    public int InstanceCount = 0;        // Each object has its own
+    public static int StaticCount = 0;   // Shared among ALL objects
 
-**`static` class** (C#) is **`abstract`** and **`sealed`**: you **cannot** **`new`** it or **inherit** from it. It is only a **namespace-like** home for **`static`** members. **`static` constructors** run **once per type**, before the first use of that type, in a **thread-safe** (lazy) way—good for **one-time** initialization of **`static`** state; easy to get wrong if the initializer **throws** or **blocks**.
+    public Counter()
+    {
+        InstanceCount++; // Affects only THIS object
+        StaticCount++;   // Affects the TYPE-shared counter
+    }
 
-**Limitations and test pain.** **`static`** methods **cannot** use **instance** fields or **instance** methods unless they are given an **instance** as a parameter. Heavy **`static`** **singletons** and **`static`** **mutable** state make **parallel tests** **order-dependent** and **mocks** awkward—you **cannot** **override** a **`static`** method on a **test double** the way you **virtual**/**interface**-back an instance API. **Dependency injection** prefers **instance** services registered in a **composition root**; **`static`** **service locators** are a common **anti-pattern** in modern answers **unless** the scope is truly **process-wide** and **immutable**.
+    public void IncrementInstance() { InstanceCount++; }
+    public static void IncrementStatic() { StaticCount++; /* no this! */ }
+}
+
+var c1 = new Counter();
+var c2 = new Counter();
+Console.WriteLine(c1.InstanceCount); // 1
+Console.WriteLine(c2.InstanceCount); // 1
+Console.WriteLine(Counter.StaticCount); // 2
+Counter.IncrementStatic(); // Static method: no instance needed
+// c1.IncrementStatic(); // Legal, but misleading; prefer Counter.IncrementStatic() 
+```
+
+---
+
+**When `static` fits:**  
+Use **static** for **pure helpers** with **no per-object state** (like **`Math.Max`**, string utilities), **singletons/shared caches** (with care!), and **invariants** (**`const`**/**`static readonly`**).
+
+```csharp
+public static class MathHelpers
+{
+    public static int Double(int n) => n * 2; // Pure, stateless helper
+}
+
+public class SingletonDemo
+{
+    public static readonly SingletonDemo Instance = new SingletonDemo(); // "singleton"
+    private SingletonDemo() { /* ... */ }
+}
+```
+
+**Operator overloads** and **extension methods** are required to be static:
+```csharp
+public class Money
+{
+    public decimal Value;
+    public Money(decimal value) { Value = value; }
+    
+    // Operator overloads must be static
+    public static Money operator +(Money a, Money b) => new Money(a.Value + b.Value);
+}
+
+// Extension methods must be inside a static class and static themselves
+public static class StringExtensions
+{
+    public static bool IsCapitalized(this string s) => !string.IsNullOrEmpty(s) && char.IsUpper(s[0]);
+}
+```
+
+---
+
+**`static` class:**  
+A **`static` class** is **`abstract`** and **`sealed`**:  
+You **cannot instantiate** it (`new`), or **inherit** from it:
+
+```csharp
+static class GlobalHelpers
+{
+    public static void SayHello() => Console.WriteLine("Hello!");
+}
+
+// var obj = new GlobalHelpers();     // Compile error: cannot create an instance
+// class MyHelpers : GlobalHelpers {} // Compile error: cannot derive from static
+```
+
+**`static` constructors** run **once per type**, before first use, **thread-safe**:
+
+```csharp
+class Logger
+{
+    public static readonly Logger Instance;
+
+    static Logger() // Runs exactly once, before first use of Logger
+    {
+        Instance = new Logger();
+        // throw here is process-wide fatal error!
+    }
+
+    private Logger() { }
+}
+```
+
+---
+
+**Limitations and test pain:**  
+- **`static` methods cannot access instance fields/methods (no `this`)**  
+- **Heavy static mutable state** makes **testing and parallel execution** tricky
+- **Cannot override static methods:** no polymorphism via subclasses or interfaces
+- **Dependency Injection (DI)** prefers **instance** services:
+    - **Static service locators** are an anti-pattern (hide dependencies, break tests)
+
+```csharp
+class Trouble
+{
+    public static int GlobalState = 0;
+    public static void SetState(int x) => GlobalState = x;
+}
+
+// Test example: if one test mutates Trouble.GlobalState, another test may get surprising results
+```
+
+> **Best Practice:** Use `static` for stateless helpers or process-wide config you *truly* want global. Prefer *instance* + *interfaces* for services, logic, and anything you want to test/reuse/mock.
+
 
 Things interviewers like to probe with `static`:
 
@@ -233,7 +366,49 @@ IEnumerable<Animal> animals = dogs; // OK — IEnumerable<out T> is covariant
 
 **Events vs delegate fields.** An **`event`** restricts **external** code to **`+=`** / **`-=`** only; only the **declaring type** should **raise** (invoke) it. That is the same story as **[Part 1](CSharp_Questions.md)**, **Section 3**—treat **`event`** as a **capability**, not a **shared field**. The usual surface is **`EventHandler` / `EventArgs`** (or **`EventHandler<TEventArgs>`**): **`object? sender`**, **`EventArgs`** (or a derived type) for payload.
 
-**Extension methods.** A **`static`** method in a **`static`** class whose **first** parameter is marked **`this T target`** “attaches” syntax **`target.Method(...)`**. The compiler rewrites it to **`Extensions.Method(target, ...)`**—there is no real instance method; **private** members of **`T`** stay **invisible**. **Import** the **namespace** (**`using`**) or the extension is not in scope. **Instance** methods on the type **win** when signatures match; extensions are **lower priority**. If “my extension is ignored,” check **`using`**, **visibility**, **wrong** **`static`** class, or a **nearer** instance overload.
+**Extension methods.**  
+An **extension method** is a **`static`** method, defined in a **`static`** class, whose **first** parameter is marked with `this T target`. This lets you call the method with instance-like syntax—`target.Method(...)`—even though the method is really static: the compiler rewrites `target.Method(args)` to `Extensions.Method(target, args)` under the hood.
+
+**Note:** Extension methods cannot access private members of `T`; they work only on what `T` exposes publicly.  
+To use them, you must **import their namespace** (`using YourNamespace;`). If there’s an instance method with the same signature, it *wins*—extensions are a fallback.
+
+If "my extension is ignored," check:  
+- Did you forget `using`?  
+- Is the class or method public?  
+- Is the static class in scope?  
+- Is there a real instance method with the same name?
+
+**Example:**
+
+```csharp
+namespace Extensions
+{
+    public static class StringExtensions
+    {
+        // Extension method for string: counts words
+        public static int WordCount(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s)) return 0;
+            return s.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+        }
+    }
+}
+
+// Usage
+using Extensions;
+
+class Program
+{
+    static void Main()
+    {
+        string msg = "Hello world from extension methods";
+        int count = msg.WordCount(); // Calls the extension; prints 5
+        Console.WriteLine(count);
+    }
+}
+```
+
+Here, `WordCount()` isn't a real instance method on `string`, but after importing `Extensions`, you can call `msg.WordCount()` as if it were.
 
 Things interviewers sometimes touch here:
 
@@ -272,30 +447,7 @@ Common traps:
 
 ---
 
-## 13. ✨ Modern C# Snapshot (.NET 6+ / C# 10+)
-
-A **compact** “what does **current** C# look like?” anchor without repeating **Part 1** in full.
-
-**Nullable reference types (NRT).** Turn warnings on in **real** projects; treat them as part of the **API contract** (**`string`** vs **`string?`**, **`!`** only **silences** the compiler—**Part 1**, **Sections 2** and **5**). **.NET 6+** templates often enable NRT by default.
-
-**`record` / `record class`.** **Value-based** equality and **`with`** for **non-destructive** copies are the headline; **immutability** is **by convention** unless you enforce it (**`init`**, read-only state). **`record struct`** exists for **value**-type records—know the name, not every edge case.
-
-**Pattern matching and `switch` expressions.** **`switch` expressions** and **property patterns** are **normal** modern style; **exhaustiveness** for **enums** still collides with **numeric** values that are not **named** members (**Part 1**, **Section 3**).
-
-**Project hygiene (C# 10+).** **File-scoped namespaces** (`namespace X;`) drop one brace level; **`global using`** cuts boilerplate **when the team agrees** on **imports**. **`init`** setters pair well with **object initializers** and **immutable**-looking **DTOs**.
-
-Things interviewers sometimes ask:
-
-* **What** a **`record`** buys you vs a **`class`** for **DTOs** and **equality**.
-* **Whether** **`!`** fixes **`null`** at **run time** (it does **not**).
-
-Common traps:
-
-* **`record`** **inheritance** and **equality** surprises—**defaults** changed the **story** over versions; check **docs** for your **SDK** when it matters.
-
----
-
-## 14. 🗄️ SQL & Data Layer Gotchas (optional — full-stack / backend roles)
+## 13. 🗄️ SQL & Data Layer Gotchas (optional — full-stack / backend roles)
 
 Skip this block for **pure C#** screens; keep it when the loop includes **EF Core**, **Dapper**, or “write the SQL” exercises. The goal is sane **predicates** and **shape**—not memorizing every dialect keyword.
 
@@ -341,7 +493,7 @@ Common traps:
 
 ---
 
-## 15. 🏁 Conclusion
+## 14. 🏁 Conclusion
 
 Across **both parts**, the payoff is the same: **think in mental models**—defaults, dispatch rules, when code runs, and what the type system can and cannot prove at compile time.
 
