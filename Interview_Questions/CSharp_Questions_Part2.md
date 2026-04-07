@@ -1,4 +1,4 @@
-# 📚 C# Traps & Edge Cases — Part 2: OOP, Patterns & Cheat Sheet
+# 📚 C# Traps & Edge Cases — Part 2: OOP, Patterns 
 
 This is **Part 2** of a two-part series. If you have not read it yet, start with **[Part 1](CSharp_Questions.md)** (Sections **1–7**): types and defaults, operators, LINQ, nulls, exceptions, and **`async`/`Task`**.
 
