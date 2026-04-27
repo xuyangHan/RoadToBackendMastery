@@ -1,6 +1,6 @@
 # 📚 C# Traps & Edge Cases — Part 1: From Basics Through Async
 
-This article is **Part 1** of a two-part series. It covers **Sections 1–7** (types through **`async`/`Task`**). **[Part 2](CSharp_Questions_Part2.md)** continues with OOP, generics, disposal, patterns, and a cheat sheet—so neither post tries to do everything at once.
+This article is **Part 1** of a two-part series. It covers **Sections 1–7** (types through **`async`/`Task`**). **[Part 2](CSharp_Questions_Part2.md)** continues with OOP, generics, disposal, patterns, and a cheat sheet.
 
 ## 1. 🚀 Introduction
 
