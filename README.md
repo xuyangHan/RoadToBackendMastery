@@ -314,6 +314,8 @@ If you find anything missing or have suggestions for improvement, feel free to o
 - [Series Overview](Interview_Questions/README.md)
 - [行为面试问题](Interview_Questions/Behavior_Questions_CN.md)  
 - [数据库管理系统（DBMS）问题](Interview_Questions/DBMS_Questions_CN.md)  
+- [SQL 问题 1](Interview_Questions/SQL_Questions_CN.md)
+- [SQL 问题 2](Interview_Questions/SQL_Questions_Part2_CN.md)
 - [C# 问题 1](Interview_Questions/CSharp_Questions_CN.md)
 - [C# 问题 2](Interview_Questions/CSharp_Questions_Part2_CN.md)
 - [.Net 问题](Interview_Questions/DotNet_Questions_CN.md)

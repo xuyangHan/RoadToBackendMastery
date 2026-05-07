@@ -4,33 +4,21 @@ This article is **Part 1** of a two-part series on **language-level** SQL surpri
 
 ---
 
-## 1. 🚀 Introduction
+## 1. Introduction
 
 SQL looks declarative on the page. Many interview questions use five-line snippets whose result depends on rules you rarely spell out when writing normal reports: **`NULL`** as a third truth value in predicates, **`WHERE` vs `HAVING`** evaluation order intuition, **`OUTER JOIN` + filter in `WHERE`**, and aggregates that silently skip `NULL` inputs.
 
-This guide is intentionally **narrow**: it complements the encyclopedic **[DBMS Questions](DBMS_Questions.md)** interview Q&A with **mental models** for those traps. Examples are written for **PostgreSQL** first (your author’s bias for modern interview SQL). Where **SQL Server** or **MySQL** commonly disagree, there is a short callout—you do not need to memorize three dialects if you grasp the invariant behind the discrepancy.
+This guide is intentionally **narrow**: it complements the encyclopedic **[DBMS Questions](DBMS_Questions.md)** interview Q&A with **mental models** for those traps. Examples are written for **PostgreSQL** first. Where **SQL Server** or **MySQL** commonly disagree, there is a short callout as you do not need to memorize three dialects if you grasp the invariant behind the discrepancy.
 
-Through-line mirrors the **[C# traps](CSharp_Questions.md)** series: know *why* the engine does what it does so you can reason through new snippets calmly.
+These are two ideas that show up everywhere in SQL: **Predicates** vs **Aggregates**
 
-Predicates versus aggregates (two ideas that recur everywhere):
-
-```mermaid
-flowchart LR
-  subgraph predicates [WHERE_and_JOIN_ON]
-    knownT["TRUE_keeps_row"]
-    knownF["FALSE_drops_row"]
-    unknown["UNKNOWN_drops_row"]
-  end
-  subgraph aggregates [Aggregate_functions]
-    ignoreNull["Most_agg_skip_NULL_inputs"]
-    countStar["COUNT_star_counts_rows"]
-    countExpr["COUNT_expr_counts_non_NULL"]
-  end
-```
+- Predicates (used in WHERE and JOIN ON) decide whether a row is kept or removed.
+A condition that evaluates to TRUE keeps the row, FALSE removes it, and UNKNOWN (like with NULL comparisons) also removes it.
+- Aggregate functions work after filtering and are used to compute summary values like totals or averages. Most aggregates ignore NULL values in their calculations. COUNT(*) counts all rows, while COUNT(expression) only counts rows where the expression is not NULL.
 
 ---
 
-## 2. 🔲 `NULL`, three-valued logic, and predicates
+## 2. `NULL`, three-valued logic, and predicates
 
 **`NULL`** means “no value,” not zero and not empty string. In SQL predicates, comparisons involving `NULL` usually yield **`UNKNOWN`**—neither **`TRUE`** nor **`FALSE`**—until you decide what to do with `UNKNOWN`.
 
@@ -59,9 +47,9 @@ Quick truth tables (interview folklore worth knowing):
 
 | `p` AND `q` when `q` is … | `TRUE` | `FALSE` | `UNKNOWN` |
 |---------------------------|--------|---------|-----------|
-| `p = TRUE`                | …      | `FALSE` | `UNKNOWN` |
+| `p = TRUE`                | `TRUE` | `FALSE` | `UNKNOWN` |
 | `p = FALSE`               | `FALSE`| `FALSE` | `FALSE`   |
-| `p = UNKNOWN`             | …      | `FALSE` | `UNKNOWN` |
+| `p = UNKNOWN`             | `UNKNOWN` | `FALSE` | `UNKNOWN` |
 
 Rough memory aid: **`AND`** with **`FALSE`** is **`FALSE`**; **`OR`** with **`TRUE`** is **`TRUE`**; **otherwise **`UNKNOWN`** often propagates.**
 
@@ -82,7 +70,7 @@ In **PostgreSQL**, **`IS DISTINCT FROM`** and **`IS NOT DISTINCT FROM`** are exp
 
 ---
 
-## 3. ↔️ `IN`, `NOT IN`, `EXISTS`, `NOT EXISTS`
+## 3. `IN`, `NOT IN`, `EXISTS`, `NOT EXISTS`
 
 **`EXISTS(subquery)`** is **`TRUE`** if the subquery returns at least one row; **`NOT EXISTS`** is **`TRUE`** if it returns no rows. It does **not** compare scalar values row-by-row via equality in the **`NULL`**-fragile sense—interview-safe for “matching presence.”
 
