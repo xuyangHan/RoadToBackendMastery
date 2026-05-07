@@ -449,7 +449,7 @@ Common traps:
 
 ## 13. 🗄️ SQL & Data Layer Gotchas (optional — full-stack / backend roles)
 
-Skip this block for **pure C#** screens; keep it when the loop includes **EF Core**, **Dapper**, or “write the SQL” exercises. The goal is sane **predicates** and **shape**—not memorizing every dialect keyword.
+Skip this block for **pure C#** screens; keep it when the loop includes **EF Core**, **Dapper**, or “write the SQL” exercises. The goal is sane **predicates** and **shape**—not memorizing every dialect keyword. For deeper **SQL traps** (three-valued **`NULL`** logic, window framing, Postgres **`DISTINCT ON`/`LATERAL`**, recursion, upsert footguns—same “edge case” ethos as Parts **1–2** here), use **[SQL Traps — Part 1](SQL_Questions.md)** and **[Part 2](SQL_Questions_Part2.md)**.
 
 **`=` vs `IN` vs `LIKE`.** **`=`** is **equality** on a **single** value (often **index-friendly** when the column is indexed and the expression is **sargable**—avoid wrapping the **column** in functions unless you must). **`IN (...)`** is **membership** in a **small**, **fixed** list; for **many** values or **dynamic** lists, platforms usually prefer a **join** to a **temp table** / **table-valued parameter** / **batch** pattern rather than a **giant** **`IN`**. **`LIKE`** is **pattern** match: **`%`** and **`_`** wildcards, **case** rules depend on **collation**; leading-wildcard patterns (**`%foo`**) often **forfeit** simple **index seeks**. Know the difference between **“equals this id”** and **“contains this substring.”**
 

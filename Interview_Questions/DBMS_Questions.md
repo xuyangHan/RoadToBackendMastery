@@ -8,6 +8,8 @@ In this post, we’ll dive into some of the most commonly asked DBMS and SQL que
 
 If you’re following my interview prep series, this post builds on previous topics such as [Database Basics](../Roadmap_Backend/04_Database_Basics.md), [Database Advanced](../Roadmap_Backend/05_Database_Advanced.md), [Database Design](../System_Design/05_Database_Design.md), and [Database Overload](../Industry_Experience/12_Database_Overload.md). Together, these resources provide a comprehensive guide to becoming interview-ready.
 
+For **language-level SQL pitfalls**—“what does this query do?” predicates, aggregates, joins, windows, and dialect footguns—in a **[C#-style traps](CSharp_Questions.md)** narrative, see **[SQL Traps — Part 1](SQL_Questions.md)** and **[SQL Traps — Part 2](SQL_Questions_Part2.md)** alongside this DBMS cheat sheet.
+
 Let’s get started!
 
 ## Commonly Asked Questions
